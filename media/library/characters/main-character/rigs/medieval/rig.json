@@ -1,0 +1,29 @@
+{
+  "body": "body.png",
+  "w": 355,
+  "h": 529,
+  "shoulderL": [
+    79,
+    294
+  ],
+  "shoulderR": [
+    273,
+    294
+  ],
+  "hipL": [
+    145,
+    523
+  ],
+  "hipR": [
+    208,
+    523
+  ],
+  "armLen": 222,
+  "legLen": 155,
+  "line": 6,
+  "hand": 28,
+  "source": "medieval-peasant.png",
+  "hose": "#917961",
+  "boot": "#67422c",
+  "outline": "#141010"
+}
