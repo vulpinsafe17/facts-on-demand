@@ -1,0 +1,29 @@
+{
+  "name": "character-3",
+  "display_name": "(not named yet)",
+  "cast_slot": "3 of 3 - the ruler: ALWAYS the king / emperor of each era (pompous, pleased with himself)",
+  "role": "LOCKED REFERENCE",
+  "image": "master-sheet.jpg",
+  "locked": "2026-11-24",
+  "approved_by": "channel owner, first pass",
+  "rule": "NEVER generate this character from text again. Era rulers: gen_image.py --ref this sheet. When he plays a real ruler, the narration names the real person; he is a cartoon stand-in, not a portrait.",
+  "locked_traits": {
+    "body": "ROUNDER than #1/#2: big round belly, same height, thin black stick arms and legs, round white mitten hands, no ears",
+    "eyebrows": "big bushy grey-white eyebrows (identity marker #1)",
+    "cheeks": "rosy round cheeks (identity marker #2)",
+    "hair": "short grey-white hair at the sides",
+    "scarf": "bright ORANGE scarf, team colour, always visible",
+    "default_expression": "pompous, very pleased with himself",
+    "style": "flat 2D cartoon, bold clean dark outlines, flat colours, no shading"
+  },
+  "era_variable_traits": {
+    "crown_or_headwear": "ALWAYS the era's own royal headwear - never the generic crown of the master sheet",
+    "robes": "the era's royal dress",
+    "facial_hair": "by era (clean-shaven on master)"
+  },
+  "known_gaps": [
+    "back view: crown sits on a white cap - ask for a natural crown base in era versions"
+  ],
+  "era_costume_prompt": "Use the attached character sheet. Keep this exact character: same round body and belly, same bushy grey-white eyebrows, same rosy cheeks, same grey-white side hair, same ORANGE scarf, same stick arms and legs, same pompous look. Replace the generic crown and red robe with <ERA ROYAL HEADWEAR AND DRESS>, and give him <ERA FACIAL HAIR>. The headwear must sit naturally on his head from every angle (no white cap underneath). Same layout as the sheet, plain warm off-white background, no text.",
+  "eras": {}
+}

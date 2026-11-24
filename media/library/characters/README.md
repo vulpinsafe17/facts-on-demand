@@ -7,7 +7,7 @@ Three main characters appear in every film and every era. Everyone else is an NP
 |---|---|---|---|---|---|
 | 1 | main-character/ | medium | dark brown, messy | ORANGE scarf | the curious one |
 | 2 | character-2/ (LOCKED) | same as #1 | natural ginger, short and tousled | ORANGE scarf | the skeptic: round black glasses, grumpy look |
-| 3 | (to be locked) | ROUNDER than #1 and #2 (round belly) | era-variable (crown/headwear) | ORANGE scarf | the ruler: always the king / emperor of each era |
+| 3 | character-3/ (LOCKED) | ROUNDER than #1 and #2 (round belly) | era-variable (crown/headwear) | ORANGE scarf | the ruler: always the king / emperor of each era |
 
 Rules
 - The ORANGE scarf is the team colour (and the channel's accent): all three always wear it.
@@ -18,3 +18,11 @@ Rules
 - Era versions are made FROM the master sheet: only clothes, headwear and facial hair change.
 - Identity across eras = hair colour, glasses / bun / freckles, the orange scarf and expression.
 - Every new sheet is checked against character.json before it is used.
+
+Era accuracy (channel owner's rule - every scene)
+- Every scene must be characteristic of its era: period-correct clothes, headwear,
+  hairstyles, facial hair, props and buildings. No generic "fantasy medieval" look.
+- The ruler (#3) wears THAT era's royal headwear and dress - a different crown every era.
+- Era details come from the film's fact-checked research, and every era sheet is checked
+  against it before it is locked (same check as for the scenes).
+- Era versions are saved as <character>/eras/<era>.jpg and listed in character.json "eras".
