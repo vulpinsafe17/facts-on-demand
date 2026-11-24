@@ -1,0 +1,137 @@
+{
+  "note": "Background plates (no main characters) + one props sheet for film 1. Characters are cut-outs layered in Remotion.",
+  "plates": [
+    {
+      "id": "med-throne-hall",
+      "era": "1314 England",
+      "scenes": "0,28",
+      "file": "bg/med-throne-hall.png"
+    },
+    {
+      "id": "decree-table",
+      "era": "1314-1667",
+      "scenes": "1,31",
+      "file": "bg/decree-table.png"
+    },
+    {
+      "id": "modern-stadium",
+      "era": "today",
+      "scenes": "2",
+      "file": "bg/modern-stadium.png"
+    },
+    {
+      "id": "scholar-study",
+      "era": "timeless",
+      "scenes": "3",
+      "file": "bg/scholar-study.png"
+    },
+    {
+      "id": "han-city-dusk",
+      "era": "c. 300 BC China",
+      "scenes": "5",
+      "file": "bg/han-city-dusk.png"
+    },
+    {
+      "id": "han-palace-court",
+      "era": "c. 200 BC China",
+      "scenes": "6,10,14",
+      "file": "bg/han-palace-court.png"
+    },
+    {
+      "id": "han-training-field",
+      "era": "c. 200 BC China",
+      "scenes": "11",
+      "file": "bg/han-training-field.png"
+    },
+    {
+      "id": "song-street",
+      "era": "c. 1100 China",
+      "scenes": "12,13",
+      "file": "bg/song-street.png"
+    },
+    {
+      "id": "greek-field",
+      "era": "c. 400 BC Greece",
+      "scenes": "18,19",
+      "file": "bg/greek-field.png"
+    },
+    {
+      "id": "heian-garden",
+      "era": "c. 1000 Japan",
+      "scenes": "20,21",
+      "file": "bg/heian-garden.png"
+    },
+    {
+      "id": "med-muddy-field",
+      "era": "1300s England",
+      "scenes": "22",
+      "file": "bg/med-muddy-field.png"
+    },
+    {
+      "id": "med-london-street",
+      "era": "1314 London",
+      "scenes": "23,24,25,26,27",
+      "file": "bg/med-london-street.png"
+    },
+    {
+      "id": "med-archery-field",
+      "era": "1300s England",
+      "scenes": "29",
+      "file": "bg/med-archery-field.png"
+    },
+    {
+      "id": "school-field-1840s",
+      "era": "1840s England",
+      "scenes": "32,33,34",
+      "file": "bg/school-field-1840s.png"
+    },
+    {
+      "id": "cambridge-room",
+      "era": "1848 Cambridge",
+      "scenes": "35",
+      "file": "bg/cambridge-room.png"
+    },
+    {
+      "id": "frosty-field",
+      "era": "1850s England",
+      "scenes": "36,37",
+      "file": "bg/frosty-field.png"
+    },
+    {
+      "id": "victorian-street-night",
+      "era": "1863 London",
+      "scenes": "38,42,44",
+      "file": "bg/victorian-street-night.png"
+    },
+    {
+      "id": "solicitor-office",
+      "era": "1863 London",
+      "scenes": "39",
+      "file": "bg/solicitor-office.png"
+    },
+    {
+      "id": "tavern-interior",
+      "era": "1863 London",
+      "scenes": "40,41",
+      "file": "bg/tavern-interior.png"
+    },
+    {
+      "id": "cricket-ground-1872",
+      "era": "1872 Glasgow",
+      "scenes": "47",
+      "file": "bg/cricket-ground-1872.png"
+    },
+    {
+      "id": "montevideo-1930",
+      "era": "1930 Uruguay",
+      "scenes": "51",
+      "file": "bg/montevideo-1930.png"
+    },
+    {
+      "id": "props-sheet",
+      "era": "props",
+      "scenes": "8,9,24,29,31",
+      "file": "bg/props-sheet.png"
+    }
+  ]
+}
