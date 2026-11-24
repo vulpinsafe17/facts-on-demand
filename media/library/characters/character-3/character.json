@@ -25,5 +25,17 @@
     "back view: crown sits on a white cap - ask for a natural crown base in era versions"
   ],
   "era_costume_prompt": "Use the attached character sheet. Keep this exact character: same round body and belly, same bushy grey-white eyebrows, same rosy cheeks, same grey-white side hair, same ORANGE scarf, same stick arms and legs, same pompous look. Replace the generic crown and red robe with <ERA ROYAL HEADWEAR AND DRESS>, and give him <ERA FACIAL HAIR>. The headwear must sit naturally on his head from every angle (no white cap underneath). Same layout as the sheet, plain warm off-white background, no text.",
-  "eras": {}
+  "eras": {
+    "han_china": {
+      "image": "eras/han-gaozu.png",
+      "plays": "Emperor Gaozu of Han (c. 200 BC)",
+      "outfit": "plain black ceremonial robe, wide sleeves, black sash, tall black lacquered crown (no bead curtains - mianguan was only restored in Eastern Han)",
+      "facial_hair": "thin mustache and small chin beard",
+      "locked": "2026-11-24",
+      "approved_by": "channel owner (tall boots under the long robe are fine)",
+      "known_gaps": [
+        "back view: white band under the crown - fix only if a back view is ever needed"
+      ]
+    }
+  }
 }
