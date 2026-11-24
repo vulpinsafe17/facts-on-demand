@@ -1,0 +1,30 @@
+{
+  "view": "side",
+  "body": "body.png",
+  "boot": "boot.png",
+  "w": 290,
+  "h": 521,
+  "hip": [
+    154,
+    508
+  ],
+  "shoulder": [
+    154,
+    300
+  ],
+  "legLen": 116,
+  "legW": 52,
+  "armLen": 198,
+  "hand": 24,
+  "line": 6,
+  "bootPivot": [
+    36,
+    6
+  ],
+  "bootW": 107,
+  "bootH": 63,
+  "hose": "#917860",
+  "bootColor": "#66422c",
+  "outline": "#141010",
+  "source": "medieval-peasant.png"
+}
