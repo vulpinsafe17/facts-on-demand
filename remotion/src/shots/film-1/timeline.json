@@ -1,0 +1,509 @@
+{
+ "duration": 280.84,
+ "scenes": [
+  {
+   "i": 0,
+   "start": 0,
+   "end": 4.036,
+   "kind": "bg",
+   "bg": "med-throne-hall",
+   "label": "Medieval English king on his throne, frowning, holding up a ",
+   "type": "BILD"
+  },
+  {
+   "i": 1,
+   "start": 4.036,
+   "end": 8.076,
+   "kind": "bg",
+   "bg": "decree-table",
+   "label": "A tall pile of torn royal decrees with red wax seals on a wo",
+   "type": "BILD"
+  },
+  {
+   "i": 2,
+   "start": 8.076,
+   "end": 12.511,
+   "kind": "bg",
+   "bg": "modern-stadium",
+   "label": "A huge modern football stadium full of fans, seen from high ",
+   "type": "BILD"
+  },
+  {
+   "i": 3,
+   "start": 12.511,
+   "end": 16.865,
+   "kind": "bg",
+   "bg": "scholar-study",
+   "label": "Four historians from different eras arguing around a table c",
+   "type": "BILD"
+  },
+  {
+   "i": 4,
+   "start": 16.865,
+   "end": 21.411,
+   "kind": "owl",
+   "bg": null,
+   "label": "Our owl mascot with a magnifying glass over an old world map",
+   "type": "BILD"
+  },
+  {
+   "i": 5,
+   "start": 21.411,
+   "end": 25.892,
+   "kind": "bg",
+   "bg": "han-city-dusk",
+   "label": "Ancient Chinese walled city in a valley at dusk, Warring Sta",
+   "type": "BILD"
+  },
+  {
+   "i": 6,
+   "start": 25.892,
+   "end": 30.037,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": "Crowd in an ancient Chinese courtyard watching players kick ",
+   "type": "BILD"
+  },
+  {
+   "i": 7,
+   "start": 30.037,
+   "end": 35.633,
+   "kind": "card",
+   "bg": null,
+   "label": "蹴鞠  =  \"kick ball\"",
+   "type": "GRAFIK"
+  },
+  {
+   "i": 8,
+   "start": 35.633,
+   "end": 41.148,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": "Close-up of hands stitching two pieces of leather into a lum",
+   "type": "BILD"
+  },
+  {
+   "i": 9,
+   "start": 41.148,
+   "end": 43.784,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": "The lumpy feather ball alone on a pedestal under a spotlight",
+   "type": "BILD"
+  },
+  {
+   "i": 10,
+   "start": 43.784,
+   "end": 49.113,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": "Han emperor on a palace terrace watching a walled cuju field",
+   "type": "BILD"
+  },
+  {
+   "i": 11,
+   "start": 49.113,
+   "end": 52.759,
+   "kind": "bg",
+   "bg": "han-training-field",
+   "label": "Han soldiers in armour playing cuju on a dusty training fiel",
+   "type": "BILD"
+  },
+  {
+   "i": 12,
+   "start": 52.759,
+   "end": 58.019,
+   "kind": "bg",
+   "bg": "song-street",
+   "label": "Song dynasty city street: skilled cuju players performing fo",
+   "type": "BILD"
+  },
+  {
+   "i": 13,
+   "start": 58.019,
+   "end": 62.025,
+   "kind": "bg",
+   "bg": "song-street",
+   "label": "A Song dynasty cuju player signing a scroll with a brush, lo",
+   "type": "BILD"
+  },
+  {
+   "i": 14,
+   "start": 62.025,
+   "end": 67.725,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": "Stern Ming emperor; in front of him a ball abandoned in an e",
+   "type": "BILD"
+  },
+  {
+   "i": 15,
+   "start": 67.725,
+   "end": 73.079,
+   "kind": "card",
+   "bg": null,
+   "label": "RED CARD",
+   "type": "GRAFIK"
+  },
+  {
+   "i": 16,
+   "start": 73.079,
+   "end": 79.023,
+   "kind": "card",
+   "bg": null,
+   "label": "CHINA  ·  ?  ·  ENGLAND",
+   "type": "KARTA"
+  },
+  {
+   "i": 17,
+   "start": 79.023,
+   "end": 83.327,
+   "kind": "owl",
+   "bg": null,
+   "label": "The owl turns the map and points the magnifying glass west.",
+   "type": "BILD"
+  },
+  {
+   "i": 18,
+   "start": 83.327,
+   "end": 89.329,
+   "kind": "bg",
+   "bg": "greek-field",
+   "label": "Slow pan across the field. Label: EPISKYROS",
+   "type": "BILD"
+  },
+  {
+   "i": 19,
+   "start": 89.329,
+   "end": 92.384,
+   "kind": "bg",
+   "bg": "greek-field",
+   "label": "A Greek athlete carrying the ball under his arm gets tackled",
+   "type": "BILD"
+  },
+  {
+   "i": 20,
+   "start": 92.384,
+   "end": 98.363,
+   "kind": "bg",
+   "bg": "heian-garden",
+   "label": "Heian-era Japanese nobles in kariginu robes kicking a ball u",
+   "type": "BILD"
+  },
+  {
+   "i": 21,
+   "start": 98.363,
+   "end": 104.615,
+   "kind": "bg",
+   "bg": "heian-garden",
+   "label": "The nobles bow politely to each other. The ball lies still.",
+   "type": "BILD"
+  },
+  {
+   "i": 22,
+   "start": 104.615,
+   "end": 109.886,
+   "kind": "bg",
+   "bg": "med-muddy-field",
+   "label": "Two medieval villages charging toward each other across a mu",
+   "type": "BILD"
+  },
+  {
+   "i": 23,
+   "start": 109.886,
+   "end": 114.681,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": "A huge chaotic scrum in a narrow medieval street, the ball i",
+   "type": "BILD"
+  },
+  {
+   "i": 24,
+   "start": 114.681,
+   "end": 119.79,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": "Players climbing over each other, a cart tipping over, chick",
+   "type": "BILD"
+  },
+  {
+   "i": 25,
+   "start": 119.79,
+   "end": 125.793,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": "Angry merchants in a medieval London street covering their e",
+   "type": "BILD"
+  },
+  {
+   "i": 26,
+   "start": 125.793,
+   "end": 129.647,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": "A town crier reading a proclamation to a crowd.",
+   "type": "BILD"
+  },
+  {
+   "i": 27,
+   "start": 129.647,
+   "end": 132.527,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": "Behind the crier, the crowd keeps playing football.",
+   "type": "BILD"
+  },
+  {
+   "i": 28,
+   "start": 132.527,
+   "end": 135.348,
+   "kind": "bg",
+   "bg": "med-throne-hall",
+   "label": "Stern 14th-century English king on a throne, pointing a fing",
+   "type": "BILD"
+  },
+  {
+   "i": 29,
+   "start": 135.348,
+   "end": 140.979,
+   "kind": "bg",
+   "bg": "med-archery-field",
+   "label": "Men practising with longbows at targets; a forgotten ball li",
+   "type": "BILD"
+  },
+  {
+   "i": 30,
+   "start": 140.979,
+   "end": 147.585,
+   "kind": "card",
+   "bg": null,
+   "label": "1314  →  1667\n30+ royal bans",
+   "type": "GRAFIK"
+  },
+  {
+   "i": 31,
+   "start": 147.585,
+   "end": 151.402,
+   "kind": "bg",
+   "bg": "decree-table",
+   "label": "A ball sitting proudly on top of a pile of torn decrees.",
+   "type": "BILD"
+  },
+  {
+   "i": 32,
+   "start": 151.402,
+   "end": 156.232,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": "1840s English school boys playing on separate fields, each g",
+   "type": "BILD"
+  },
+  {
+   "i": 33,
+   "start": 156.232,
+   "end": 158.693,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": "1840s schoolboy leaping to catch a ball on a school field.",
+   "type": "BILD"
+  },
+  {
+   "i": 34,
+   "start": 158.693,
+   "end": 164.673,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": "1840s schoolboy kicking a rival in the shin, both in school ",
+   "type": "BILD"
+  },
+  {
+   "i": 35,
+   "start": 164.673,
+   "end": 170.908,
+   "kind": "bg",
+   "bg": "cambridge-room",
+   "label": "Students in a Cambridge college room writing rules by candle",
+   "type": "BILD"
+  },
+  {
+   "i": 36,
+   "start": 170.908,
+   "end": 177.073,
+   "kind": "bg",
+   "bg": "frosty-field",
+   "label": "Cricketers in winter coats kicking a ball on a frosty field.",
+   "type": "BILD"
+  },
+  {
+   "i": 37,
+   "start": 177.073,
+   "end": 184.266,
+   "kind": "bg",
+   "bg": "frosty-field",
+   "label": "Slow push-in. Label: Sheffield FC · 1857",
+   "type": "BILD"
+  },
+  {
+   "i": 38,
+   "start": 184.266,
+   "end": 190.071,
+   "kind": "bg",
+   "bg": "victorian-street-night",
+   "label": "London street at night: gas lamps, horse cabs, a lit tavern.",
+   "type": "BILD"
+  },
+  {
+   "i": 39,
+   "start": 190.071,
+   "end": 197.06,
+   "kind": "bg",
+   "bg": "solicitor-office",
+   "label": "A Victorian solicitor writing at his desk. Not a portrait of",
+   "type": "BILD"
+  },
+  {
+   "i": 40,
+   "start": 197.06,
+   "end": 203.701,
+   "kind": "bg",
+   "bg": "tavern-interior",
+   "label": "Men in top hats around a tavern table, candles and papers.",
+   "type": "BILD"
+  },
+  {
+   "i": 41,
+   "start": 203.701,
+   "end": 208.635,
+   "kind": "bg",
+   "bg": "tavern-interior",
+   "label": "Two Victorian gentlemen arguing, one pointing at his shin.",
+   "type": "BILD"
+  },
+  {
+   "i": 42,
+   "start": 208.635,
+   "end": 212.954,
+   "kind": "bg",
+   "bg": "victorian-street-night",
+   "label": "A gentleman storming out through the tavern door.",
+   "type": "BILD"
+  },
+  {
+   "i": 43,
+   "start": 212.954,
+   "end": 220.001,
+   "kind": "card",
+   "bg": null,
+   "label": "THE RULES · 1863\nno hacking · no handling",
+   "type": "GRAFIK"
+  },
+  {
+   "i": 44,
+   "start": 220.001,
+   "end": 223.252,
+   "kind": "bg",
+   "bg": "victorian-street-night",
+   "label": "Victorian gentlemen in top hats walking out of a tavern door",
+   "type": "BILD"
+  },
+  {
+   "i": 45,
+   "start": 223.252,
+   "end": 228.512,
+   "kind": "card",
+   "bg": null,
+   "label": "A road that splits in two: a round ball rolls one way, an ov",
+   "type": "BILD"
+  },
+  {
+   "i": 46,
+   "start": 228.512,
+   "end": 232.123,
+   "kind": "card",
+   "bg": null,
+   "label": "THE WORLD",
+   "type": "KARTA"
+  },
+  {
+   "i": 47,
+   "start": 232.123,
+   "end": 238.88,
+   "kind": "bg",
+   "bg": "cricket-ground-1872",
+   "label": "1872 match on a cricket ground; Victorian crowd around the p",
+   "type": "BILD"
+  },
+  {
+   "i": 48,
+   "start": 238.88,
+   "end": 241.597,
+   "kind": "card",
+   "bg": null,
+   "label": "0 – 0",
+   "type": "GRAFIK"
+  },
+  {
+   "i": 49,
+   "start": 241.597,
+   "end": 244.21,
+   "kind": "owl",
+   "bg": null,
+   "label": "The owl shrugs. Comic.",
+   "type": "BILD"
+  },
+  {
+   "i": 50,
+   "start": 244.21,
+   "end": 248.878,
+   "kind": "card",
+   "bg": null,
+   "label": "FIFA 1904\n7 founding nations",
+   "type": "KARTA"
+  },
+  {
+   "i": 51,
+   "start": 248.878,
+   "end": 254.144,
+   "kind": "bg",
+   "bg": "montevideo-1930",
+   "label": "Packed stadium in Montevideo, 1930.",
+   "type": "BILD"
+  },
+  {
+   "i": 52,
+   "start": 254.144,
+   "end": 258.416,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": "Collage of earlier images.",
+   "type": "BILD"
+  },
+  {
+   "i": 53,
+   "start": 258.416,
+   "end": 268.668,
+   "kind": "bg",
+   "bg": "song-street",
+   "label": "Quick cuts between the images from scenes 12, 19, 21, 24 and",
+   "type": "ÅTERANVÄND"
+  },
+  {
+   "i": 54,
+   "start": 268.668,
+   "end": 273.405,
+   "kind": "bg",
+   "bg": "modern-stadium",
+   "label": "Children playing football in the streets on several continen",
+   "type": "BILD"
+  },
+  {
+   "i": 55,
+   "start": 273.405,
+   "end": 280.84,
+   "kind": "card",
+   "bg": null,
+   "label": "FACTS ON DEMAND",
+   "type": "GRAFIK"
+  }
+ ]
+}
