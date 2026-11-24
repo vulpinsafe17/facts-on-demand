@@ -36,6 +36,24 @@
       "known_gaps": [
         "back view: white band under the crown - fix only if a back view is ever needed"
       ]
+    },
+    "ming_china": {
+      "image": "eras/ming-hongwu.png", "rejected_versions": ["eras/ming-hongwu-v1-rejected.png"],
+      "plays": "Hongwu Emperor (c. 1370)",
+      "locked": null,
+      "status": "REDO",
+      "known_gaps": [
+        "WRONG HEADWEAR: drawn as a wide-brimmed hat; yishanguan has no brim - regenerate"
+      ]
+    },
+    "medieval_england": {
+      "image": "eras/edward-ii.png",
+      "plays": "King Edward II (1314)",
+      "locked": "2026-11-24",
+      "status": "approved",
+      "known_gaps": [
+        "back view: white band under the crown (same as han)"
+      ]
     }
   }
 }

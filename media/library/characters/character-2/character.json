@@ -28,5 +28,47 @@
     "victorian_england": "thin mustache"
   },
   "era_costume_prompt": "Use the attached character sheet. Keep this exact character: same round white head, same round black-rimmed glasses, same tousled ginger hair colour, same ORANGE scarf, same stick arms and legs and proportions, same grumpy look. Change ONLY his clothes to <ERA OUTFIT> and his facial hair to <ERA FACIAL HAIR>. Same layout as the sheet, plain warm off-white background, no text.",
-  "eras": {}
+  "eras": {
+    "han_china": {
+      "image": "eras/han-soldier.png",
+      "plays": "Han foot soldier (c. 200 BC)",
+      "locked": "2026-11-24",
+      "status": "approved",
+      "known_gaps": [
+        "expression heads drawn without the head wrap - use body views or add wrap in scene"
+      ]
+    },
+    "ancient_greece": {
+      "image": "eras/greek-athlete.png",
+      "plays": "Greek citizen (c. 400 BC)",
+      "locked": "2026-11-24",
+      "status": "approved",
+      "known_gaps": []
+    },
+    "heian_japan": {
+      "image": "eras/heian-noble.png",
+      "plays": "Heian court noble (c. 1000 AD)",
+      "locked": "2026-11-24",
+      "status": "approved",
+      "known_gaps": []
+    },
+    "medieval_england": {
+      "image": "eras/medieval-peasant.png",
+      "plays": "English peasant (1314)",
+      "locked": "2026-11-24",
+      "status": "approved",
+      "known_gaps": [
+        "ORANGE scarf hidden/missing in back view and close-up (hood covers it) - use front or 3/4 views"
+      ]
+    },
+    "victorian_england": {
+      "image": "eras/victorian-gentleman.png",
+      "plays": "English gentleman (1863)",
+      "locked": "2026-11-24",
+      "status": "approved",
+      "known_gaps": [
+        "character-2 only: lower expression heads overlap"
+      ]
+    }
+  }
 }
