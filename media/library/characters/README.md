@@ -6,10 +6,12 @@ Three main characters appear in every film and every era. Everyone else is an NP
 | Slot | Folder | Build | Hair | Signature colour | Role |
 |---|---|---|---|---|---|
 | 1 | main-character/ | medium | dark brown, messy | ORANGE scarf | the curious one |
-| 2 | (to be locked) | tall and thin | red | GREEN scarf or band | the skeptic, round glasses |
-| 3 | (to be locked) | short and round | black, in a bun | BLUE headband or shawl | the clever one, freckles |
+| 2 | (to be locked) | same as #1 | red, short and neat | GREEN scarf | the skeptic, round glasses |
+| 3 | (to be locked) | same as #1 | black, in a bun | BLUE headband | the clever one, freckles |
 
 Rules
+- ALL THREE share the body of #1: short compact build, thin BLACK single-line stick arms and legs,
+  round white mitten hands, no ears, no fingers. They differ by hair, face details and colour.
 - Each character has ONE locked master sheet. Never redraw a character from text.
 - Era versions are made FROM the master sheet: only clothes, headwear and facial hair change.
 - Identity across eras = head shape, eyes, hair colour, build and signature colour.
