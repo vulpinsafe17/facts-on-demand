@@ -7,16 +7,6 @@
   "locked": "2026-11-24",
   "approved_by": "channel owner, after one fix pass (expression row redrawn)",
   "made_with": "Gemini app (Nano Banana), 2 passes in one chat",
-  "bible": {
-    "head": "big round white head, bold dark outline",
-    "eyes": "black dot eyes, thin expressive black eyebrows",
-    "mustache": "thick dark-brown handlebar mustache with curled-up tips (identity marker #1)",
-    "hair": "short messy dark-brown hair sticking out at the sides",
-    "scarf": "bright ORANGE scarf around the neck, always visible on the body (identity marker #2)",
-    "body": "thin black stick arms and legs, small round white mitten hands",
-    "base_outfit": "plain beige tunic, brown belt, brown boots",
-    "style": "flat 2D cartoon, bold clean dark outlines, flat colors, no shading, warm off-white background"
-  },
   "sheet_contents": [
     "front",
     "three-quarter",
@@ -28,6 +18,38 @@
   "known_gaps": [
     "expression heads are drawn without the scarf - fine, faces are swapped onto the body"
   ],
-  "era_costume_prompt": "Use the attached character sheet. Keep this exact character: same round white head, same dark-brown handlebar mustache, same messy dark-brown hair, same orange scarf, same stick arms and legs and proportions. Change ONLY his clothes to: <ERA OUTFIT>. Same layout as the sheet: four views on top, plain warm off-white background, no text.",
-  "eras": {}
+  "era_costume_prompt": "Use the attached character sheet. Keep this exact character: same round white head, same dot eyes and thin eyebrows, same dark-brown hair colour, same ORANGE scarf, same stick arms and legs and proportions. Change ONLY: his clothes to <ERA OUTFIT>, and his facial hair to <ERA FACIAL HAIR>. Same layout as the sheet: four views on top (front, three-quarter, side, back), plain warm off-white background, no text.",
+  "eras": {},
+  "cast_slot": "1 of 3 - the curious one (jumps into everything, gets into trouble)",
+  "locked_traits": {
+    "head": "big round white head, bold dark outline",
+    "eyes": "black dot eyes, thin expressive black eyebrows (as on the master sheet)",
+    "hair_colour": "dark brown (style may be hidden or changed by era headwear)",
+    "signature": "bright ORANGE scarf, always visible (main identity marker)",
+    "build": "medium height, thin stick arms and legs, small round white mitten hands",
+    "style": "flat 2D cartoon, bold clean dark outlines, flat colors, no shading"
+  },
+  "era_variable_traits": {
+    "facial_hair": "changes by era (master sheet shows the Victorian handlebar)",
+    "hair_style_and_headwear": "by era",
+    "clothes": "by era",
+    "props": "by scene"
+  },
+  "facial_hair_by_era": {
+    "han_china": "thin drooping mustache",
+    "ancient_greece": "short full beard",
+    "heian_japan": "thin mustache and small chin beard",
+    "medieval_england": "short stubbly beard",
+    "victorian_england": "thick dark-brown handlebar mustache with curled tips (master sheet)"
+  },
+  "bible": {
+    "head": "big round white head, bold dark outline",
+    "eyes": "black dot eyes, thin expressive black eyebrows",
+    "mustache": "ERA-VARIABLE - see facial_hair_by_era (master sheet = Victorian handlebar)",
+    "hair": "short messy dark-brown hair sticking out at the sides",
+    "scarf": "bright ORANGE scarf around the neck, always visible on the body (identity marker #2)",
+    "body": "thin black stick arms and legs, small round white mitten hands",
+    "base_outfit": "plain beige tunic, brown belt, brown boots",
+    "style": "flat 2D cartoon, bold clean dark outlines, flat colors, no shading, warm off-white background"
+  }
 }
