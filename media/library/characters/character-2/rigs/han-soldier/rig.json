@@ -1,0 +1,47 @@
+{
+  "body": "body.png",
+  "w": 384,
+  "h": 638,
+  "shoulderL": [
+    79,
+    360
+  ],
+  "shoulderR": [
+    303,
+    360
+  ],
+  "hipL": [
+    137,
+    632
+  ],
+  "hipR": [
+    246,
+    632
+  ],
+  "armLen": 267,
+  "legLen": 91,
+  "line": 6,
+  "hand": 28,
+  "source": "han-soldier.png",
+  "bootL": {
+    "file": "bootL.png",
+    "w": 93,
+    "h": 12,
+    "pivot": [
+      45,
+      6
+    ]
+  },
+  "bootR": {
+    "file": "bootR.png",
+    "w": 93,
+    "h": 12,
+    "pivot": [
+      46,
+      6
+    ]
+  },
+  "hose": "#363532",
+  "boot": "#67422c",
+  "outline": "#141010"
+}

@@ -22,7 +22,12 @@ def cut(path, x0, x1, tol=60):
     rows = [r for r in range(int(H * .4), int(H * .65)) if dark[r, int(W * .1):int(W * .9)].mean() > .6]
     if not rows:
         raise SystemExit("ground line not found")
-    gt, gb = min(rows) - 3, max(rows) + 3
+    # the ground line is the FIRST band of dark full-width rows (lower bands are other art)
+    band = [rows[0]]
+    for y in rows[1:]:
+        if y - band[-1] > 2: break
+        band.append(y)
+    gt, gb = band[0] - 3, band[-1] + 3
     X0, X1 = int(x0 * W), int(x1 * W)
     s, dk = a[:gb + 1, X0:X1], dark[:gb + 1, X0:X1]
     bg = np.median(s[:20, :20].reshape(-1, 3), 0)
@@ -40,7 +45,11 @@ def cut(path, x0, x1, tol=60):
             continue
         m = lab[sl] == i
         mean = s[sl][m].mean(0)
-        if np.abs(mean - bg).sum() < np.abs(mean - white).sum():
+        # only small, narrow holes of plain sheet colour (arm/leg gaps); large light
+        # areas such as an off-white chiton are cloth and must stay
+        hw = sl[1].stop - sl[1].start
+        if (np.abs(mean - bg).sum() < 30 and np.abs(mean - bg).sum() < np.abs(mean - white).sum()
+                and m.sum() < 0.03 * (s.shape[0] * s.shape[1]) and hw < 0.2 * s.shape[1]):
             bgm[sl] |= m
     fg = ~bgm
     for r in range(gt, gb + 1):

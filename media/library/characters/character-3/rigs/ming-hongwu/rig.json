@@ -1,0 +1,47 @@
+{
+  "body": "body.png",
+  "w": 466,
+  "h": 665,
+  "shoulderL": [
+    97,
+    380
+  ],
+  "shoulderR": [
+    368,
+    380
+  ],
+  "hipL": [
+    178,
+    659
+  ],
+  "hipR": [
+    286,
+    659
+  ],
+  "armLen": 279,
+  "legLen": 59,
+  "line": 8,
+  "hand": 34,
+  "source": "ming-hongwu.png",
+  "bootL": {
+    "file": "bootL.png",
+    "w": 94,
+    "h": 28,
+    "pivot": [
+      50,
+      6
+    ]
+  },
+  "bootR": {
+    "file": "bootR.png",
+    "w": 94,
+    "h": 28,
+    "pivot": [
+      42,
+      6
+    ]
+  },
+  "hose": "#724f3c",
+  "boot": "#67422c",
+  "outline": "#141010"
+}

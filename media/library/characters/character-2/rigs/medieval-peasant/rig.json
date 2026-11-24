@@ -1,0 +1,47 @@
+{
+  "body": "body.png",
+  "w": 384,
+  "h": 551,
+  "shoulderL": [
+    80,
+    303
+  ],
+  "shoulderR": [
+    302,
+    303
+  ],
+  "hipL": [
+    142,
+    545
+  ],
+  "hipR": [
+    240,
+    545
+  ],
+  "armLen": 231,
+  "legLen": 91,
+  "line": 6,
+  "hand": 28,
+  "source": "medieval-peasant.png",
+  "bootL": {
+    "file": "bootL.png",
+    "w": 103,
+    "h": 63,
+    "pivot": [
+      69,
+      6
+    ]
+  },
+  "bootR": {
+    "file": "bootR.png",
+    "w": 103,
+    "h": 63,
+    "pivot": [
+      33,
+      6
+    ]
+  },
+  "hose": "#786a55",
+  "boot": "#67422c",
+  "outline": "#141010"
+}

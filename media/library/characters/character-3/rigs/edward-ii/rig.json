@@ -1,0 +1,30 @@
+{
+  "body": "body.png",
+  "w": 473,
+  "h": 723,
+  "shoulderL": [
+    99,
+    343
+  ],
+  "shoulderR": [
+    372,
+    343
+  ],
+  "hipL": [
+    191,
+    717
+  ],
+  "hipR": [
+    278,
+    717
+  ],
+  "armLen": 274,
+  "legLen": 0,
+  "line": 8,
+  "hand": 35,
+  "source": "edward-ii.png",
+  "robe": true,
+  "hose": "#000000",
+  "boot": "#67422c",
+  "outline": "#141010"
+}

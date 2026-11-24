@@ -1,0 +1,47 @@
+{
+  "body": "body.png",
+  "w": 372,
+  "h": 650,
+  "shoulderL": [
+    100,
+    414
+  ],
+  "shoulderR": [
+    284,
+    414
+  ],
+  "hipL": [
+    135,
+    644
+  ],
+  "hipR": [
+    246,
+    644
+  ],
+  "armLen": 301,
+  "legLen": 131,
+  "line": 6,
+  "hand": 28,
+  "source": "victorian-gentleman.png",
+  "bootL": {
+    "file": "bootL.png",
+    "w": 93,
+    "h": 13,
+    "pivot": [
+      46,
+      6
+    ]
+  },
+  "bootR": {
+    "file": "bootR.png",
+    "w": 93,
+    "h": 13,
+    "pivot": [
+      45,
+      6
+    ]
+  },
+  "hose": "#784f31",
+  "boot": "#67422c",
+  "outline": "#141010"
+}

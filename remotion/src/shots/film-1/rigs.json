@@ -1,0 +1,545 @@
+{
+ "character-2/greek-athlete": {
+  "body": "body.png",
+  "w": 328,
+  "h": 551,
+  "shoulderL": [
+   74,
+   336
+  ],
+  "shoulderR": [
+   250,
+   336
+  ],
+  "hipL": [
+   139,
+   545
+  ],
+  "hipR": [
+   184,
+   545
+  ],
+  "armLen": 261,
+  "legLen": 107,
+  "line": 6,
+  "hand": 28,
+  "source": "greek-athlete.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 96,
+   "h": 47,
+   "pivot": [
+    53,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 96,
+   "h": 47,
+   "pivot": [
+    41,
+    6
+   ]
+  },
+  "hose": "#908882",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "character-2/han-soldier": {
+  "body": "body.png",
+  "w": 384,
+  "h": 638,
+  "shoulderL": [
+   79,
+   360
+  ],
+  "shoulderR": [
+   303,
+   360
+  ],
+  "hipL": [
+   137,
+   632
+  ],
+  "hipR": [
+   246,
+   632
+  ],
+  "armLen": 267,
+  "legLen": 91,
+  "line": 6,
+  "hand": 28,
+  "source": "han-soldier.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 93,
+   "h": 12,
+   "pivot": [
+    45,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 93,
+   "h": 12,
+   "pivot": [
+    46,
+    6
+   ]
+  },
+  "hose": "#363532",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "character-2/heian-noble": {
+  "body": "body.png",
+  "w": 384,
+  "h": 789,
+  "shoulderL": [
+   83,
+   450
+  ],
+  "shoulderR": [
+   299,
+   450
+  ],
+  "hipL": [
+   134,
+   783
+  ],
+  "hipR": [
+   203,
+   783
+  ],
+  "armLen": 331,
+  "legLen": 0,
+  "line": 6,
+  "hand": 28,
+  "source": "heian-noble.png",
+  "robe": true,
+  "hose": "#000000",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "character-2/medieval-peasant": {
+  "body": "body.png",
+  "w": 384,
+  "h": 551,
+  "shoulderL": [
+   80,
+   303
+  ],
+  "shoulderR": [
+   302,
+   303
+  ],
+  "hipL": [
+   142,
+   545
+  ],
+  "hipR": [
+   240,
+   545
+  ],
+  "armLen": 231,
+  "legLen": 91,
+  "line": 6,
+  "hand": 28,
+  "source": "medieval-peasant.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 103,
+   "h": 63,
+   "pivot": [
+    69,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 103,
+   "h": 63,
+   "pivot": [
+    33,
+    6
+   ]
+  },
+  "hose": "#786a55",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "character-2/victorian-gentleman": {
+  "body": "body.png",
+  "w": 385,
+  "h": 650,
+  "shoulderL": [
+   99,
+   388
+  ],
+  "shoulderR": [
+   284,
+   388
+  ],
+  "hipL": [
+   141,
+   644
+  ],
+  "hipR": [
+   241,
+   644
+  ],
+  "armLen": 273,
+  "legLen": 105,
+  "line": 6,
+  "hand": 28,
+  "source": "victorian-gentleman.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 93,
+   "h": 12,
+   "pivot": [
+    45,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 92,
+   "h": 12,
+   "pivot": [
+    45,
+    6
+   ]
+  },
+  "hose": "#343330",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "character-3/edward-ii": {
+  "body": "body.png",
+  "w": 473,
+  "h": 723,
+  "shoulderL": [
+   99,
+   343
+  ],
+  "shoulderR": [
+   372,
+   343
+  ],
+  "hipL": [
+   191,
+   717
+  ],
+  "hipR": [
+   278,
+   717
+  ],
+  "armLen": 274,
+  "legLen": 0,
+  "line": 8,
+  "hand": 35,
+  "source": "edward-ii.png",
+  "robe": true,
+  "hose": "#000000",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "character-3/han-gaozu": {
+  "body": "body.png",
+  "w": 490,
+  "h": 672,
+  "shoulderL": [
+   134,
+   359
+  ],
+  "shoulderR": [
+   355,
+   359
+  ],
+  "hipL": [
+   190,
+   666
+  ],
+  "hipR": [
+   298,
+   666
+  ],
+  "armLen": 282,
+  "legLen": 68,
+  "line": 8,
+  "hand": 36,
+  "source": "han-gaozu.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 89,
+   "h": 11,
+   "pivot": [
+    44,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 89,
+   "h": 11,
+   "pivot": [
+    44,
+    6
+   ]
+  },
+  "hose": "#323230",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "character-3/ming-hongwu": {
+  "body": "body.png",
+  "w": 466,
+  "h": 665,
+  "shoulderL": [
+   97,
+   380
+  ],
+  "shoulderR": [
+   368,
+   380
+  ],
+  "hipL": [
+   178,
+   659
+  ],
+  "hipR": [
+   286,
+   659
+  ],
+  "armLen": 279,
+  "legLen": 59,
+  "line": 8,
+  "hand": 34,
+  "source": "ming-hongwu.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 94,
+   "h": 28,
+   "pivot": [
+    50,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 94,
+   "h": 28,
+   "pivot": [
+    42,
+    6
+   ]
+  },
+  "hose": "#724f3c",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "main-character/greek-athlete": {
+  "body": "body.png",
+  "w": 356,
+  "h": 545,
+  "shoulderL": [
+   90,
+   322
+  ],
+  "shoulderR": [
+   265,
+   322
+  ],
+  "hipL": [
+   154,
+   539
+  ],
+  "hipR": [
+   200,
+   539
+  ],
+  "armLen": 269,
+  "legLen": 101,
+  "line": 6,
+  "hand": 28,
+  "source": "greek-athlete.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 100,
+   "h": 45,
+   "pivot": [
+    50,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 99,
+   "h": 45,
+   "pivot": [
+    40,
+    6
+   ]
+  },
+  "hose": "#735345",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "main-character/han-soldier": {
+  "body": "body.png",
+  "w": 281,
+  "h": 632,
+  "shoulderL": [
+   55,
+   378
+  ],
+  "shoulderR": [
+   229,
+   378
+  ],
+  "hipL": [
+   118,
+   626
+  ],
+  "hipR": [
+   166,
+   626
+  ],
+  "armLen": 247,
+  "legLen": 95,
+  "line": 6,
+  "hand": 28,
+  "source": "han-soldier.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 92,
+   "h": 12,
+   "pivot": [
+    44,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 91,
+   "h": 12,
+   "pivot": [
+    45,
+    6
+   ]
+  },
+  "hose": "#493f39",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "main-character/heian-noble": {
+  "body": "body.png",
+  "w": 384,
+  "h": 791,
+  "shoulderL": [
+   92,
+   429
+  ],
+  "shoulderR": [
+   291,
+   429
+  ],
+  "hipL": [
+   151,
+   785
+  ],
+  "hipR": [
+   230,
+   785
+  ],
+  "armLen": 332,
+  "legLen": 0,
+  "line": 6,
+  "hand": 28,
+  "source": "heian-noble.png",
+  "robe": true,
+  "hose": "#000000",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "main-character/medieval-peasant": {
+  "body": "body.png",
+  "w": 355,
+  "h": 680,
+  "shoulderL": [
+   93,
+   421
+  ],
+  "shoulderR": [
+   261,
+   421
+  ],
+  "hipL": [
+   138,
+   674
+  ],
+  "hipR": [
+   214,
+   674
+  ],
+  "armLen": 258,
+  "legLen": 0,
+  "line": 6,
+  "hand": 28,
+  "source": "medieval-peasant.png",
+  "robe": true,
+  "hose": "#000000",
+  "boot": "#67422c",
+  "outline": "#141010"
+ },
+ "main-character/victorian-gentleman": {
+  "body": "body.png",
+  "w": 372,
+  "h": 650,
+  "shoulderL": [
+   100,
+   414
+  ],
+  "shoulderR": [
+   284,
+   414
+  ],
+  "hipL": [
+   135,
+   644
+  ],
+  "hipR": [
+   246,
+   644
+  ],
+  "armLen": 301,
+  "legLen": 131,
+  "line": 6,
+  "hand": 28,
+  "source": "victorian-gentleman.png",
+  "bootL": {
+   "file": "bootL.png",
+   "w": 93,
+   "h": 13,
+   "pivot": [
+    46,
+    6
+   ]
+  },
+  "bootR": {
+   "file": "bootR.png",
+   "w": 93,
+   "h": 13,
+   "pivot": [
+    45,
+    6
+   ]
+  },
+  "hose": "#784f31",
+  "boot": "#67422c",
+  "outline": "#141010"
+ }
+}

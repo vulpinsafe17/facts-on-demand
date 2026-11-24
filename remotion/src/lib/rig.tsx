@@ -1,6 +1,13 @@
 import React from 'react';
 import { Img, staticFile } from 'remotion';
 
+// SVG <image> does not make Remotion wait for the file, so a frame can render before
+// the body/boots have loaded (figure missing). Hidden <Img> tags hold the frame until
+// every sprite is loaded; the SVG then paints them from cache.
+const Preload: React.FC<{ srcs: string[] }> = ({ srcs }) => (
+  <>{srcs.map((src) => <Img key={src} src={src} style={{ position: 'absolute', width: 1, height: 1, opacity: 0, pointerEvents: 'none' }} />)}</>
+);
+
 // Hybrid character rig: AI-drawn head+torso (body.png from tools/rig_parts.py)
 // + stick arms/legs drawn in code so they can move freely.
 // Angles are in degrees, 0 = straight down, +90 = pointing to screen-right.
@@ -75,6 +82,7 @@ export const Rig: React.FC<{ dir: string; rig: RigData; pose: Pose; x: number; f
           <image href={staticFile(`${dir}/${rig.body}`)} x={0} y={0} width={W} height={rig.h} />
         </g>
       </svg>
+      <Preload srcs={[rig.body, rig.bootL?.file, rig.bootR?.file].filter(Boolean).map((f) => staticFile(`${dir}/${f}`))} />
     </div>
   );
 };
@@ -144,6 +152,7 @@ export const SideRig: React.FC<{ dir: string; rig: SideRigData; x: number; groun
           {arm(-thA * 0.7 + 4, true)}
         </g>
       </svg>
+      <Preload srcs={[rig.body, rig.boot].map((f) => staticFile(`${dir}/${f}`))} />
     </div>
   );
 };

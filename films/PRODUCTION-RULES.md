@@ -36,6 +36,12 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 ## Music and sound
 - YouTube Audio Library only, **attribution not required** (`media/library/music/clips/yt-*.mp3`, catalog says which era each fits). Not yet auditioned by the owner.
 
+## Default guidelines (Claude's proposals, the owner had no preference - change any time)
+- Facts: every claim in a script needs two reliable sources; the source list goes in the video description.
+- Pacing: something new on screen (cut, movement, graphic) every 4-6 s; a hook in the first 10 s; no shot longer than 8 s without movement.
+- Characters: at least one of the three main characters in every story scene; the ruler (#3) only when a ruler is in the story.
+- Sound: music always low under the voice, a different track per era; no CTA/subscribe outro.
+
 ## Later (agreed, not done yet)
 - Film 1 long version (14-20 min) with more detail; cut to the owl talking at about 4:18.
 - Blinking and talking mouths for the characters.

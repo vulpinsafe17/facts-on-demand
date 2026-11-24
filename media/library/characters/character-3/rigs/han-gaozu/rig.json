@@ -1,0 +1,47 @@
+{
+  "body": "body.png",
+  "w": 490,
+  "h": 672,
+  "shoulderL": [
+    134,
+    359
+  ],
+  "shoulderR": [
+    355,
+    359
+  ],
+  "hipL": [
+    190,
+    666
+  ],
+  "hipR": [
+    298,
+    666
+  ],
+  "armLen": 282,
+  "legLen": 68,
+  "line": 8,
+  "hand": 36,
+  "source": "han-gaozu.png",
+  "bootL": {
+    "file": "bootL.png",
+    "w": 89,
+    "h": 11,
+    "pivot": [
+      44,
+      6
+    ]
+  },
+  "bootR": {
+    "file": "bootR.png",
+    "w": 89,
+    "h": 11,
+    "pivot": [
+      44,
+      6
+    ]
+  },
+  "hose": "#323230",
+  "boot": "#67422c",
+  "outline": "#141010"
+}

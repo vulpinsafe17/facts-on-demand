@@ -1,0 +1,30 @@
+{
+  "body": "body.png",
+  "w": 384,
+  "h": 791,
+  "shoulderL": [
+    92,
+    429
+  ],
+  "shoulderR": [
+    291,
+    429
+  ],
+  "hipL": [
+    151,
+    785
+  ],
+  "hipR": [
+    230,
+    785
+  ],
+  "armLen": 332,
+  "legLen": 0,
+  "line": 6,
+  "hand": 28,
+  "source": "heian-noble.png",
+  "robe": true,
+  "hose": "#000000",
+  "boot": "#67422c",
+  "outline": "#141010"
+}

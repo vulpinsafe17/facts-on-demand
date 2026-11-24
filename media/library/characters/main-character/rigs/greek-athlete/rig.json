@@ -1,0 +1,47 @@
+{
+  "body": "body.png",
+  "w": 356,
+  "h": 545,
+  "shoulderL": [
+    90,
+    322
+  ],
+  "shoulderR": [
+    265,
+    322
+  ],
+  "hipL": [
+    154,
+    539
+  ],
+  "hipR": [
+    200,
+    539
+  ],
+  "armLen": 269,
+  "legLen": 101,
+  "line": 6,
+  "hand": 28,
+  "source": "greek-athlete.png",
+  "bootL": {
+    "file": "bootL.png",
+    "w": 100,
+    "h": 45,
+    "pivot": [
+      50,
+      6
+    ]
+  },
+  "bootR": {
+    "file": "bootR.png",
+    "w": 99,
+    "h": 45,
+    "pivot": [
+      40,
+      6
+    ]
+  },
+  "hose": "#735345",
+  "boot": "#67422c",
+  "outline": "#141010"
+}
