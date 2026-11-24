@@ -15,7 +15,7 @@ Usage:
   python tools/gen_voice.py --beats shorts/short-1-chess/beats.json
   python tools/gen_voice.py --beats ... --mux remotion/out/Short1Chess.mp4   # + voiced preview
   python tools/gen_voice.py --beats ... --dry-run                            # plan only
-  python tools/gen_voice.py --beats films/film-1-football/beats.json --sequential  # long-form
+  python tools/gen_voice.py --beats films/film-1-football/beats.json --blocks  # long-form, one take per chapter
 
 Needs ELEVENLABS_API_KEY in .env. ffmpeg/ffprobe on PATH.
 Default voice: ElevenLabs premade "Liam".
@@ -154,6 +154,106 @@ def emit_ts(vo, path):
         f.write("\n".join(lines))
 
 
+def run_blocks(args, beats, vo, key, vdir, beats_path):
+    """Long-form 'one take per chapter' mode.
+
+    Lines are grouped into blocks (a new block starts at every line marked
+    "chapterStart"). Each block is ONE ElevenLabs take, so tempo and intonation flow
+    naturally across sentences. Word timestamps are then mapped back onto the lines, so
+    every scene still knows exactly when its first word is spoken. Extra silence is
+    inserted (inside existing word gaps, never mid-word) before lines marked
+    "topicShift", and between blocks. Edges get short fades -> no clicks."""
+    blocks, cur = [], []
+    for i, line in enumerate(vo):
+        if cur and line.get("chapterStart"):
+            blocks.append(cur); cur = []
+        cur.append(i)
+    if cur:
+        blocks.append(cur)
+
+    timeline = []   # (wav_path, offset_sec)
+    t = 0.4
+    for bi, idxs in enumerate(blocks):
+        texts = [vo[i].get("tts", vo[i]["text"]) for i in idxs]
+        text = " ".join(texts)
+        hkey = f"BLOCK|{args.voice}|{args.model}|{text}" + (f"|speed={args.speed}" if args.speed else "")
+        h = hashlib.sha1(hkey.encode()).hexdigest()[:8]
+        raw = os.path.join(vdir, f"block-{bi:02d}-{h}.mp3")
+        if args.dry_run:
+            print(f"block {bi:2d}: {len(idxs):2d} lines, {len(text):4d} chars  {texts[0][:50]}")
+            continue
+        if args.force or not os.path.exists(raw) or not os.path.exists(raw + ".words.json"):
+            prev_text = " ".join(vo[i].get("tts", vo[i]["text"]) for i in blocks[bi - 1]) if bi else None
+            next_text = " ".join(vo[i].get("tts", vo[i]["text"]) for i in blocks[bi + 1]) if bi + 1 < len(blocks) else None
+            tts_line(key, args.voice, args.model, text, prev_text, next_text, raw, args.speed)
+        words = json.load(open(raw + ".words.json", encoding="utf-8"))
+        n_expected = sum(len(x.split()) for x in texts)
+        if len(words) != n_expected:
+            sys.exit(f"block {bi}: got {len(words)} words from ElevenLabs, expected {n_expected}. "
+                     f"Check punctuation/hyphens in the tts text.")
+        dur = probe_duration(raw)
+
+        # split points: before each topicShift line, cut in the middle of the word gap
+        cuts, k = [], 0
+        line_words = []
+        for i, tx in zip(idxs, texts):
+            n = len(tx.split())
+            line_words.append((i, words[k:k + n]))
+            if k > 0 and vo[i].get("topicShift"):
+                gap_mid = (words[k - 1]["end"] + words[k]["start"]) / 2
+                cuts.append(gap_mid)
+            k += n
+        edges = [0.0] + cuts + [dur]
+        inserted = 0.0
+        for si in range(len(edges) - 1):
+            a, bnd = edges[si], edges[si + 1]
+            seg = os.path.join(vdir, f"block-{bi:02d}-{h}-seg{si}.wav")
+            fade_out_at = max(0.0, bnd - a - 0.012)
+            if args.force or not os.path.exists(seg):
+                run(["ffmpeg", "-y", "-v", "error", "-i", raw, "-ss", f"{a:.3f}", "-to", f"{bnd:.3f}",
+                     "-af", f"afade=t=in:d=0.008,afade=t=out:st={fade_out_at:.3f}:d=0.012",
+                     "-ar", "44100", "-ac", "2", seg])
+            timeline.append((seg, t + a + inserted))
+            if si < len(edges) - 2:
+                inserted += args.topic_pause - 0.3 if args.topic_pause > 0.3 else 0.0
+
+        # map word times to global time (account for inserted silence)
+        def g(tw):
+            extra = 0.0
+            for c in cuts:
+                if tw >= c:
+                    extra += args.topic_pause - 0.3 if args.topic_pause > 0.3 else 0.0
+            return round(t + tw + extra, 3)
+        for i, ws in line_words:
+            vo[i]["words"] = [{"w": w["w"], "start": g(w["start"]), "end": g(w["end"])} for w in ws]
+            vo[i]["start"] = max(0.0, round(vo[i]["words"][0]["start"] - 0.05, 3))
+            vo[i]["end"] = vo[i]["words"][-1]["end"]
+        block_end = t + dur + inserted
+        print(f"block {bi:2d}: {len(idxs):2d} lines  {t:7.2f}s -> {block_end:7.2f}s  {texts[0][:45]}")
+        t = block_end + args.chapter_pause
+
+    if args.dry_run:
+        return
+    total = round(t - args.chapter_pause + 1.5, 2)
+    beats["format"]["durationSec"] = total
+    voice_wav = os.path.join(vdir, "voice.wav")
+    inputs, parts = [], []
+    for j, (path, start) in enumerate(timeline):
+        inputs += ["-i", path]
+        ms = int(round(start * 1000))
+        parts.append(f"[{j}:a]adelay={ms}|{ms}[a{j}]")
+    chain = "".join(f"[a{j}]" for j in range(len(timeline)))
+    fc = ";".join(parts) + f";{chain}amix=inputs={len(timeline)}:normalize=0,apad,atrim=0:{total}," \
+         f"loudnorm=I=-16:TP=-1.5:LRA=11[out]"
+    run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", fc,
+         "-map", "[out]", "-ar", "44100", "-ac", "2", voice_wav])
+    beats["voiceStatus"] = f"elevenlabs:{args.voice} (blocks)"
+    json.dump(beats, open(beats_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+    print(f"timeline {total:.1f}s ({int(total // 60)}:{total % 60:04.1f})")
+    print(f"voice track -> {os.path.relpath(voice_wav, ROOT)}")
+    print(f"exact line + word timings written back -> {os.path.relpath(beats_path, ROOT)}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--beats", required=True, help="path to the short's beats.json")
@@ -170,6 +270,9 @@ def main():
                     help="sequential: pause before a line marked \"topicShift\": true, e.g. a jump in time (s)")
     ap.add_argument("--chapter-pause", type=float, default=1.2,
                     help="sequential: pause before a line marked \"chapterStart\": true (s)")
+    ap.add_argument("--blocks", action="store_true",
+                    help="long-form: ONE take per chapter (lines marked chapterStart start a new "
+                         "chapter) for natural flow; word timings are mapped back to every line")
     ap.add_argument("--speed", type=float, help="ElevenLabs speed (0.7-1.2), e.g. 0.95")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
@@ -185,6 +288,9 @@ def main():
     key = load_env().get("ELEVENLABS_API_KEY")
     if not key and not args.dry_run:
         sys.exit("ELEVENLABS_API_KEY not found in .env")
+
+    if args.blocks:
+        return run_blocks(args, beats, vo, key, vdir, beats_path)
 
     fitted = []  # (path, start_sec, fitted_dur)
     print(f"{'line':4s} {'start':>6s} {'window':>6s} {'clip':>6s} {'tempo':>5s}  text")
