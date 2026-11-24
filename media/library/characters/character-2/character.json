@@ -1,0 +1,32 @@
+{
+  "name": "character-2",
+  "display_name": "(not named yet)",
+  "cast_slot": "2 of 3 - the skeptic (doubts everything, complains, deadpan)",
+  "role": "LOCKED REFERENCE",
+  "image": "master-sheet.jpg",
+  "locked": "2026-11-24",
+  "approved_by": "channel owner after 3 passes (body matched to #1, orange scarf, natural hair)",
+  "rule": "NEVER generate this character from text again. Era versions: gen_image.py --ref this sheet (+ media/library/characters/main-character/master-sheet.jpg for style).",
+  "locked_traits": {
+    "head": "big round white head, bold dark outline, no ears",
+    "eyes": "black dot eyes behind ROUND BLACK-RIMMED GLASSES (identity marker #1), heavy-lidded grumpy look",
+    "hair": "natural ginger/auburn, short and tousled with loose strands (identity marker #2)",
+    "scarf": "bright ORANGE scarf, team colour, always visible",
+    "body": "same as #1: short compact build, thin black single-line stick arms and legs, round white mitten hands",
+    "style": "flat 2D cartoon, bold clean dark outlines, flat colours, no shading"
+  },
+  "era_variable_traits": {
+    "facial_hair": "by era (clean-shaven on master)",
+    "headwear": "by era",
+    "clothes": "by era (grey tunic on master)"
+  },
+  "facial_hair_by_era": {
+    "han_china": "clean-shaven",
+    "ancient_greece": "short trimmed beard",
+    "heian_japan": "clean-shaven",
+    "medieval_england": "light stubble",
+    "victorian_england": "thin mustache"
+  },
+  "era_costume_prompt": "Use the attached character sheet. Keep this exact character: same round white head, same round black-rimmed glasses, same tousled ginger hair colour, same ORANGE scarf, same stick arms and legs and proportions, same grumpy look. Change ONLY his clothes to <ERA OUTFIT> and his facial hair to <ERA FACIAL HAIR>. Same layout as the sheet, plain warm off-white background, no text.",
+  "eras": {}
+}
