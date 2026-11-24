@@ -15,6 +15,7 @@ Usage:
   python tools/gen_voice.py --beats shorts/short-1-chess/beats.json
   python tools/gen_voice.py --beats ... --mux remotion/out/Short1Chess.mp4   # + voiced preview
   python tools/gen_voice.py --beats ... --dry-run                            # plan only
+  python tools/gen_voice.py --beats films/film-1-football/beats.json --sequential  # long-form
 
 Needs ELEVENLABS_API_KEY in .env. ffmpeg/ffprobe on PATH.
 Default voice: ElevenLabs premade "Liam".
@@ -60,7 +61,7 @@ def probe_duration(path):
     return float(out.strip())
 
 
-def tts_line(key, voice, model, text, prev_text, next_text, out_path):
+def tts_line(key, voice, model, text, prev_text, next_text, out_path, speed=None):
     """TTS with character-level timestamps -> writes the mp3 AND <out_path>.words.json
     (per-word start/end seconds in the RAW clip) so captions can sync exactly.
 
@@ -73,6 +74,8 @@ def tts_line(key, voice, model, text, prev_text, next_text, out_path):
         # server defaults are right for it
         body["voice_settings"] = {"stability": 0.5, "similarity_boost": 0.75, "style": 0.3,
                                   "use_speaker_boost": True}
+        if speed:
+            body["voice_settings"]["speed"] = speed
         if prev_text:
             body["previous_text"] = prev_text
         if next_text:
@@ -158,6 +161,16 @@ def main():
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--mux", help="optional rendered mp4 to mux the voice onto (-voiced.mp4)")
     ap.add_argument("--emit-ts", help="write the VO (with exact word times) as a TS module, e.g. remotion/src/shots/short-2/vo.gen.ts")
+    ap.add_argument("--sequential", action="store_true",
+                    help="long-form mode: each line starts right after the previous one ends "
+                         "(+ a natural pause), never time-squeezed. Line starts are rewritten; "
+                         "format.durationSec is set from the real voice length.")
+    ap.add_argument("--pause", type=float, default=0.45, help="sequential: pause after a sentence (s)")
+    ap.add_argument("--topic-pause", type=float, default=0.8,
+                    help="sequential: pause before a line marked \"topicShift\": true, e.g. a jump in time (s)")
+    ap.add_argument("--chapter-pause", type=float, default=1.2,
+                    help="sequential: pause before a line marked \"chapterStart\": true (s)")
+    ap.add_argument("--speed", type=float, help="ElevenLabs speed (0.7-1.2), e.g. 0.95")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -180,7 +193,8 @@ def main():
         next_start = float(vo[i + 1]["start"]) if i + 1 < len(vo) else total - 0.3
         window = next_start - start - 0.05
         tts_text = line.get("tts", line["text"])  # optional tagged/phonetic variant for TTS
-        h = hashlib.sha1(f"{args.voice}|{args.model}|{tts_text}".encode()).hexdigest()[:8]
+        hkey = f"{args.voice}|{args.model}|{tts_text}" + (f"|speed={args.speed}" if args.speed else "")
+        h = hashlib.sha1(hkey.encode()).hexdigest()[:8]
         raw = os.path.join(vdir, f"line-{i:02d}-{h}.mp3")
         fit = os.path.join(vdir, f"line-{i:02d}-{h}-fit.wav")
 
@@ -191,10 +205,23 @@ def main():
         if args.force or not os.path.exists(raw) or not os.path.exists(raw + ".words.json"):
             prev_text = vo[i - 1].get("tts", vo[i - 1]["text"]) if i > 0 else None
             next_text = vo[i + 1].get("tts", vo[i + 1]["text"]) if i + 1 < len(vo) else None
-            tts_line(key, args.voice, args.model, tts_text, prev_text, next_text, raw)
+            tts_line(key, args.voice, args.model, tts_text, prev_text, next_text, raw, args.speed)
 
         dur = probe_duration(raw)
         tempo = 1.0
+        if args.sequential:
+            # long-form: the timeline follows the voice, never the other way round
+            if fitted:
+                _p, prev_start, prev_dur = fitted[-1]
+                prev_txt = vo[i - 1]["text"].rstrip()
+                gap = args.pause if prev_txt[-1:] in ".?!\"" else 0.12  # mid-sentence split
+                if line.get("topicShift"):
+                    gap = max(gap, args.topic_pause)
+                if line.get("chapterStart"):
+                    gap = max(gap, args.chapter_pause)
+                start = round(prev_start + prev_dur + gap, 3)
+            line["start"] = start
+            window = dur + 1.0
         if dur > window:
             tempo = min(MAX_ATEMPO, dur / window)
         if args.force or not os.path.exists(fit):
@@ -213,6 +240,12 @@ def main():
 
     if args.dry_run:
         return
+
+    if args.sequential and fitted:
+        _p, last_start, last_dur = fitted[-1]
+        total = round(last_start + last_dur + 1.5, 2)
+        beats["format"]["durationSec"] = total
+        print(f"sequential timeline: {total:.1f}s ({int(total // 60)}:{total % 60:04.1f})")
 
     # assemble: delay each line to its start, sum (lines never overlap), pad to length
     voice_wav = os.path.join(vdir, "voice.wav")

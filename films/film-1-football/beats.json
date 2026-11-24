@@ -1,0 +1,712 @@
+{
+  "id": "film-1-football",
+  "title": "Where Did Football Really Come From?",
+  "composition": "Film1Football",
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "durationSec": 300
+  },
+  "voicePlan": "elevenlabs:VsQmyFHffusQDewmHB5v (Eddie Starling), --sequential",
+  "research": "Claude Doc: Research – Var kommer fotbollen ifrån? (sources per claim)",
+  "vo": [
+    {
+      "beat": "s01",
+      "text": "In 1314, the King of England tried to ban a game.",
+      "start": 0.4,
+      "end": 3.4
+    },
+    {
+      "beat": "s02",
+      "text": "It didn't work. Neither did the next thirty bans.",
+      "start": 4.9,
+      "end": 7.9
+    },
+    {
+      "beat": "s03",
+      "text": "Today, that game is played by over 250 million people.",
+      "start": 9.3,
+      "end": 12.3
+    },
+    {
+      "beat": "s04",
+      "text": "And yet, nobody can agree on who actually invented it.",
+      "start": 13.4,
+      "end": 16.4
+    },
+    {
+      "beat": "s05",
+      "text": "So let's settle it. Where did football really come from?",
+      "start": 17.6,
+      "end": 20.6
+    },
+    {
+      "beat": "s06",
+      "text": "Our story starts in China, more than two thousand years ago.",
+      "start": 22.8,
+      "end": 25.8,
+      "chapterStart": true
+    },
+    {
+      "beat": "s07",
+      "text": "In the city of Linzi, people were obsessed with a game called cuju.",
+      "start": 27.4,
+      "end": 30.4
+    },
+    {
+      "beat": "s08",
+      "text": "It literally means \"kick ball\". Simple name. Simple idea.",
+      "start": 32.6,
+      "end": 35.6
+    },
+    {
+      "beat": "s09",
+      "text": "The ball? Two pieces of leather, stitched together and stuffed with feathers.",
+      "start": 37.6,
+      "end": 40.6
+    },
+    {
+      "beat": "s10",
+      "text": "Not exactly a World Cup match ball.",
+      "start": 43.0,
+      "end": 46.0
+    },
+    {
+      "beat": "s11",
+      "text": "But the emperors loved it. Emperor Gaozu built a cuju court right at his palace.",
+      "start": 46.1,
+      "end": 49.1
+    },
+    {
+      "beat": "s12",
+      "text": "Generals used it to train their soldiers.",
+      "start": 52.6,
+      "end": 55.6
+    },
+    {
+      "beat": "s13",
+      "text": "Later, there were cuju clubs, touring teams, even professional players.",
+      "start": 55.7,
+      "end": 58.7,
+      "topicShift": true
+    },
+    {
+      "beat": "s14",
+      "text": "Centuries before anyone had heard of a transfer window.",
+      "start": 59.9,
+      "end": 62.9
+    },
+    {
+      "beat": "s15",
+      "text": "Then a Ming emperor banned it. And the punishment could include losing a foot.",
+      "start": 63.7,
+      "end": 66.7,
+      "topicShift": true
+    },
+    {
+      "beat": "s16",
+      "text": "Which, for a football player, is a very serious red card.",
+      "start": 69.8,
+      "end": 72.8
+    },
+    {
+      "beat": "s17",
+      "text": "But here's the twist. There's no evidence that cuju shaped the football we play today.",
+      "start": 74.3,
+      "end": 77.3,
+      "topicShift": true
+    },
+    {
+      "beat": "s18",
+      "text": "To find that, we need to look somewhere else.",
+      "start": 80.9,
+      "end": 83.9
+    },
+    {
+      "beat": "s19",
+      "text": "The ancient Greeks had a ball game called episkyros. But they mostly carried and threw the ball.",
+      "start": 85.2,
+      "end": 88.2,
+      "chapterStart": true
+    },
+    {
+      "beat": "s20",
+      "text": "So that's less football, more rugby.",
+      "start": 92.4,
+      "end": 95.4
+    },
+    {
+      "beat": "s21",
+      "text": "In Japan, nobles played kemari, working together to keep a deerskin ball in the air.",
+      "start": 95.1,
+      "end": 98.1,
+      "topicShift": true
+    },
+    {
+      "beat": "s22",
+      "text": "No winners. No losers. Very polite. Very un-football.",
+      "start": 101.0,
+      "end": 104.0
+    },
+    {
+      "beat": "s23",
+      "text": "So let's jump to medieval England. Picture this. One village against the next.",
+      "start": 106.8,
+      "end": 109.8,
+      "chapterStart": true
+    },
+    {
+      "beat": "s24",
+      "text": "Any number of players. One ball. Almost no rules.",
+      "start": 113.2,
+      "end": 116.2
+    },
+    {
+      "beat": "s25",
+      "text": "They called it mob football, and it was exactly as chaotic as it sounds.",
+      "start": 118.2,
+      "end": 121.2
+    },
+    {
+      "beat": "s26",
+      "text": "Then came April 13th, 1314. London merchants had had enough of the noise,",
+      "start": 123.8,
+      "end": 126.8,
+      "topicShift": true
+    },
+    {
+      "beat": "s27",
+      "text": "and King Edward the Second banned football in the city.",
+      "start": 128.5,
+      "end": 131.5
+    },
+    {
+      "beat": "s28",
+      "text": "Did it work? Of course not.",
+      "start": 132.7,
+      "end": 135.7
+    },
+    {
+      "beat": "s29",
+      "text": "His son Edward the Third banned it too.",
+      "start": 136.0,
+      "end": 139.0
+    },
+    {
+      "beat": "s30",
+      "text": "He wanted men practising archery for war, not chasing a ball.",
+      "start": 136.0,
+      "end": 139.0
+    },
+    {
+      "beat": "s31",
+      "text": "Between 1314 and 1667, England passed more than thirty laws against football.",
+      "start": 144.0,
+      "end": 147.0,
+      "topicShift": true
+    },
+    {
+      "beat": "s32",
+      "text": "Football won every single time.",
+      "start": 148.8,
+      "end": 151.8
+    },
+    {
+      "beat": "s33",
+      "text": "But there was still a huge problem. Every school in England played by its own rules.",
+      "start": 151.7,
+      "end": 154.7,
+      "chapterStart": true
+    },
+    {
+      "beat": "s34",
+      "text": "In some, you could catch the ball.",
+      "start": 158.6,
+      "end": 161.6
+    },
+    {
+      "beat": "s35",
+      "text": "In others, you could kick your opponent in the shins. Yes, really.",
+      "start": 158.6,
+      "end": 161.6
+    },
+    {
+      "beat": "s36",
+      "text": "In 1848, students at Cambridge tried to write one set of rules for everyone.",
+      "start": 167.1,
+      "end": 170.1,
+      "topicShift": true
+    },
+    {
+      "beat": "s37",
+      "text": "In 1857, a group of cricket players in Sheffield wanted to stay fit through the winter.",
+      "start": 172.7,
+      "end": 175.7,
+      "topicShift": true
+    },
+    {
+      "beat": "s38",
+      "text": "So they founded Sheffield Football Club, recognised by FIFA as the oldest football club in the world.",
+      "start": 179.0,
+      "end": 182.0
+    },
+    {
+      "beat": "s39",
+      "text": "And then, on a Monday evening in October 1863, everything changed.",
+      "start": 186.1,
+      "end": 189.1,
+      "chapterStart": true
+    },
+    {
+      "beat": "s40",
+      "text": "A solicitor named Ebenezer Cobb Morley thought football needed rules, just like cricket had.",
+      "start": 190.6,
+      "end": 193.6
+    },
+    {
+      "beat": "s41",
+      "text": "So clubs met at the Freemasons' Tavern in London. That night, they founded the Football Association.",
+      "start": 196.2,
+      "end": 199.2
+    },
+    {
+      "beat": "s42",
+      "text": "The biggest fight was about something called hacking. Kicking your opponent in the leg.",
+      "start": 203.1,
+      "end": 206.1
+    },
+    {
+      "beat": "s43",
+      "text": "One club, Blackheath, really wanted to keep it. They lost.",
+      "start": 209.2,
+      "end": 212.2
+    },
+    {
+      "beat": "s44",
+      "text": "In December 1863, the first rules were approved, with no hacking and no carrying the ball.",
+      "start": 214.0,
+      "end": 217.0
+    },
+    {
+      "beat": "s45",
+      "text": "Some clubs walked out to keep playing their way.",
+      "start": 220.3,
+      "end": 223.3
+    },
+    {
+      "beat": "s46",
+      "text": "That's the moment football and rugby officially went separate ways.",
+      "start": 220.3,
+      "end": 223.3
+    },
+    {
+      "beat": "s47",
+      "text": "From there, football spread fast.",
+      "start": 228.7,
+      "end": 231.7,
+      "chapterStart": true
+    },
+    {
+      "beat": "s48",
+      "text": "In 1872, Scotland and England played the first ever international match. Four thousand fans watched.",
+      "start": 231.1,
+      "end": 234.1,
+      "topicShift": true
+    },
+    {
+      "beat": "s49",
+      "text": "The final score? Nil-nil.",
+      "start": 237.6,
+      "end": 240.6,
+      "tts": "The final score? Nil, nil."
+    },
+    {
+      "beat": "s50",
+      "text": "Some traditions start early.",
+      "start": 240.2,
+      "end": 243.2
+    },
+    {
+      "beat": "s51",
+      "text": "In 1904, seven nations founded FIFA in Paris.",
+      "start": 242.2,
+      "end": 245.2,
+      "topicShift": true
+    },
+    {
+      "beat": "s52",
+      "text": "And in 1930, Uruguay hosted the very first World Cup.",
+      "start": 245.7,
+      "end": 248.7,
+      "topicShift": true
+    },
+    {
+      "beat": "s53",
+      "text": "So, who invented football? Nobody, and everybody.",
+      "start": 250.3,
+      "end": 253.3,
+      "chapterStart": true
+    },
+    {
+      "beat": "s54",
+      "text": "Chinese soldiers, Greek athletes, Japanese nobles, rowdy medieval villages, and a group of men in a London tavern who finally wrote it all down.",
+      "start": 254.0,
+      "end": 257.0
+    },
+    {
+      "beat": "s55",
+      "text": "The game that a king tried to ban now belongs to the whole world.",
+      "start": 263.1,
+      "end": 266.1
+    },
+    {
+      "beat": "s56",
+      "text": "This has been Facts on Demand. What should we dig into next? Tell us in the comments.",
+      "start": 268.7,
+      "end": 271.7
+    }
+  ],
+  "beats": [
+    {
+      "beat": "s01",
+      "chapter": 0,
+      "type": "BILD",
+      "image": "Medieval English king on his throne, frowning, holding up a sealed royal decree. 14th-century hall."
+    },
+    {
+      "beat": "s02",
+      "chapter": 0,
+      "type": "BILD",
+      "image": "A tall pile of torn royal decrees with red wax seals on a wooden table."
+    },
+    {
+      "beat": "s03",
+      "chapter": 0,
+      "type": "BILD",
+      "image": "A huge modern football stadium full of fans, seen from high above. No logos."
+    },
+    {
+      "beat": "s04",
+      "chapter": 0,
+      "type": "BILD",
+      "image": "Four historians from different eras arguing around a table covered in old books and a globe."
+    },
+    {
+      "beat": "s05",
+      "chapter": 0,
+      "type": "BILD",
+      "image": "Our owl mascot with a magnifying glass over an old world map. Title card."
+    },
+    {
+      "beat": "s06",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "Ancient Chinese walled city in a valley at dusk, Warring States era."
+    },
+    {
+      "beat": "s07",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "Crowd in an ancient Chinese courtyard watching players kick a ball."
+    },
+    {
+      "beat": "s08",
+      "chapter": 1,
+      "type": "GRAFIK",
+      "image": "Text card: 蹴鞠 = \"kick ball\". Made in Remotion, not by AI."
+    },
+    {
+      "beat": "s09",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "Close-up of hands stitching two pieces of leather into a lumpy ball, feathers spilling out."
+    },
+    {
+      "beat": "s10",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "The lumpy feather ball alone on a pedestal under a spotlight. Comic."
+    },
+    {
+      "beat": "s11",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "Han emperor on a palace terrace watching a walled cuju field with crescent-shaped goals."
+    },
+    {
+      "beat": "s12",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "Han soldiers in armour playing cuju on a dusty training field."
+    },
+    {
+      "beat": "s13",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "Song dynasty city street: skilled cuju players performing for a crowd."
+    },
+    {
+      "beat": "s14",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "A Song dynasty cuju player signing a scroll with a brush, looking proud. Comic."
+    },
+    {
+      "beat": "s15",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "Stern Ming emperor; in front of him a ball abandoned in an empty courtyard. No violence."
+    },
+    {
+      "beat": "s16",
+      "chapter": 1,
+      "type": "GRAFIK",
+      "image": "A red card pops up with a whistle sound."
+    },
+    {
+      "beat": "s17",
+      "chapter": 1,
+      "type": "KARTA",
+      "image": "Map: China and England, a dotted line between them with a question mark."
+    },
+    {
+      "beat": "s18",
+      "chapter": 1,
+      "type": "BILD",
+      "image": "The owl turns the map and points the magnifying glass west."
+    },
+    {
+      "beat": "s19",
+      "chapter": 2,
+      "type": "BILD",
+      "image": "Ancient Greek athletes on a sandy field: one throws a ball to another, marble columns behind.",
+      "note": "Slow pan across the field. Label: EPISKYROS"
+    },
+    {
+      "beat": "s20",
+      "chapter": 2,
+      "type": "BILD",
+      "image": "A Greek athlete carrying the ball under his arm gets tackled by two others. Comic."
+    },
+    {
+      "beat": "s21",
+      "chapter": 2,
+      "type": "BILD",
+      "image": "Heian-era Japanese nobles in kariginu robes kicking a ball upward in a garden court with trees at the corners."
+    },
+    {
+      "beat": "s22",
+      "chapter": 2,
+      "type": "BILD",
+      "image": "The nobles bow politely to each other. The ball lies still."
+    },
+    {
+      "beat": "s23",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "Two medieval villages charging toward each other across a muddy field."
+    },
+    {
+      "beat": "s24",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "A huge chaotic scrum in a narrow medieval street, the ball in the middle."
+    },
+    {
+      "beat": "s25",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "Players climbing over each other, a cart tipping over, chickens fleeing. Comic, no injuries."
+    },
+    {
+      "beat": "s26",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "Angry merchants in a medieval London street covering their ears."
+    },
+    {
+      "beat": "s27",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "A town crier reading a proclamation to a crowd."
+    },
+    {
+      "beat": "s28",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "Behind the crier, the crowd keeps playing football."
+    },
+    {
+      "beat": "s29",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "Stern 14th-century English king on a throne, pointing a finger."
+    },
+    {
+      "beat": "s30",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "Men practising with longbows at targets; a forgotten ball lies in the grass."
+    },
+    {
+      "beat": "s31",
+      "chapter": 3,
+      "type": "GRAFIK",
+      "image": "Timeline from 1314 to 1667 where 30+ wax seals pop up one by one.",
+      "note": "Graphic: timeline 1314 → 1667, 30+ wax seals pop in"
+    },
+    {
+      "beat": "s32",
+      "chapter": 3,
+      "type": "BILD",
+      "image": "A ball sitting proudly on top of a pile of torn decrees."
+    },
+    {
+      "beat": "s33",
+      "chapter": 4,
+      "type": "BILD",
+      "image": "1840s English school boys playing on separate fields, each group differently."
+    },
+    {
+      "beat": "s34",
+      "chapter": 4,
+      "type": "BILD",
+      "image": "1840s schoolboy leaping to catch a ball on a school field."
+    },
+    {
+      "beat": "s35",
+      "chapter": 4,
+      "type": "BILD",
+      "image": "1840s schoolboy kicking a rival in the shin, both in school uniforms. Comic, no injury."
+    },
+    {
+      "beat": "s36",
+      "chapter": 4,
+      "type": "BILD",
+      "image": "Students in a Cambridge college room writing rules by candlelight."
+    },
+    {
+      "beat": "s37",
+      "chapter": 4,
+      "type": "BILD",
+      "image": "Cricketers in winter coats kicking a ball on a frosty field."
+    },
+    {
+      "beat": "s38",
+      "chapter": 4,
+      "type": "BILD",
+      "image": "A team of 1850s gentlemen posing as if for an old photograph.",
+      "note": "Slow push-in. Label: Sheffield FC · 1857"
+    },
+    {
+      "beat": "s39",
+      "chapter": 5,
+      "type": "BILD",
+      "image": "London street at night: gas lamps, horse cabs, a lit tavern."
+    },
+    {
+      "beat": "s40",
+      "chapter": 5,
+      "type": "BILD",
+      "image": "A Victorian solicitor writing at his desk. Not a portrait of the real Morley."
+    },
+    {
+      "beat": "s41",
+      "chapter": 5,
+      "type": "BILD",
+      "image": "Men in top hats around a tavern table, candles and papers."
+    },
+    {
+      "beat": "s42",
+      "chapter": 5,
+      "type": "BILD",
+      "image": "Two Victorian gentlemen arguing, one pointing at his shin."
+    },
+    {
+      "beat": "s43",
+      "chapter": 5,
+      "type": "BILD",
+      "image": "A gentleman storming out through the tavern door."
+    },
+    {
+      "beat": "s44",
+      "chapter": 5,
+      "type": "GRAFIK",
+      "image": "Old handwritten rulebook with a quill; two icons crossed out: kick to the shin and ball in the hands."
+    },
+    {
+      "beat": "s45",
+      "chapter": 5,
+      "type": "BILD",
+      "image": "Victorian gentlemen in top hats walking out of a tavern door at night."
+    },
+    {
+      "beat": "s46",
+      "chapter": 5,
+      "type": "BILD",
+      "image": "A road that splits in two: a round ball rolls one way, an oval ball the other."
+    },
+    {
+      "beat": "s47",
+      "chapter": 6,
+      "type": "KARTA",
+      "image": "Map: lines spread out from England across the world."
+    },
+    {
+      "beat": "s48",
+      "chapter": 6,
+      "type": "BILD",
+      "image": "1872 match on a cricket ground; Victorian crowd around the pitch."
+    },
+    {
+      "beat": "s49",
+      "chapter": 6,
+      "type": "GRAFIK",
+      "image": "An old-fashioned scoreboard flips to 0-0."
+    },
+    {
+      "beat": "s50",
+      "chapter": 6,
+      "type": "BILD",
+      "image": "The owl shrugs. Comic."
+    },
+    {
+      "beat": "s51",
+      "chapter": 6,
+      "type": "KARTA",
+      "image": "Map of Europe where seven countries light up one by one, Sweden included.",
+      "note": "Map: Europe, 7 founding nations light up one by one (incl. Sweden)"
+    },
+    {
+      "beat": "s52",
+      "chapter": 6,
+      "type": "BILD",
+      "image": "Packed stadium in Montevideo, 1930."
+    },
+    {
+      "beat": "s53",
+      "chapter": 7,
+      "type": "BILD",
+      "image": "Collage of earlier images."
+    },
+    {
+      "beat": "s54",
+      "chapter": 7,
+      "type": "ÅTERANVÄND",
+      "image": "Quick cuts between the images from scenes 12, 19, 21, 24 and 39."
+    },
+    {
+      "beat": "s55",
+      "chapter": 7,
+      "type": "BILD",
+      "image": "Children playing football in the streets on several continents, a collage around a globe."
+    },
+    {
+      "beat": "s56",
+      "chapter": 7,
+      "type": "GRAFIK",
+      "image": "End card with the owl and the logo."
+    }
+  ]
+}
