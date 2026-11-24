@@ -1,0 +1,457 @@
+{
+ "character-2/greek-athlete": {
+  "W": 385,
+  "H": 698,
+  "parts": {
+   "armR": {
+    "file": "armR.png",
+    "x": 216,
+    "y": 332,
+    "w": 169,
+    "h": 366,
+    "pivot": [
+     64,
+     2
+    ]
+   },
+   "armL": {
+    "file": "armL.png",
+    "x": 0,
+    "y": 333,
+    "w": 169,
+    "h": 365,
+    "pivot": [
+     102,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 30,
+    "y": 0,
+    "w": 328,
+    "h": 553
+   }
+  }
+ },
+ "character-2/han-soldier": {
+  "W": 384,
+  "H": 734,
+  "parts": {
+   "legL": {
+    "file": "legL.png",
+    "x": 78,
+    "y": 638,
+    "w": 94,
+    "h": 96,
+    "pivot": [
+     59,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 212,
+    "y": 638,
+    "w": 94,
+    "h": 96,
+    "pivot": [
+     33,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 384,
+    "h": 638
+   }
+  }
+ },
+ "character-2/heian-noble": {
+  "W": 384,
+  "H": 795,
+  "parts": {
+   "legL": {
+    "file": "legL.png",
+    "x": 71,
+    "y": 705,
+    "w": 120,
+    "h": 90,
+    "pivot": [
+     59,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 192,
+    "y": 705,
+    "w": 121,
+    "h": 90,
+    "pivot": [
+     59,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 384,
+    "h": 705
+   }
+  }
+ },
+ "character-2/medieval-peasant": {
+  "W": 384,
+  "H": 698,
+  "parts": {
+   "legL": {
+    "file": "legL.png",
+    "x": 68,
+    "y": 551,
+    "w": 108,
+    "h": 147,
+    "pivot": [
+     75,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 208,
+    "y": 551,
+    "w": 108,
+    "h": 147,
+    "pivot": [
+     31,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 384,
+    "h": 551
+   }
+  }
+ },
+ "character-2/victorian-gentleman": {
+  "W": 385,
+  "H": 760,
+  "parts": {
+   "legL": {
+    "file": "legL.png",
+    "x": 78,
+    "y": 650,
+    "w": 95,
+    "h": 110,
+    "pivot": [
+     63,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 211,
+    "y": 650,
+    "w": 94,
+    "h": 110,
+    "pivot": [
+     30,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 385,
+    "h": 650
+   }
+  }
+ },
+ "character-3/edward-ii": {
+  "W": 473,
+  "H": 723,
+  "parts": {
+   "armR": {
+    "file": "armR.png",
+    "x": 305,
+    "y": 21,
+    "w": 53,
+    "h": 71,
+    "pivot": [
+     48,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 473,
+    "h": 723
+   }
+  }
+ },
+ "character-3/han-gaozu": {
+  "W": 490,
+  "H": 746,
+  "parts": {
+   "legL": {
+    "file": "legL.png",
+    "x": 133,
+    "y": 674,
+    "w": 91,
+    "h": 72,
+    "pivot": [
+     57,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 266,
+    "y": 674,
+    "w": 90,
+    "h": 72,
+    "pivot": [
+     32,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 490,
+    "h": 674
+   }
+  }
+ },
+ "character-3/ming-hongwu": {
+  "W": 466,
+  "H": 748,
+  "parts": {
+   "legL": {
+    "file": "legL.png",
+    "x": 154,
+    "y": 739,
+    "w": 27,
+    "h": 9,
+    "pivot": [
+     16,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 285,
+    "y": 739,
+    "w": 28,
+    "h": 9,
+    "pivot": [
+     9,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 466,
+    "h": 665
+   }
+  }
+ },
+ "main-character/greek-athlete": {
+  "W": 384,
+  "H": 684,
+  "parts": {
+   "armL": {
+    "file": "armL.png",
+    "x": 0,
+    "y": 320,
+    "w": 170,
+    "h": 364,
+    "pivot": [
+     101,
+     2
+    ]
+   },
+   "armR": {
+    "file": "armR.png",
+    "x": 215,
+    "y": 321,
+    "w": 169,
+    "h": 363,
+    "pivot": [
+     67,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 14,
+    "y": 0,
+    "w": 356,
+    "h": 547
+   }
+  }
+ },
+ "main-character/han-soldier": {
+  "W": 384,
+  "H": 732,
+  "parts": {
+   "armL": {
+    "file": "armL.png",
+    "x": 0,
+    "y": 370,
+    "w": 172,
+    "h": 362,
+    "pivot": [
+     102,
+     2
+    ]
+   },
+   "armR": {
+    "file": "armR.png",
+    "x": 213,
+    "y": 370,
+    "w": 171,
+    "h": 362,
+    "pivot": [
+     67,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 50,
+    "y": 0,
+    "w": 281,
+    "h": 634
+   }
+  }
+ },
+ "main-character/heian-noble": {
+  "W": 384,
+  "H": 792,
+  "parts": {
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 384,
+    "h": 792
+   }
+  }
+ },
+ "main-character/medieval-peasant": {
+  "W": 384,
+  "H": 683,
+  "parts": {
+   "armL": {
+    "file": "armL.png",
+    "x": 0,
+    "y": 357,
+    "w": 87,
+    "h": 170,
+    "pivot": [
+     76,
+     2
+    ]
+   },
+   "armR": {
+    "file": "armR.png",
+    "x": 297,
+    "y": 357,
+    "w": 87,
+    "h": 170,
+    "pivot": [
+     9,
+     2
+    ]
+   },
+   "legL": {
+    "file": "legL.png",
+    "x": 79,
+    "y": 530,
+    "w": 99,
+    "h": 153,
+    "pivot": [
+     66,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 207,
+    "y": 530,
+    "w": 98,
+    "h": 153,
+    "pivot": [
+     31,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 15,
+    "y": 0,
+    "w": 355,
+    "h": 530
+   }
+  }
+ },
+ "main-character/victorian-gentleman": {
+  "W": 384,
+  "H": 787,
+  "parts": {
+   "armR": {
+    "file": "armR.png",
+    "x": 310,
+    "y": 543,
+    "w": 74,
+    "h": 90,
+    "pivot": [
+     52,
+     2
+    ]
+   },
+   "legL": {
+    "file": "legL.png",
+    "x": 76,
+    "y": 650,
+    "w": 115,
+    "h": 137,
+    "pivot": [
+     57,
+     2
+    ]
+   },
+   "legR": {
+    "file": "legR.png",
+    "x": 192,
+    "y": 650,
+    "w": 115,
+    "h": 137,
+    "pivot": [
+     56,
+     2
+    ]
+   },
+   "body": {
+    "file": "pbody.png",
+    "x": 0,
+    "y": 0,
+    "w": 372,
+    "h": 650
+   }
+  }
+ }
+}
