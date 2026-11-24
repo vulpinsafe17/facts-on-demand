@@ -154,6 +154,44 @@ def emit_ts(vo, path):
         f.write("\n".join(lines))
 
 
+def qa_voice(voice_wav, vo, max_silence=3.0):
+    """Automatic check of the finished track. Returns a list of problems (empty = OK).
+    - every line has real audio over its word span (catches muted/missing segments)
+    - no silence longer than max_silence seconds anywhere (catches gaps)
+    - the last word of every line has sound right up to its end (catches cut-offs)"""
+    import array
+    sr = 8000
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", voice_wav, "-ac", "1", "-ar", str(sr),
+                          "-f", "s16le", "-"], stdout=subprocess.PIPE).stdout
+    x = array.array("h"); x.frombytes(raw)
+    win = sr // 20  # 50 ms windows
+    import math
+    def level(a, b):
+        seg = x[max(0, int(a * sr)):int(b * sr)]
+        if not seg:
+            return -120.0
+        return 20 * math.log10(math.sqrt(sum(v * v for v in seg[::4]) / max(1, len(seg[::4]))) / 32768 + 1e-9)
+    problems = []
+    for i, line in enumerate(vo):
+        ws = line.get("words") or []
+        if not ws:
+            problems.append(f"line {i}: no word timings"); continue
+        if level(ws[0]["start"], ws[-1]["end"]) < -45:
+            problems.append(f"line {i}: SILENT where speech should be: {line['text'][:50]!r}")
+        if level(ws[-1]["start"], ws[-1]["end"]) < -50:
+            problems.append(f"line {i}: last word {ws[-1]['w']!r} has no sound (cut off?)")
+    run_len, worst = 0, (0, 0)
+    for k in range(0, len(x) - win, win):
+        quiet = level(k / sr, (k + win) / sr) < -50
+        run_len = run_len + 1 if quiet else 0
+        if run_len * 0.05 > worst[0]:
+            worst = (run_len * 0.05, k / sr)
+    end_trim = vo[-1]["words"][-1]["end"] if vo[-1].get("words") else len(x) / sr
+    if worst[0] > max_silence and worst[1] < end_trim:
+        problems.append(f"silence of {worst[0]:.1f}s ending at {worst[1]:.1f}s")
+    return problems
+
+
 def run_blocks(args, beats, vo, key, vdir, beats_path):
     """Long-form 'one take per chapter' mode.
 
@@ -249,6 +287,13 @@ def run_blocks(args, beats, vo, key, vdir, beats_path):
          f"loudnorm=I=-16:TP=-1.5:LRA=11[out]"
     run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", fc,
          "-map", "[out]", "-ar", "44100", "-ac", "2", voice_wav])
+    problems = qa_voice(voice_wav, vo)
+    if problems:
+        print("\nQA FAILED - do not use this track:")
+        for pr in problems:
+            print("  - " + pr)
+        sys.exit(1)
+    print("QA passed: all lines have sound, no gaps, no cut-off endings")
     beats["voiceStatus"] = f"elevenlabs:{args.voice} (blocks)"
     json.dump(beats, open(beats_path, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     print(f"timeline {total:.1f}s ({int(total // 60)}:{total % 60:04.1f})")
