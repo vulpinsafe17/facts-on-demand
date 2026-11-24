@@ -85,8 +85,13 @@ export default function RigTest() {
   const amp = interpolate(f, [0, 8, WALK_END - 14, WALK_END], [0.5, 1, 1, 0], clamp);
   // turn to camera: squash side view to 0 width, then open the front view
   const T0 = WALK_END + 2;
-  const turn = interpolate(f, [T0, T0 + 4, T0 + 8], [1, 0, 1], clamp);
-  const showFront = f >= T0 + 4;
+  // turn to camera: a clean one-frame swap (no see-through ghost) with a small
+  // squash-and-stretch 'pop' so the turn reads as a movement
+  const showFront = f >= T0 + 1;
+  const popX = interpolate(f, [T0 + 1, T0 + 3, T0 + 6, T0 + 9], [0.86, 1.05, 0.98, 1], clamp);
+  const popY = interpolate(f, [T0 + 1, T0 + 3, T0 + 6, T0 + 9], [1.04, 0.97, 1.01, 1], clamp);
+  const sideOp = showFront ? 0 : 1, frontOp = showFront ? 1 : 0;
+  const sideScale = 1, frontScale = popX;
   const point = interpolate(f, [T0 + 16, T0 + 26], [0, 1], { ...clamp, easing: Easing.bezier(0.2, 0.8, 0.3, 1) });
   const pose: Pose = { legL: 0, legR: 0, armL: -8, elbowL: -8, armR: interpolate(point, [0, 1], [8, 118]), elbowR: interpolate(point, [0, 1], [8, -6]), lean: interpolate(point, [0, 1], [0, -2]) };
   const cam = interpolate(f, [0, 210], [1, 1.07], clamp);
@@ -95,11 +100,16 @@ export default function RigTest() {
       <AbsoluteFill style={{ transform: `scale(${cam})`, transformOrigin: '55% 75%' }}>
         <Img src={staticFile('projects/film-1-football/bg/med-london-street.png')} style={{ width: 1920, height: 1080 }} />
         <div style={{ position: 'absolute', left: x - 80, top: GROUND - 14, width: 160, height: 26, borderRadius: '50%', background: 'rgba(60,35,15,0.35)', filter: 'blur(5px)' }} />
-        <div style={{ position: 'absolute', inset: 0, transform: `scaleX(${turn})`, transformOrigin: `${x}px 0px` }}>
-          {showFront
-            ? <Rig dir={FRONT} rig={front} pose={pose} x={x} feetY={GROUND} height={H} />
-            : <SideRig dir={SIDE} rig={side} x={x} groundY={GROUND} height={H} phase={phase} amp={amp} />}
-        </div>
+        {sideOp > 0 && (
+          <div style={{ position: 'absolute', inset: 0, opacity: sideOp, transform: `scaleX(${sideScale})`, transformOrigin: `${x}px 0px` }}>
+            <SideRig dir={SIDE} rig={side} x={x} groundY={GROUND} height={H} phase={phase} amp={amp} />
+          </div>
+        )}
+        {frontOp > 0 && (
+          <div style={{ position: 'absolute', inset: 0, opacity: frontOp, transform: `scale(${frontScale}, ${popY})`, transformOrigin: `${x}px ${GROUND}px` }}>
+            <Rig dir={FRONT} rig={front} pose={pose} x={x} feetY={GROUND} height={H} />
+          </div>
+        )}
       </AbsoluteFill>
     </AbsoluteFill>
   );
