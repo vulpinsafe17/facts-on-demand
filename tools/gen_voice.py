@@ -209,10 +209,12 @@ def run_blocks(args, beats, vo, key, vdir, beats_path):
             a, bnd = edges[si], edges[si + 1]
             seg = os.path.join(vdir, f"block-{bi:02d}-{h}-seg{si}.wav")
             fade_out_at = max(0.0, bnd - a - 0.012)
-            if args.force or not os.path.exists(seg):
-                run(["ffmpeg", "-y", "-v", "error", "-i", raw, "-ss", f"{a:.3f}", "-to", f"{bnd:.3f}",
-                     "-af", f"afade=t=in:d=0.008,afade=t=out:st={fade_out_at:.3f}:d=0.012",
-                     "-ar", "44100", "-ac", "2", seg])
+            # cut inside the filter graph and reset timestamps to 0 BEFORE fading, so the
+            # fade times are relative to the segment (cheap: always rebuilt, never re-billed)
+            run(["ffmpeg", "-y", "-v", "error", "-i", raw, "-af",
+                 f"atrim=start={a:.3f}:end={bnd:.3f},asetpts=PTS-STARTPTS,"
+                 f"afade=t=in:st=0:d=0.008,afade=t=out:st={fade_out_at:.3f}:d=0.012",
+                 "-ar", "44100", "-ac", "2", seg])
             timeline.append((seg, t + a + inserted))
             if si < len(edges) - 2:
                 inserted += args.topic_pause - 0.3 if args.topic_pause > 0.3 else 0.0
@@ -268,7 +270,7 @@ def main():
     ap.add_argument("--pause", type=float, default=0.45, help="sequential: pause after a sentence (s)")
     ap.add_argument("--topic-pause", type=float, default=0.8,
                     help="sequential: pause before a line marked \"topicShift\": true, e.g. a jump in time (s)")
-    ap.add_argument("--chapter-pause", type=float, default=1.2,
+    ap.add_argument("--chapter-pause", type=float, default=0.7,
                     help="sequential: pause before a line marked \"chapterStart\": true (s)")
     ap.add_argument("--blocks", action="store_true",
                     help="long-form: ONE take per chapter (lines marked chapterStart start a new "

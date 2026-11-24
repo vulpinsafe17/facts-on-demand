@@ -6,7 +6,7 @@
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "durationSec": 300
+    "durationSec": 280.84
   },
   "voicePlan": "elevenlabs:VsQmyFHffusQDewmHB5v (Eddie Starling), --sequential",
   "research": "Claude Doc: Research – Var kommer fotbollen ifrån? (sources per claim)",
@@ -14,356 +14,3613 @@
     {
       "beat": "s01",
       "text": "In 1314, the King of England tried to ban a game.",
-      "start": 0.4,
-      "end": 3.4
+      "start": 0.35,
+      "end": 3.825,
+      "words": [
+        {
+          "w": "In",
+          "start": 0.4,
+          "end": 0.539
+        },
+        {
+          "w": "1314,",
+          "start": 0.586,
+          "end": 1.758
+        },
+        {
+          "w": "the",
+          "start": 1.886,
+          "end": 1.991
+        },
+        {
+          "w": "King",
+          "start": 2.049,
+          "end": 2.2
+        },
+        {
+          "w": "of",
+          "start": 2.246,
+          "end": 2.292
+        },
+        {
+          "w": "England",
+          "start": 2.35,
+          "end": 2.629
+        },
+        {
+          "w": "tried",
+          "start": 2.676,
+          "end": 2.908
+        },
+        {
+          "w": "to",
+          "start": 2.931,
+          "end": 2.977
+        },
+        {
+          "w": "ban",
+          "start": 3.035,
+          "end": 3.233
+        },
+        {
+          "w": "a",
+          "start": 3.279,
+          "end": 3.302
+        },
+        {
+          "w": "game.",
+          "start": 3.361,
+          "end": 3.825
+        }
+      ]
     },
     {
       "beat": "s02",
       "text": "It didn't work. Neither did the next thirty bans.",
-      "start": 4.9,
-      "end": 7.9
+      "start": 4.286,
+      "end": 7.865,
+      "words": [
+        {
+          "w": "It",
+          "start": 4.336,
+          "end": 4.475
+        },
+        {
+          "w": "didn't",
+          "start": 4.522,
+          "end": 4.777
+        },
+        {
+          "w": "work.",
+          "start": 4.812,
+          "end": 5.288
+        },
+        {
+          "w": "Neither",
+          "start": 5.892,
+          "end": 6.263
+        },
+        {
+          "w": "did",
+          "start": 6.333,
+          "end": 6.484
+        },
+        {
+          "w": "the",
+          "start": 6.518,
+          "end": 6.588
+        },
+        {
+          "w": "next",
+          "start": 6.646,
+          "end": 6.936
+        },
+        {
+          "w": "thirty",
+          "start": 6.983,
+          "end": 7.296
+        },
+        {
+          "w": "bans.",
+          "start": 7.343,
+          "end": 7.865
+        }
+      ]
     },
     {
       "beat": "s03",
       "text": "Today, that game is played by over 250 million people.",
-      "start": 9.3,
-      "end": 12.3
+      "start": 8.326,
+      "end": 12.37,
+      "words": [
+        {
+          "w": "Today,",
+          "start": 8.376,
+          "end": 9.003
+        },
+        {
+          "w": "that",
+          "start": 9.119,
+          "end": 9.282
+        },
+        {
+          "w": "game",
+          "start": 9.34,
+          "end": 9.56
+        },
+        {
+          "w": "is",
+          "start": 9.595,
+          "end": 9.665
+        },
+        {
+          "w": "played",
+          "start": 9.723,
+          "end": 9.99
+        },
+        {
+          "w": "by",
+          "start": 10.048,
+          "end": 10.164
+        },
+        {
+          "w": "over",
+          "start": 10.234,
+          "end": 10.408
+        },
+        {
+          "w": "250",
+          "start": 10.489,
+          "end": 11.453
+        },
+        {
+          "w": "million",
+          "start": 11.522,
+          "end": 11.789
+        },
+        {
+          "w": "people.",
+          "start": 11.847,
+          "end": 12.37
+        }
+      ]
     },
     {
       "beat": "s04",
       "text": "And yet, nobody can agree on who actually invented it.",
-      "start": 13.4,
-      "end": 16.4
+      "start": 12.761,
+      "end": 16.213,
+      "words": [
+        {
+          "w": "And",
+          "start": 12.811,
+          "end": 12.95
+        },
+        {
+          "w": "yet,",
+          "start": 13.008,
+          "end": 13.484
+        },
+        {
+          "w": "nobody",
+          "start": 13.693,
+          "end": 14.03
+        },
+        {
+          "w": "can",
+          "start": 14.077,
+          "end": 14.193
+        },
+        {
+          "w": "agree",
+          "start": 14.227,
+          "end": 14.587
+        },
+        {
+          "w": "on",
+          "start": 14.657,
+          "end": 14.785
+        },
+        {
+          "w": "who",
+          "start": 14.843,
+          "end": 15.029
+        },
+        {
+          "w": "actually",
+          "start": 15.121,
+          "end": 15.447
+        },
+        {
+          "w": "invented",
+          "start": 15.481,
+          "end": 15.864
+        },
+        {
+          "w": "it.",
+          "start": 15.911,
+          "end": 16.213
+        }
+      ]
     },
     {
       "beat": "s05",
       "text": "So let's settle it. Where did football really come from?",
-      "start": 17.6,
-      "end": 20.6
+      "start": 17.115,
+      "end": 20.972,
+      "words": [
+        {
+          "w": "So",
+          "start": 17.165,
+          "end": 17.316
+        },
+        {
+          "w": "let's",
+          "start": 17.385,
+          "end": 17.571
+        },
+        {
+          "w": "settle",
+          "start": 17.606,
+          "end": 17.861
+        },
+        {
+          "w": "it.",
+          "start": 17.896,
+          "end": 18.198
+        },
+        {
+          "w": "Where",
+          "start": 18.709,
+          "end": 18.952
+        },
+        {
+          "w": "did",
+          "start": 18.987,
+          "end": 19.103
+        },
+        {
+          "w": "football",
+          "start": 19.15,
+          "end": 19.521
+        },
+        {
+          "w": "really",
+          "start": 19.591,
+          "end": 19.823
+        },
+        {
+          "w": "come",
+          "start": 19.87,
+          "end": 20.044
+        },
+        {
+          "w": "from?",
+          "start": 20.079,
+          "end": 20.972
+        }
+      ]
     },
     {
       "beat": "s06",
       "text": "Our story starts in China, more than two thousand years ago.",
-      "start": 22.8,
-      "end": 25.8,
-      "chapterStart": true
+      "start": 21.661,
+      "end": 25.38,
+      "chapterStart": true,
+      "words": [
+        {
+          "w": "Our",
+          "start": 21.711,
+          "end": 21.897
+        },
+        {
+          "w": "story",
+          "start": 21.955,
+          "end": 22.338
+        },
+        {
+          "w": "starts",
+          "start": 22.408,
+          "end": 22.733
+        },
+        {
+          "w": "in",
+          "start": 22.779,
+          "end": 22.849
+        },
+        {
+          "w": "China,",
+          "start": 22.918,
+          "end": 23.464
+        },
+        {
+          "w": "more",
+          "start": 23.743,
+          "end": 23.894
+        },
+        {
+          "w": "than",
+          "start": 23.917,
+          "end": 24.045
+        },
+        {
+          "w": "two",
+          "start": 24.091,
+          "end": 24.265
+        },
+        {
+          "w": "thousand",
+          "start": 24.335,
+          "end": 24.648
+        },
+        {
+          "w": "years",
+          "start": 24.718,
+          "end": 24.904
+        },
+        {
+          "w": "ago.",
+          "start": 24.939,
+          "end": 25.38
+        }
+      ]
     },
     {
       "beat": "s07",
       "text": "In the city of Linzi, people were obsessed with a game called cuju.",
-      "start": 27.4,
-      "end": 30.4
+      "start": 26.142,
+      "end": 29.733,
+      "words": [
+        {
+          "w": "In",
+          "start": 26.192,
+          "end": 26.332
+        },
+        {
+          "w": "the",
+          "start": 26.367,
+          "end": 26.436
+        },
+        {
+          "w": "city",
+          "start": 26.483,
+          "end": 26.727
+        },
+        {
+          "w": "of",
+          "start": 26.773,
+          "end": 26.819
+        },
+        {
+          "w": "Linzi,",
+          "start": 26.889,
+          "end": 27.423
+        },
+        {
+          "w": "people",
+          "start": 27.481,
+          "end": 27.783
+        },
+        {
+          "w": "were",
+          "start": 27.806,
+          "end": 27.946
+        },
+        {
+          "w": "obsessed",
+          "start": 27.98,
+          "end": 28.375
+        },
+        {
+          "w": "with",
+          "start": 28.398,
+          "end": 28.503
+        },
+        {
+          "w": "a",
+          "start": 28.538,
+          "end": 28.572
+        },
+        {
+          "w": "game",
+          "start": 28.631,
+          "end": 28.863
+        },
+        {
+          "w": "called",
+          "start": 28.898,
+          "end": 29.107
+        },
+        {
+          "w": "cuju.",
+          "start": 29.153,
+          "end": 29.733
+        }
+      ]
     },
     {
       "beat": "s08",
       "text": "It literally means \"kick ball\". Simple name. Simple idea.",
-      "start": 32.6,
-      "end": 35.6
+      "start": 30.287,
+      "end": 34.819,
+      "words": [
+        {
+          "w": "It",
+          "start": 30.337,
+          "end": 30.477
+        },
+        {
+          "w": "literally",
+          "start": 30.535,
+          "end": 30.883
+        },
+        {
+          "w": "means",
+          "start": 30.941,
+          "end": 31.208
+        },
+        {
+          "w": "\"kick",
+          "start": 31.359,
+          "end": 31.696
+        },
+        {
+          "w": "ball\".",
+          "start": 31.765,
+          "end": 32.264
+        },
+        {
+          "w": "Simple",
+          "start": 32.775,
+          "end": 33.112
+        },
+        {
+          "w": "name.",
+          "start": 33.158,
+          "end": 33.623
+        },
+        {
+          "w": "Simple",
+          "start": 33.832,
+          "end": 34.168
+        },
+        {
+          "w": "idea.",
+          "start": 34.203,
+          "end": 34.819
+        }
+      ]
     },
     {
       "beat": "s09",
       "text": "The ball? Two pieces of leather, stitched together and stuffed with feathers.",
-      "start": 37.6,
-      "end": 40.6
+      "start": 35.883,
+      "end": 40.752,
+      "words": [
+        {
+          "w": "The",
+          "start": 35.933,
+          "end": 36.049
+        },
+        {
+          "w": "ball?",
+          "start": 36.096,
+          "end": 36.572
+        },
+        {
+          "w": "Two",
+          "start": 37.083,
+          "end": 37.303
+        },
+        {
+          "w": "pieces",
+          "start": 37.373,
+          "end": 37.686
+        },
+        {
+          "w": "of",
+          "start": 37.733,
+          "end": 37.791
+        },
+        {
+          "w": "leather,",
+          "start": 37.849,
+          "end": 38.255
+        },
+        {
+          "w": "stitched",
+          "start": 38.499,
+          "end": 38.847
+        },
+        {
+          "w": "together",
+          "start": 38.871,
+          "end": 39.254
+        },
+        {
+          "w": "and",
+          "start": 39.37,
+          "end": 39.532
+        },
+        {
+          "w": "stuffed",
+          "start": 39.614,
+          "end": 39.985
+        },
+        {
+          "w": "with",
+          "start": 40.032,
+          "end": 40.171
+        },
+        {
+          "w": "feathers.",
+          "start": 40.217,
+          "end": 40.752
+        }
+      ]
     },
     {
       "beat": "s10",
       "text": "Not exactly a World Cup match ball.",
-      "start": 43.0,
-      "end": 46.0
+      "start": 41.398,
+      "end": 43.48,
+      "words": [
+        {
+          "w": "Not",
+          "start": 41.448,
+          "end": 41.622
+        },
+        {
+          "w": "exactly",
+          "start": 41.68,
+          "end": 42.052
+        },
+        {
+          "w": "a",
+          "start": 42.098,
+          "end": 42.121
+        },
+        {
+          "w": "World",
+          "start": 42.191,
+          "end": 42.47
+        },
+        {
+          "w": "Cup",
+          "start": 42.528,
+          "end": 42.737
+        },
+        {
+          "w": "match",
+          "start": 42.83,
+          "end": 43.062
+        },
+        {
+          "w": "ball.",
+          "start": 43.097,
+          "end": 43.48
+        }
+      ]
     },
     {
       "beat": "s11",
       "text": "But the emperors loved it. Emperor Gaozu built a cuju court right at his palace.",
-      "start": 46.1,
-      "end": 49.1
+      "start": 44.034,
+      "end": 48.902,
+      "words": [
+        {
+          "w": "But",
+          "start": 44.084,
+          "end": 44.234
+        },
+        {
+          "w": "the",
+          "start": 44.269,
+          "end": 44.339
+        },
+        {
+          "w": "emperors",
+          "start": 44.42,
+          "end": 44.838
+        },
+        {
+          "w": "loved",
+          "start": 44.896,
+          "end": 45.105
+        },
+        {
+          "w": "it.",
+          "start": 45.152,
+          "end": 45.419
+        },
+        {
+          "w": "Emperor",
+          "start": 45.86,
+          "end": 46.208
+        },
+        {
+          "w": "Gaozu",
+          "start": 46.278,
+          "end": 46.684
+        },
+        {
+          "w": "built",
+          "start": 46.765,
+          "end": 46.998
+        },
+        {
+          "w": "a",
+          "start": 47.044,
+          "end": 47.079
+        },
+        {
+          "w": "cuju",
+          "start": 47.149,
+          "end": 47.485
+        },
+        {
+          "w": "court",
+          "start": 47.543,
+          "end": 47.799
+        },
+        {
+          "w": "right",
+          "start": 47.88,
+          "end": 48.112
+        },
+        {
+          "w": "at",
+          "start": 48.159,
+          "end": 48.228
+        },
+        {
+          "w": "his",
+          "start": 48.275,
+          "end": 48.368
+        },
+        {
+          "w": "palace.",
+          "start": 48.426,
+          "end": 48.902
+        }
+      ]
     },
     {
       "beat": "s12",
       "text": "Generals used it to train their soldiers.",
-      "start": 52.6,
-      "end": 55.6
+      "start": 49.363,
+      "end": 51.445,
+      "words": [
+        {
+          "w": "Generals",
+          "start": 49.413,
+          "end": 49.819
+        },
+        {
+          "w": "used",
+          "start": 49.889,
+          "end": 50.074
+        },
+        {
+          "w": "it",
+          "start": 50.121,
+          "end": 50.202
+        },
+        {
+          "w": "to",
+          "start": 50.248,
+          "end": 50.318
+        },
+        {
+          "w": "train",
+          "start": 50.376,
+          "end": 50.597
+        },
+        {
+          "w": "their",
+          "start": 50.643,
+          "end": 50.783
+        },
+        {
+          "w": "soldiers.",
+          "start": 50.818,
+          "end": 51.445
+        }
+      ]
     },
     {
       "beat": "s13",
       "text": "Later, there were cuju clubs, touring teams, even professional players.",
-      "start": 55.7,
-      "end": 58.7,
-      "topicShift": true
+      "start": 53.009,
+      "end": 57.715,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "Later,",
+          "start": 53.059,
+          "end": 53.593
+        },
+        {
+          "w": "there",
+          "start": 53.686,
+          "end": 53.86
+        },
+        {
+          "w": "were",
+          "start": 53.895,
+          "end": 54.011
+        },
+        {
+          "w": "cuju",
+          "start": 54.046,
+          "end": 54.429
+        },
+        {
+          "w": "clubs,",
+          "start": 54.499,
+          "end": 55.033
+        },
+        {
+          "w": "touring",
+          "start": 55.161,
+          "end": 55.509
+        },
+        {
+          "w": "teams,",
+          "start": 55.567,
+          "end": 56.113
+        },
+        {
+          "w": "even",
+          "start": 56.287,
+          "end": 56.554
+        },
+        {
+          "w": "professional",
+          "start": 56.612,
+          "end": 57.134
+        },
+        {
+          "w": "players.",
+          "start": 57.192,
+          "end": 57.715
+        }
+      ]
     },
     {
       "beat": "s14",
       "text": "Centuries before anyone had heard of a transfer window.",
-      "start": 59.9,
-      "end": 62.9
+      "start": 58.269,
+      "end": 61.128,
+      "words": [
+        {
+          "w": "Centuries",
+          "start": 58.319,
+          "end": 58.806
+        },
+        {
+          "w": "before",
+          "start": 58.864,
+          "end": 59.143
+        },
+        {
+          "w": "anyone",
+          "start": 59.201,
+          "end": 59.526
+        },
+        {
+          "w": "had",
+          "start": 59.561,
+          "end": 59.654
+        },
+        {
+          "w": "heard",
+          "start": 59.712,
+          "end": 59.967
+        },
+        {
+          "w": "of",
+          "start": 60.025,
+          "end": 60.083
+        },
+        {
+          "w": "a",
+          "start": 60.118,
+          "end": 60.153
+        },
+        {
+          "w": "transfer",
+          "start": 60.188,
+          "end": 60.583
+        },
+        {
+          "w": "window.",
+          "start": 60.641,
+          "end": 61.128
+        }
+      ]
     },
     {
       "beat": "s15",
       "text": "Then a Ming emperor banned it. And the punishment could include losing a foot.",
-      "start": 63.7,
-      "end": 66.7,
-      "topicShift": true
+      "start": 62.275,
+      "end": 67.642,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "Then",
+          "start": 62.325,
+          "end": 62.662
+        },
+        {
+          "w": "a",
+          "start": 62.789,
+          "end": 62.882
+        },
+        {
+          "w": "Ming",
+          "start": 62.963,
+          "end": 63.207
+        },
+        {
+          "w": "emperor",
+          "start": 63.3,
+          "end": 63.695
+        },
+        {
+          "w": "banned",
+          "start": 63.869,
+          "end": 64.159
+        },
+        {
+          "w": "it.",
+          "start": 64.217,
+          "end": 64.519
+        },
+        {
+          "w": "And",
+          "start": 65.216,
+          "end": 65.343
+        },
+        {
+          "w": "the",
+          "start": 65.39,
+          "end": 65.46
+        },
+        {
+          "w": "punishment",
+          "start": 65.506,
+          "end": 66.005
+        },
+        {
+          "w": "could",
+          "start": 66.098,
+          "end": 66.284
+        },
+        {
+          "w": "include",
+          "start": 66.319,
+          "end": 66.748
+        },
+        {
+          "w": "losing",
+          "start": 66.806,
+          "end": 67.085
+        },
+        {
+          "w": "a",
+          "start": 67.12,
+          "end": 67.143
+        },
+        {
+          "w": "foot.",
+          "start": 67.201,
+          "end": 67.642
+        }
+      ]
     },
     {
       "beat": "s16",
       "text": "Which, for a football player, is a very serious red card.",
-      "start": 69.8,
-      "end": 72.8
+      "start": 67.975,
+      "end": 71.578,
+      "words": [
+        {
+          "w": "Which,",
+          "start": 68.025,
+          "end": 68.513
+        },
+        {
+          "w": "for",
+          "start": 68.571,
+          "end": 68.711
+        },
+        {
+          "w": "a",
+          "start": 68.746,
+          "end": 68.78
+        },
+        {
+          "w": "football",
+          "start": 68.827,
+          "end": 69.187
+        },
+        {
+          "w": "player,",
+          "start": 69.233,
+          "end": 69.709
+        },
+        {
+          "w": "is",
+          "start": 69.86,
+          "end": 70.011
+        },
+        {
+          "w": "a",
+          "start": 70.058,
+          "end": 70.092
+        },
+        {
+          "w": "very",
+          "start": 70.162,
+          "end": 70.406
+        },
+        {
+          "w": "serious",
+          "start": 70.487,
+          "end": 70.905
+        },
+        {
+          "w": "red",
+          "start": 70.963,
+          "end": 71.102
+        },
+        {
+          "w": "card.",
+          "start": 71.161,
+          "end": 71.578
+        }
+      ]
     },
     {
       "beat": "s17",
       "text": "But here's the twist. There's no evidence that cuju shaped the football we play today.",
-      "start": 74.3,
-      "end": 77.3,
-      "topicShift": true
+      "start": 73.329,
+      "end": 78.209,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "But",
+          "start": 73.379,
+          "end": 73.53
+        },
+        {
+          "w": "here's",
+          "start": 73.565,
+          "end": 73.762
+        },
+        {
+          "w": "the",
+          "start": 73.797,
+          "end": 73.866
+        },
+        {
+          "w": "twist.",
+          "start": 73.913,
+          "end": 74.424
+        },
+        {
+          "w": "There's",
+          "start": 74.935,
+          "end": 75.167
+        },
+        {
+          "w": "no",
+          "start": 75.225,
+          "end": 75.364
+        },
+        {
+          "w": "evidence",
+          "start": 75.445,
+          "end": 75.829
+        },
+        {
+          "w": "that",
+          "start": 75.863,
+          "end": 76.003
+        },
+        {
+          "w": "cuju",
+          "start": 76.049,
+          "end": 76.339
+        },
+        {
+          "w": "shaped",
+          "start": 76.432,
+          "end": 76.734
+        },
+        {
+          "w": "the",
+          "start": 76.792,
+          "end": 76.862
+        },
+        {
+          "w": "football",
+          "start": 76.897,
+          "end": 77.257
+        },
+        {
+          "w": "we",
+          "start": 77.315,
+          "end": 77.407
+        },
+        {
+          "w": "play",
+          "start": 77.454,
+          "end": 77.628
+        },
+        {
+          "w": "today.",
+          "start": 77.686,
+          "end": 78.209
+        }
+      ]
     },
     {
       "beat": "s18",
       "text": "To find that, we need to look somewhere else.",
-      "start": 80.9,
-      "end": 83.9
+      "start": 79.273,
+      "end": 82.887,
+      "words": [
+        {
+          "w": "To",
+          "start": 79.323,
+          "end": 79.439
+        },
+        {
+          "w": "find",
+          "start": 79.509,
+          "end": 79.718
+        },
+        {
+          "w": "that,",
+          "start": 79.764,
+          "end": 80.182
+        },
+        {
+          "w": "we",
+          "start": 80.356,
+          "end": 80.461
+        },
+        {
+          "w": "need",
+          "start": 80.507,
+          "end": 80.647
+        },
+        {
+          "w": "to",
+          "start": 80.67,
+          "end": 80.716
+        },
+        {
+          "w": "look",
+          "start": 80.763,
+          "end": 80.925
+        },
+        {
+          "w": "somewhere",
+          "start": 80.983,
+          "end": 81.285
+        },
+        {
+          "w": "else.",
+          "start": 81.32,
+          "end": 82.887
+        }
+      ]
     },
     {
       "beat": "s19",
       "text": "The ancient Greeks had a ball game called episkyros. But they mostly carried and threw the ball.",
-      "start": 85.2,
-      "end": 88.2,
-      "chapterStart": true
+      "start": 83.577,
+      "end": 89.188,
+      "chapterStart": true,
+      "words": [
+        {
+          "w": "The",
+          "start": 83.627,
+          "end": 83.79
+        },
+        {
+          "w": "ancient",
+          "start": 83.848,
+          "end": 84.149
+        },
+        {
+          "w": "Greeks",
+          "start": 84.207,
+          "end": 84.544
+        },
+        {
+          "w": "had",
+          "start": 84.591,
+          "end": 84.707
+        },
+        {
+          "w": "a",
+          "start": 84.742,
+          "end": 84.765
+        },
+        {
+          "w": "ball",
+          "start": 84.823,
+          "end": 85.032
+        },
+        {
+          "w": "game",
+          "start": 85.09,
+          "end": 85.322
+        },
+        {
+          "w": "called",
+          "start": 85.368,
+          "end": 85.589
+        },
+        {
+          "w": "episkyros.",
+          "start": 85.659,
+          "end": 86.611
+        },
+        {
+          "w": "But",
+          "start": 87.214,
+          "end": 87.354
+        },
+        {
+          "w": "they",
+          "start": 87.377,
+          "end": 87.482
+        },
+        {
+          "w": "mostly",
+          "start": 87.54,
+          "end": 87.853
+        },
+        {
+          "w": "carried",
+          "start": 87.911,
+          "end": 88.271
+        },
+        {
+          "w": "and",
+          "start": 88.306,
+          "end": 88.387
+        },
+        {
+          "w": "threw",
+          "start": 88.434,
+          "end": 88.643
+        },
+        {
+          "w": "the",
+          "start": 88.701,
+          "end": 88.77
+        },
+        {
+          "w": "ball.",
+          "start": 88.805,
+          "end": 89.188
+        }
+      ]
     },
     {
       "beat": "s20",
       "text": "So that's less football, more rugby.",
-      "start": 92.4,
-      "end": 95.4
+      "start": 89.579,
+      "end": 91.673,
+      "words": [
+        {
+          "w": "So",
+          "start": 89.629,
+          "end": 89.757
+        },
+        {
+          "w": "that's",
+          "start": 89.804,
+          "end": 90.001
+        },
+        {
+          "w": "less",
+          "start": 90.059,
+          "end": 90.256
+        },
+        {
+          "w": "football,",
+          "start": 90.291,
+          "end": 90.825
+        },
+        {
+          "w": "more",
+          "start": 90.895,
+          "end": 91.092
+        },
+        {
+          "w": "rugby.",
+          "start": 91.127,
+          "end": 91.673
+        }
+      ]
     },
     {
       "beat": "s21",
       "text": "In Japan, nobles played kemari, working together to keep a deerskin ball in the air.",
-      "start": 95.1,
-      "end": 98.1,
-      "topicShift": true
+      "start": 92.634,
+      "end": 98.152,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "In",
+          "start": 92.684,
+          "end": 92.811
+        },
+        {
+          "w": "Japan,",
+          "start": 92.858,
+          "end": 93.45
+        },
+        {
+          "w": "nobles",
+          "start": 93.624,
+          "end": 94.054
+        },
+        {
+          "w": "played",
+          "start": 94.112,
+          "end": 94.355
+        },
+        {
+          "w": "kemari,",
+          "start": 94.402,
+          "end": 95.052
+        },
+        {
+          "w": "working",
+          "start": 95.493,
+          "end": 95.841
+        },
+        {
+          "w": "together",
+          "start": 95.888,
+          "end": 96.236
+        },
+        {
+          "w": "to",
+          "start": 96.306,
+          "end": 96.387
+        },
+        {
+          "w": "keep",
+          "start": 96.445,
+          "end": 96.608
+        },
+        {
+          "w": "a",
+          "start": 96.654,
+          "end": 96.677
+        },
+        {
+          "w": "deerskin",
+          "start": 96.735,
+          "end": 97.188
+        },
+        {
+          "w": "ball",
+          "start": 97.258,
+          "end": 97.49
+        },
+        {
+          "w": "in",
+          "start": 97.548,
+          "end": 97.606
+        },
+        {
+          "w": "the",
+          "start": 97.641,
+          "end": 97.711
+        },
+        {
+          "w": "air.",
+          "start": 97.769,
+          "end": 98.152
+        }
+      ]
     },
     {
       "beat": "s22",
       "text": "No winners. No losers. Very polite. Very un-football.",
-      "start": 101.0,
-      "end": 104.0
+      "start": 98.613,
+      "end": 104.189,
+      "words": [
+        {
+          "w": "No",
+          "start": 98.663,
+          "end": 98.813
+        },
+        {
+          "w": "winners.",
+          "start": 98.872,
+          "end": 99.406
+        },
+        {
+          "w": "No",
+          "start": 99.615,
+          "end": 99.766
+        },
+        {
+          "w": "losers.",
+          "start": 99.847,
+          "end": 100.427
+        },
+        {
+          "w": "Very",
+          "start": 101.031,
+          "end": 101.298
+        },
+        {
+          "w": "polite.",
+          "start": 101.356,
+          "end": 101.937
+        },
+        {
+          "w": "Very",
+          "start": 102.378,
+          "end": 102.645
+        },
+        {
+          "w": "un-football.",
+          "start": 102.714,
+          "end": 104.189
+        }
+      ]
     },
     {
       "beat": "s23",
       "text": "So let's jump to medieval England. Picture this. One village against the next.",
-      "start": 106.8,
-      "end": 109.8,
-      "chapterStart": true
+      "start": 104.865,
+      "end": 109.814,
+      "chapterStart": true,
+      "words": [
+        {
+          "w": "So",
+          "start": 104.915,
+          "end": 105.078
+        },
+        {
+          "w": "let's",
+          "start": 105.147,
+          "end": 105.333
+        },
+        {
+          "w": "jump",
+          "start": 105.391,
+          "end": 105.6
+        },
+        {
+          "w": "to",
+          "start": 105.67,
+          "end": 105.739
+        },
+        {
+          "w": "medieval",
+          "start": 105.809,
+          "end": 106.239
+        },
+        {
+          "w": "England.",
+          "start": 106.308,
+          "end": 106.784
+        },
+        {
+          "w": "Picture",
+          "start": 107.098,
+          "end": 107.411
+        },
+        {
+          "w": "this.",
+          "start": 107.434,
+          "end": 107.852
+        },
+        {
+          "w": "One",
+          "start": 108.34,
+          "end": 108.561
+        },
+        {
+          "w": "village",
+          "start": 108.595,
+          "end": 108.932
+        },
+        {
+          "w": "against",
+          "start": 108.967,
+          "end": 109.246
+        },
+        {
+          "w": "the",
+          "start": 109.28,
+          "end": 109.35
+        },
+        {
+          "w": "next.",
+          "start": 109.396,
+          "end": 109.814
+        }
+      ]
     },
     {
       "beat": "s24",
       "text": "Any number of players. One ball. Almost no rules.",
-      "start": 113.2,
-      "end": 116.2
+      "start": 110.136,
+      "end": 114.4,
+      "words": [
+        {
+          "w": "Any",
+          "start": 110.186,
+          "end": 110.395
+        },
+        {
+          "w": "number",
+          "start": 110.453,
+          "end": 110.685
+        },
+        {
+          "w": "of",
+          "start": 110.732,
+          "end": 110.778
+        },
+        {
+          "w": "players.",
+          "start": 110.824,
+          "end": 111.324
+        },
+        {
+          "w": "One",
+          "start": 111.893,
+          "end": 112.136
+        },
+        {
+          "w": "ball.",
+          "start": 112.183,
+          "end": 112.659
+        },
+        {
+          "w": "Almost",
+          "start": 113.228,
+          "end": 113.669
+        },
+        {
+          "w": "no",
+          "start": 113.75,
+          "end": 113.866
+        },
+        {
+          "w": "rules.",
+          "start": 113.948,
+          "end": 114.4
+        }
+      ]
     },
     {
       "beat": "s25",
       "text": "They called it mob football, and it was exactly as chaotic as it sounds.",
-      "start": 118.2,
-      "end": 121.2
+      "start": 114.931,
+      "end": 119.01,
+      "words": [
+        {
+          "w": "They",
+          "start": 114.981,
+          "end": 115.132
+        },
+        {
+          "w": "called",
+          "start": 115.178,
+          "end": 115.399
+        },
+        {
+          "w": "it",
+          "start": 115.434,
+          "end": 115.503
+        },
+        {
+          "w": "mob",
+          "start": 115.573,
+          "end": 115.782
+        },
+        {
+          "w": "football,",
+          "start": 115.84,
+          "end": 116.386
+        },
+        {
+          "w": "and",
+          "start": 116.699,
+          "end": 116.827
+        },
+        {
+          "w": "it",
+          "start": 116.885,
+          "end": 116.943
+        },
+        {
+          "w": "was",
+          "start": 116.978,
+          "end": 117.059
+        },
+        {
+          "w": "exactly",
+          "start": 117.117,
+          "end": 117.57
+        },
+        {
+          "w": "as",
+          "start": 117.605,
+          "end": 117.675
+        },
+        {
+          "w": "chaotic",
+          "start": 117.744,
+          "end": 118.186
+        },
+        {
+          "w": "as",
+          "start": 118.255,
+          "end": 118.36
+        },
+        {
+          "w": "it",
+          "start": 118.406,
+          "end": 118.476
+        },
+        {
+          "w": "sounds.",
+          "start": 118.511,
+          "end": 119.01
+        }
+      ]
     },
     {
       "beat": "s26",
       "text": "Then came April 13th, 1314. London merchants had had enough of the noise,",
-      "start": 123.8,
-      "end": 126.8,
-      "topicShift": true
+      "start": 120.04,
+      "end": 125.861,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "Then",
+          "start": 120.09,
+          "end": 120.311
+        },
+        {
+          "w": "came",
+          "start": 120.392,
+          "end": 120.683
+        },
+        {
+          "w": "April",
+          "start": 120.741,
+          "end": 121.042
+        },
+        {
+          "w": "13th,",
+          "start": 121.089,
+          "end": 121.762
+        },
+        {
+          "w": "1314.",
+          "start": 121.971,
+          "end": 123.097
+        },
+        {
+          "w": "London",
+          "start": 123.701,
+          "end": 124.038
+        },
+        {
+          "w": "merchants",
+          "start": 124.108,
+          "end": 124.572
+        },
+        {
+          "w": "had",
+          "start": 124.607,
+          "end": 124.711
+        },
+        {
+          "w": "had",
+          "start": 124.758,
+          "end": 124.862
+        },
+        {
+          "w": "enough",
+          "start": 124.92,
+          "end": 125.164
+        },
+        {
+          "w": "of",
+          "start": 125.199,
+          "end": 125.257
+        },
+        {
+          "w": "the",
+          "start": 125.303,
+          "end": 125.373
+        },
+        {
+          "w": "noise,",
+          "start": 125.431,
+          "end": 125.861
+        }
+      ]
     },
     {
       "beat": "s27",
       "text": "and King Edward the Second banned football in the city.",
-      "start": 128.5,
-      "end": 131.5
+      "start": 126.043,
+      "end": 128.844,
+      "words": [
+        {
+          "w": "and",
+          "start": 126.093,
+          "end": 126.232
+        },
+        {
+          "w": "King",
+          "start": 126.29,
+          "end": 126.453
+        },
+        {
+          "w": "Edward",
+          "start": 126.511,
+          "end": 126.766
+        },
+        {
+          "w": "the",
+          "start": 126.789,
+          "end": 126.859
+        },
+        {
+          "w": "Second",
+          "start": 126.917,
+          "end": 127.277
+        },
+        {
+          "w": "banned",
+          "start": 127.358,
+          "end": 127.649
+        },
+        {
+          "w": "football",
+          "start": 127.695,
+          "end": 128.101
+        },
+        {
+          "w": "in",
+          "start": 128.159,
+          "end": 128.217
+        },
+        {
+          "w": "the",
+          "start": 128.252,
+          "end": 128.322
+        },
+        {
+          "w": "city.",
+          "start": 128.357,
+          "end": 128.844
+        }
+      ]
     },
     {
       "beat": "s28",
       "text": "Did it work? Of course not.",
-      "start": 132.7,
-      "end": 135.7
+      "start": 129.897,
+      "end": 132.223,
+      "words": [
+        {
+          "w": "Did",
+          "start": 129.947,
+          "end": 130.11
+        },
+        {
+          "w": "it",
+          "start": 130.156,
+          "end": 130.226
+        },
+        {
+          "w": "work?",
+          "start": 130.272,
+          "end": 130.772
+        },
+        {
+          "w": "Of",
+          "start": 131.375,
+          "end": 131.491
+        },
+        {
+          "w": "course",
+          "start": 131.561,
+          "end": 131.817
+        },
+        {
+          "w": "not.",
+          "start": 131.863,
+          "end": 132.223
+        }
+      ]
     },
     {
       "beat": "s29",
       "text": "His son Edward the Third banned it too.",
-      "start": 136.0,
-      "end": 139.0
+      "start": 132.777,
+      "end": 135.044,
+      "words": [
+        {
+          "w": "His",
+          "start": 132.827,
+          "end": 133.001
+        },
+        {
+          "w": "son",
+          "start": 133.059,
+          "end": 133.314
+        },
+        {
+          "w": "Edward",
+          "start": 133.396,
+          "end": 133.663
+        },
+        {
+          "w": "the",
+          "start": 133.697,
+          "end": 133.767
+        },
+        {
+          "w": "Third",
+          "start": 133.825,
+          "end": 134.127
+        },
+        {
+          "w": "banned",
+          "start": 134.185,
+          "end": 134.429
+        },
+        {
+          "w": "it",
+          "start": 134.475,
+          "end": 134.545
+        },
+        {
+          "w": "too.",
+          "start": 134.591,
+          "end": 135.044
+        }
+      ]
     },
     {
       "beat": "s30",
       "text": "He wanted men practising archery for war, not chasing a ball.",
-      "start": 136.0,
-      "end": 139.0
+      "start": 135.598,
+      "end": 139.664,
+      "words": [
+        {
+          "w": "He",
+          "start": 135.648,
+          "end": 135.775
+        },
+        {
+          "w": "wanted",
+          "start": 135.845,
+          "end": 136.147
+        },
+        {
+          "w": "men",
+          "start": 136.216,
+          "end": 136.437
+        },
+        {
+          "w": "practising",
+          "start": 136.53,
+          "end": 136.982
+        },
+        {
+          "w": "archery",
+          "start": 137.041,
+          "end": 137.412
+        },
+        {
+          "w": "for",
+          "start": 137.458,
+          "end": 137.563
+        },
+        {
+          "w": "war,",
+          "start": 137.621,
+          "end": 138.074
+        },
+        {
+          "w": "not",
+          "start": 138.352,
+          "end": 138.631
+        },
+        {
+          "w": "chasing",
+          "start": 138.712,
+          "end": 139.061
+        },
+        {
+          "w": "a",
+          "start": 139.107,
+          "end": 139.13
+        },
+        {
+          "w": "ball.",
+          "start": 139.188,
+          "end": 139.664
+        }
+      ]
     },
     {
       "beat": "s31",
       "text": "Between 1314 and 1667, England passed more than thirty laws against football.",
-      "start": 144.0,
-      "end": 147.0,
-      "topicShift": true
+      "start": 141.229,
+      "end": 147.281,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "Between",
+          "start": 141.279,
+          "end": 141.627
+        },
+        {
+          "w": "1314",
+          "start": 141.685,
+          "end": 142.649
+        },
+        {
+          "w": "and",
+          "start": 142.765,
+          "end": 142.916
+        },
+        {
+          "w": "1667,",
+          "start": 142.986,
+          "end": 144.309
+        },
+        {
+          "w": "England",
+          "start": 144.483,
+          "end": 144.832
+        },
+        {
+          "w": "passed",
+          "start": 144.913,
+          "end": 145.284
+        },
+        {
+          "w": "more",
+          "start": 145.342,
+          "end": 145.47
+        },
+        {
+          "w": "than",
+          "start": 145.493,
+          "end": 145.609
+        },
+        {
+          "w": "thirty",
+          "start": 145.679,
+          "end": 146.004
+        },
+        {
+          "w": "laws",
+          "start": 146.085,
+          "end": 146.387
+        },
+        {
+          "w": "against",
+          "start": 146.434,
+          "end": 146.701
+        },
+        {
+          "w": "football.",
+          "start": 146.736,
+          "end": 147.281
+        }
+      ]
     },
     {
       "beat": "s32",
       "text": "Football won every single time.",
-      "start": 148.8,
-      "end": 151.8
+      "start": 147.835,
+      "end": 150.962,
+      "words": [
+        {
+          "w": "Football",
+          "start": 147.885,
+          "end": 148.373
+        },
+        {
+          "w": "won",
+          "start": 148.466,
+          "end": 148.709
+        },
+        {
+          "w": "every",
+          "start": 148.802,
+          "end": 149.034
+        },
+        {
+          "w": "single",
+          "start": 149.081,
+          "end": 149.359
+        },
+        {
+          "w": "time.",
+          "start": 149.394,
+          "end": 150.962
+        }
+      ]
     },
     {
       "beat": "s33",
       "text": "But there was still a huge problem. Every school in England played by its own rules.",
-      "start": 151.7,
-      "end": 154.7,
-      "chapterStart": true
+      "start": 151.652,
+      "end": 156.091,
+      "chapterStart": true,
+      "words": [
+        {
+          "w": "But",
+          "start": 151.702,
+          "end": 151.899
+        },
+        {
+          "w": "there",
+          "start": 151.923,
+          "end": 152.05
+        },
+        {
+          "w": "was",
+          "start": 152.074,
+          "end": 152.166
+        },
+        {
+          "w": "still",
+          "start": 152.201,
+          "end": 152.399
+        },
+        {
+          "w": "a",
+          "start": 152.445,
+          "end": 152.468
+        },
+        {
+          "w": "huge",
+          "start": 152.538,
+          "end": 152.875
+        },
+        {
+          "w": "problem.",
+          "start": 152.921,
+          "end": 153.409
+        },
+        {
+          "w": "Every",
+          "start": 153.652,
+          "end": 153.92
+        },
+        {
+          "w": "school",
+          "start": 153.978,
+          "end": 154.279
+        },
+        {
+          "w": "in",
+          "start": 154.326,
+          "end": 154.384
+        },
+        {
+          "w": "England",
+          "start": 154.442,
+          "end": 154.721
+        },
+        {
+          "w": "played",
+          "start": 154.802,
+          "end": 155.081
+        },
+        {
+          "w": "by",
+          "start": 155.115,
+          "end": 155.22
+        },
+        {
+          "w": "its",
+          "start": 155.278,
+          "end": 155.394
+        },
+        {
+          "w": "own",
+          "start": 155.44,
+          "end": 155.568
+        },
+        {
+          "w": "rules.",
+          "start": 155.615,
+          "end": 156.091
+        }
+      ]
     },
     {
       "beat": "s34",
       "text": "In some, you could catch the ball.",
-      "start": 158.6,
-      "end": 161.6
+      "start": 156.482,
+      "end": 158.389,
+      "words": [
+        {
+          "w": "In",
+          "start": 156.532,
+          "end": 156.671
+        },
+        {
+          "w": "some,",
+          "start": 156.741,
+          "end": 157.17
+        },
+        {
+          "w": "you",
+          "start": 157.298,
+          "end": 157.379
+        },
+        {
+          "w": "could",
+          "start": 157.426,
+          "end": 157.553
+        },
+        {
+          "w": "catch",
+          "start": 157.588,
+          "end": 157.832
+        },
+        {
+          "w": "the",
+          "start": 157.867,
+          "end": 157.937
+        },
+        {
+          "w": "ball.",
+          "start": 157.983,
+          "end": 158.389
+        }
+      ]
     },
     {
       "beat": "s35",
       "text": "In others, you could kick your opponent in the shins. Yes, really.",
-      "start": 158.6,
-      "end": 161.6
+      "start": 158.943,
+      "end": 163.869,
+      "words": [
+        {
+          "w": "In",
+          "start": 158.993,
+          "end": 159.132
+        },
+        {
+          "w": "others,",
+          "start": 159.179,
+          "end": 159.655
+        },
+        {
+          "w": "you",
+          "start": 159.829,
+          "end": 159.91
+        },
+        {
+          "w": "could",
+          "start": 159.957,
+          "end": 160.084
+        },
+        {
+          "w": "kick",
+          "start": 160.119,
+          "end": 160.305
+        },
+        {
+          "w": "your",
+          "start": 160.351,
+          "end": 160.479
+        },
+        {
+          "w": "opponent",
+          "start": 160.514,
+          "end": 160.955
+        },
+        {
+          "w": "in",
+          "start": 161.002,
+          "end": 161.071
+        },
+        {
+          "w": "the",
+          "start": 161.106,
+          "end": 161.176
+        },
+        {
+          "w": "shins.",
+          "start": 161.211,
+          "end": 161.768
+        },
+        {
+          "w": "Yes,",
+          "start": 162.372,
+          "end": 162.952
+        },
+        {
+          "w": "really.",
+          "start": 163.393,
+          "end": 163.869
+        }
+      ]
     },
     {
       "beat": "s36",
       "text": "In 1848, students at Cambridge tried to write one set of rules for everyone.",
-      "start": 167.1,
-      "end": 170.1,
-      "topicShift": true
+      "start": 164.923,
+      "end": 169.895,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "In",
+          "start": 164.973,
+          "end": 165.112
+        },
+        {
+          "w": "1848,",
+          "start": 165.147,
+          "end": 166.227
+        },
+        {
+          "w": "students",
+          "start": 166.47,
+          "end": 166.935
+        },
+        {
+          "w": "at",
+          "start": 166.97,
+          "end": 167.051
+        },
+        {
+          "w": "Cambridge",
+          "start": 167.109,
+          "end": 167.608
+        },
+        {
+          "w": "tried",
+          "start": 167.643,
+          "end": 167.887
+        },
+        {
+          "w": "to",
+          "start": 167.91,
+          "end": 167.956
+        },
+        {
+          "w": "write",
+          "start": 168.015,
+          "end": 168.305
+        },
+        {
+          "w": "one",
+          "start": 168.363,
+          "end": 168.572
+        },
+        {
+          "w": "set",
+          "start": 168.618,
+          "end": 168.792
+        },
+        {
+          "w": "of",
+          "start": 168.839,
+          "end": 168.885
+        },
+        {
+          "w": "rules",
+          "start": 168.943,
+          "end": 169.21
+        },
+        {
+          "w": "for",
+          "start": 169.257,
+          "end": 169.35
+        },
+        {
+          "w": "everyone.",
+          "start": 169.396,
+          "end": 169.895
+        }
+      ]
     },
     {
       "beat": "s37",
       "text": "In 1857, a group of cricket players in Sheffield wanted to stay fit through the winter.",
-      "start": 172.7,
-      "end": 175.7,
-      "topicShift": true
+      "start": 171.158,
+      "end": 176.421,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "In",
+          "start": 171.208,
+          "end": 171.347
+        },
+        {
+          "w": "1857,",
+          "start": 171.382,
+          "end": 172.566
+        },
+        {
+          "w": "a",
+          "start": 172.717,
+          "end": 172.787
+        },
+        {
+          "w": "group",
+          "start": 172.857,
+          "end": 173.042
+        },
+        {
+          "w": "of",
+          "start": 173.089,
+          "end": 173.147
+        },
+        {
+          "w": "cricket",
+          "start": 173.205,
+          "end": 173.495
+        },
+        {
+          "w": "players",
+          "start": 173.53,
+          "end": 173.82
+        },
+        {
+          "w": "in",
+          "start": 173.867,
+          "end": 173.936
+        },
+        {
+          "w": "Sheffield",
+          "start": 173.994,
+          "end": 174.436
+        },
+        {
+          "w": "wanted",
+          "start": 174.552,
+          "end": 174.877
+        },
+        {
+          "w": "to",
+          "start": 174.9,
+          "end": 174.958
+        },
+        {
+          "w": "stay",
+          "start": 175.005,
+          "end": 175.19
+        },
+        {
+          "w": "fit",
+          "start": 175.283,
+          "end": 175.539
+        },
+        {
+          "w": "through",
+          "start": 175.608,
+          "end": 175.817
+        },
+        {
+          "w": "the",
+          "start": 175.84,
+          "end": 175.91
+        },
+        {
+          "w": "winter.",
+          "start": 175.945,
+          "end": 176.421
+        }
+      ]
     },
     {
       "beat": "s38",
       "text": "So they founded Sheffield Football Club, recognised by FIFA as the oldest football club in the world.",
-      "start": 179.0,
-      "end": 182.0
+      "start": 177.323,
+      "end": 183.817,
+      "words": [
+        {
+          "w": "So",
+          "start": 177.373,
+          "end": 177.501
+        },
+        {
+          "w": "they",
+          "start": 177.559,
+          "end": 177.663
+        },
+        {
+          "w": "founded",
+          "start": 177.733,
+          "end": 178.151
+        },
+        {
+          "w": "Sheffield",
+          "start": 178.267,
+          "end": 178.743
+        },
+        {
+          "w": "Football",
+          "start": 178.801,
+          "end": 179.161
+        },
+        {
+          "w": "Club,",
+          "start": 179.207,
+          "end": 179.556
+        },
+        {
+          "w": "recognised",
+          "start": 180.066,
+          "end": 180.647
+        },
+        {
+          "w": "by",
+          "start": 180.693,
+          "end": 180.809
+        },
+        {
+          "w": "FIFA",
+          "start": 180.902,
+          "end": 181.309
+        },
+        {
+          "w": "as",
+          "start": 181.425,
+          "end": 181.599
+        },
+        {
+          "w": "the",
+          "start": 181.646,
+          "end": 181.716
+        },
+        {
+          "w": "oldest",
+          "start": 181.797,
+          "end": 182.157
+        },
+        {
+          "w": "football",
+          "start": 182.203,
+          "end": 182.54
+        },
+        {
+          "w": "club",
+          "start": 182.586,
+          "end": 182.818
+        },
+        {
+          "w": "in",
+          "start": 182.9,
+          "end": 182.993
+        },
+        {
+          "w": "the",
+          "start": 183.027,
+          "end": 183.097
+        },
+        {
+          "w": "world.",
+          "start": 183.144,
+          "end": 183.817
+        }
+      ]
     },
     {
       "beat": "s39",
       "text": "And then, on a Monday evening in October 1863, everything changed.",
-      "start": 186.1,
-      "end": 189.1,
-      "chapterStart": true
+      "start": 184.516,
+      "end": 189.674,
+      "chapterStart": true,
+      "words": [
+        {
+          "w": "And",
+          "start": 184.566,
+          "end": 184.752
+        },
+        {
+          "w": "then,",
+          "start": 184.81,
+          "end": 185.309
+        },
+        {
+          "w": "on",
+          "start": 185.425,
+          "end": 185.553
+        },
+        {
+          "w": "a",
+          "start": 185.588,
+          "end": 185.611
+        },
+        {
+          "w": "Monday",
+          "start": 185.669,
+          "end": 185.948
+        },
+        {
+          "w": "evening",
+          "start": 186.017,
+          "end": 186.307
+        },
+        {
+          "w": "in",
+          "start": 186.354,
+          "end": 186.412
+        },
+        {
+          "w": "October",
+          "start": 186.458,
+          "end": 186.958
+        },
+        {
+          "w": "1863,",
+          "start": 187.074,
+          "end": 188.362
+        },
+        {
+          "w": "everything",
+          "start": 188.606,
+          "end": 189.013
+        },
+        {
+          "w": "changed.",
+          "start": 189.082,
+          "end": 189.674
+        }
+      ]
     },
     {
       "beat": "s40",
       "text": "A solicitor named Ebenezer Cobb Morley thought football needed rules, just like cricket had.",
-      "start": 190.6,
-      "end": 193.6
+      "start": 190.321,
+      "end": 196.246,
+      "words": [
+        {
+          "w": "A",
+          "start": 190.371,
+          "end": 190.452
+        },
+        {
+          "w": "solicitor",
+          "start": 190.534,
+          "end": 191.091
+        },
+        {
+          "w": "named",
+          "start": 191.242,
+          "end": 191.52
+        },
+        {
+          "w": "Ebenezer",
+          "start": 191.602,
+          "end": 192.112
+        },
+        {
+          "w": "Cobb",
+          "start": 192.182,
+          "end": 192.414
+        },
+        {
+          "w": "Morley",
+          "start": 192.484,
+          "end": 192.832
+        },
+        {
+          "w": "thought",
+          "start": 193.215,
+          "end": 193.471
+        },
+        {
+          "w": "football",
+          "start": 193.517,
+          "end": 193.889
+        },
+        {
+          "w": "needed",
+          "start": 193.947,
+          "end": 194.191
+        },
+        {
+          "w": "rules,",
+          "start": 194.237,
+          "end": 194.771
+        },
+        {
+          "w": "just",
+          "start": 195.096,
+          "end": 195.294
+        },
+        {
+          "w": "like",
+          "start": 195.352,
+          "end": 195.526
+        },
+        {
+          "w": "cricket",
+          "start": 195.549,
+          "end": 195.839
+        },
+        {
+          "w": "had.",
+          "start": 195.886,
+          "end": 196.246
+        }
+      ]
     },
     {
       "beat": "s41",
       "text": "So clubs met at the Freemasons' Tavern in London. That night, they founded the Football Association.",
-      "start": 196.2,
-      "end": 199.2
+      "start": 197.31,
+      "end": 203.49,
+      "words": [
+        {
+          "w": "So",
+          "start": 197.36,
+          "end": 197.523
+        },
+        {
+          "w": "clubs",
+          "start": 197.592,
+          "end": 197.883
+        },
+        {
+          "w": "met",
+          "start": 197.941,
+          "end": 198.196
+        },
+        {
+          "w": "at",
+          "start": 198.289,
+          "end": 198.417
+        },
+        {
+          "w": "the",
+          "start": 198.452,
+          "end": 198.521
+        },
+        {
+          "w": "Freemasons'",
+          "start": 198.579,
+          "end": 199.229
+        },
+        {
+          "w": "Tavern",
+          "start": 199.264,
+          "end": 199.601
+        },
+        {
+          "w": "in",
+          "start": 199.671,
+          "end": 199.752
+        },
+        {
+          "w": "London.",
+          "start": 199.822,
+          "end": 200.321
+        },
+        {
+          "w": "That",
+          "start": 200.762,
+          "end": 200.948
+        },
+        {
+          "w": "night,",
+          "start": 201.006,
+          "end": 201.459
+        },
+        {
+          "w": "they",
+          "start": 201.586,
+          "end": 201.726
+        },
+        {
+          "w": "founded",
+          "start": 201.795,
+          "end": 202.178
+        },
+        {
+          "w": "the",
+          "start": 202.225,
+          "end": 202.294
+        },
+        {
+          "w": "Football",
+          "start": 202.329,
+          "end": 202.666
+        },
+        {
+          "w": "Association.",
+          "start": 202.712,
+          "end": 203.49
+        }
+      ]
     },
     {
       "beat": "s42",
       "text": "The biggest fight was about something called hacking. Kicking your opponent in the leg.",
-      "start": 203.1,
-      "end": 206.1
+      "start": 203.951,
+      "end": 208.494,
+      "words": [
+        {
+          "w": "The",
+          "start": 204.001,
+          "end": 204.117
+        },
+        {
+          "w": "biggest",
+          "start": 204.164,
+          "end": 204.442
+        },
+        {
+          "w": "fight",
+          "start": 204.477,
+          "end": 204.733
+        },
+        {
+          "w": "was",
+          "start": 204.825,
+          "end": 204.965
+        },
+        {
+          "w": "about",
+          "start": 205.011,
+          "end": 205.232
+        },
+        {
+          "w": "something",
+          "start": 205.29,
+          "end": 205.603
+        },
+        {
+          "w": "called",
+          "start": 205.65,
+          "end": 205.894
+        },
+        {
+          "w": "hacking.",
+          "start": 205.94,
+          "end": 206.451
+        },
+        {
+          "w": "Kicking",
+          "start": 206.892,
+          "end": 207.205
+        },
+        {
+          "w": "your",
+          "start": 207.252,
+          "end": 207.368
+        },
+        {
+          "w": "opponent",
+          "start": 207.414,
+          "end": 207.844
+        },
+        {
+          "w": "in",
+          "start": 207.89,
+          "end": 207.949
+        },
+        {
+          "w": "the",
+          "start": 207.995,
+          "end": 208.065
+        },
+        {
+          "w": "leg.",
+          "start": 208.111,
+          "end": 208.494
+        }
+      ]
     },
     {
       "beat": "s43",
       "text": "One club, Blackheath, really wanted to keep it. They lost.",
-      "start": 209.2,
-      "end": 212.2
+      "start": 208.885,
+      "end": 212.743,
+      "words": [
+        {
+          "w": "One",
+          "start": 208.935,
+          "end": 209.156
+        },
+        {
+          "w": "club,",
+          "start": 209.191,
+          "end": 209.586
+        },
+        {
+          "w": "Blackheath,",
+          "start": 209.655,
+          "end": 210.294
+        },
+        {
+          "w": "really",
+          "start": 210.468,
+          "end": 210.723
+        },
+        {
+          "w": "wanted",
+          "start": 210.77,
+          "end": 211.037
+        },
+        {
+          "w": "to",
+          "start": 211.06,
+          "end": 211.106
+        },
+        {
+          "w": "keep",
+          "start": 211.153,
+          "end": 211.339
+        },
+        {
+          "w": "it.",
+          "start": 211.397,
+          "end": 211.64
+        },
+        {
+          "w": "They",
+          "start": 212.024,
+          "end": 212.186
+        },
+        {
+          "w": "lost.",
+          "start": 212.256,
+          "end": 212.743
+        }
+      ]
     },
     {
       "beat": "s44",
       "text": "In December 1863, the first rules were approved, with no hacking and no carrying the ball.",
-      "start": 214.0,
-      "end": 217.0
+      "start": 213.204,
+      "end": 219.488,
+      "words": [
+        {
+          "w": "In",
+          "start": 213.254,
+          "end": 213.381
+        },
+        {
+          "w": "December",
+          "start": 213.428,
+          "end": 213.904
+        },
+        {
+          "w": "1863,",
+          "start": 213.974,
+          "end": 215.204
+        },
+        {
+          "w": "the",
+          "start": 215.32,
+          "end": 215.425
+        },
+        {
+          "w": "first",
+          "start": 215.494,
+          "end": 215.773
+        },
+        {
+          "w": "rules",
+          "start": 215.843,
+          "end": 216.168
+        },
+        {
+          "w": "were",
+          "start": 216.214,
+          "end": 216.354
+        },
+        {
+          "w": "approved,",
+          "start": 216.388,
+          "end": 216.946
+        },
+        {
+          "w": "with",
+          "start": 217.155,
+          "end": 217.329
+        },
+        {
+          "w": "no",
+          "start": 217.399,
+          "end": 217.538
+        },
+        {
+          "w": "hacking",
+          "start": 217.608,
+          "end": 217.921
+        },
+        {
+          "w": "and",
+          "start": 218.072,
+          "end": 218.234
+        },
+        {
+          "w": "no",
+          "start": 218.304,
+          "end": 218.432
+        },
+        {
+          "w": "carrying",
+          "start": 218.501,
+          "end": 218.873
+        },
+        {
+          "w": "the",
+          "start": 218.931,
+          "end": 219.001
+        },
+        {
+          "w": "ball.",
+          "start": 219.047,
+          "end": 219.488
+        }
+      ]
     },
     {
       "beat": "s45",
       "text": "Some clubs walked out to keep playing their way.",
-      "start": 220.3,
-      "end": 223.3
+      "start": 220.251,
+      "end": 222.739,
+      "words": [
+        {
+          "w": "Some",
+          "start": 220.301,
+          "end": 220.556
+        },
+        {
+          "w": "clubs",
+          "start": 220.603,
+          "end": 220.916
+        },
+        {
+          "w": "walked",
+          "start": 220.974,
+          "end": 221.23
+        },
+        {
+          "w": "out",
+          "start": 221.265,
+          "end": 221.416
+        },
+        {
+          "w": "to",
+          "start": 221.474,
+          "end": 221.532
+        },
+        {
+          "w": "keep",
+          "start": 221.59,
+          "end": 221.752
+        },
+        {
+          "w": "playing",
+          "start": 221.799,
+          "end": 222.054
+        },
+        {
+          "w": "their",
+          "start": 222.089,
+          "end": 222.228
+        },
+        {
+          "w": "way.",
+          "start": 222.286,
+          "end": 222.739
+        }
+      ]
     },
     {
       "beat": "s46",
       "text": "That's the moment football and rugby officially went separate ways.",
-      "start": 220.3,
-      "end": 223.3
+      "start": 223.502,
+      "end": 228.08,
+      "words": [
+        {
+          "w": "That's",
+          "start": 223.552,
+          "end": 223.807
+        },
+        {
+          "w": "the",
+          "start": 223.842,
+          "end": 223.912
+        },
+        {
+          "w": "moment",
+          "start": 223.97,
+          "end": 224.248
+        },
+        {
+          "w": "football",
+          "start": 224.306,
+          "end": 224.666
+        },
+        {
+          "w": "and",
+          "start": 224.713,
+          "end": 224.782
+        },
+        {
+          "w": "rugby",
+          "start": 224.829,
+          "end": 225.189
+        },
+        {
+          "w": "officially",
+          "start": 225.27,
+          "end": 225.769
+        },
+        {
+          "w": "went",
+          "start": 225.827,
+          "end": 226.025
+        },
+        {
+          "w": "separate",
+          "start": 226.094,
+          "end": 226.431
+        },
+        {
+          "w": "ways.",
+          "start": 226.466,
+          "end": 228.08
+        }
+      ]
     },
     {
       "beat": "s47",
       "text": "From there, football spread fast.",
-      "start": 228.7,
-      "end": 231.7,
-      "chapterStart": true
+      "start": 228.762,
+      "end": 230.681,
+      "chapterStart": true,
+      "words": [
+        {
+          "w": "From",
+          "start": 228.812,
+          "end": 229.033
+        },
+        {
+          "w": "there,",
+          "start": 229.079,
+          "end": 229.416
+        },
+        {
+          "w": "football",
+          "start": 229.462,
+          "end": 229.845
+        },
+        {
+          "w": "spread",
+          "start": 229.903,
+          "end": 230.147
+        },
+        {
+          "w": "fast.",
+          "start": 230.182,
+          "end": 230.681
+        }
+      ]
     },
     {
       "beat": "s48",
       "text": "In 1872, Scotland and England played the first ever international match. Four thousand fans watched.",
-      "start": 231.1,
-      "end": 234.1,
-      "topicShift": true
+      "start": 232.373,
+      "end": 238.693,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "In",
+          "start": 232.423,
+          "end": 232.551
+        },
+        {
+          "w": "1872,",
+          "start": 232.598,
+          "end": 233.77
+        },
+        {
+          "w": "Scotland",
+          "start": 233.91,
+          "end": 234.339
+        },
+        {
+          "w": "and",
+          "start": 234.386,
+          "end": 234.467
+        },
+        {
+          "w": "England",
+          "start": 234.536,
+          "end": 234.873
+        },
+        {
+          "w": "played",
+          "start": 234.978,
+          "end": 235.21
+        },
+        {
+          "w": "the",
+          "start": 235.233,
+          "end": 235.303
+        },
+        {
+          "w": "first",
+          "start": 235.361,
+          "end": 235.616
+        },
+        {
+          "w": "ever",
+          "start": 235.663,
+          "end": 235.825
+        },
+        {
+          "w": "international",
+          "start": 235.883,
+          "end": 236.406
+        },
+        {
+          "w": "match.",
+          "start": 236.452,
+          "end": 236.858
+        },
+        {
+          "w": "Four",
+          "start": 237.23,
+          "end": 237.451
+        },
+        {
+          "w": "thousand",
+          "start": 237.509,
+          "end": 237.822
+        },
+        {
+          "w": "fans",
+          "start": 237.869,
+          "end": 238.217
+        },
+        {
+          "w": "watched.",
+          "start": 238.275,
+          "end": 238.693
+        }
+      ]
     },
     {
       "beat": "s49",
       "text": "The final score? Nil-nil.",
-      "start": 237.6,
-      "end": 240.6
+      "start": 239.13,
+      "end": 241.119,
+      "words": [
+        {
+          "w": "The",
+          "start": 239.18,
+          "end": 239.285
+        },
+        {
+          "w": "final",
+          "start": 239.331,
+          "end": 239.598
+        },
+        {
+          "w": "score?",
+          "start": 239.645,
+          "end": 240.074
+        },
+        {
+          "w": "Nil-nil.",
+          "start": 240.388,
+          "end": 241.119
+        }
+      ]
     },
     {
       "beat": "s50",
       "text": "Some traditions start early.",
-      "start": 240.2,
-      "end": 243.2
+      "start": 241.847,
+      "end": 243.441,
+      "words": [
+        {
+          "w": "Some",
+          "start": 241.897,
+          "end": 242.106
+        },
+        {
+          "w": "traditions",
+          "start": 242.141,
+          "end": 242.64
+        },
+        {
+          "w": "start",
+          "start": 242.687,
+          "end": 242.965
+        },
+        {
+          "w": "early.",
+          "start": 243.011,
+          "end": 243.441
+        }
+      ]
     },
     {
       "beat": "s51",
       "text": "In 1904, seven nations founded FIFA in Paris.",
-      "start": 242.2,
-      "end": 245.2,
-      "topicShift": true
+      "start": 244.46,
+      "end": 248.237,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "In",
+          "start": 244.51,
+          "end": 244.649
+        },
+        {
+          "w": "1904,",
+          "start": 244.719,
+          "end": 245.741
+        },
+        {
+          "w": "seven",
+          "start": 245.938,
+          "end": 246.228
+        },
+        {
+          "w": "nations",
+          "start": 246.286,
+          "end": 246.681
+        },
+        {
+          "w": "founded",
+          "start": 246.739,
+          "end": 247.052
+        },
+        {
+          "w": "FIFA",
+          "start": 247.111,
+          "end": 247.47
+        },
+        {
+          "w": "in",
+          "start": 247.528,
+          "end": 247.633
+        },
+        {
+          "w": "Paris.",
+          "start": 247.703,
+          "end": 248.237
+        }
+      ]
     },
     {
       "beat": "s52",
       "text": "And in 1930, Uruguay hosted the very first World Cup.",
-      "start": 245.7,
-      "end": 248.7,
-      "topicShift": true
+      "start": 249.128,
+      "end": 253.717,
+      "topicShift": true,
+      "words": [
+        {
+          "w": "And",
+          "start": 249.178,
+          "end": 249.317
+        },
+        {
+          "w": "in",
+          "start": 249.375,
+          "end": 249.433
+        },
+        {
+          "w": "1930,",
+          "start": 249.491,
+          "end": 250.455
+        },
+        {
+          "w": "Uruguay",
+          "start": 250.629,
+          "end": 251.094
+        },
+        {
+          "w": "hosted",
+          "start": 251.152,
+          "end": 251.488
+        },
+        {
+          "w": "the",
+          "start": 251.523,
+          "end": 251.593
+        },
+        {
+          "w": "very",
+          "start": 251.651,
+          "end": 251.86
+        },
+        {
+          "w": "first",
+          "start": 251.929,
+          "end": 252.243
+        },
+        {
+          "w": "World",
+          "start": 252.301,
+          "end": 252.533
+        },
+        {
+          "w": "Cup.",
+          "start": 252.58,
+          "end": 253.717
+        }
+      ]
     },
     {
       "beat": "s53",
       "text": "So, who invented football? Nobody, and everybody.",
-      "start": 250.3,
-      "end": 253.3,
-      "chapterStart": true
+      "start": 254.394,
+      "end": 258.391,
+      "chapterStart": true,
+      "words": [
+        {
+          "w": "So,",
+          "start": 254.444,
+          "end": 254.932
+        },
+        {
+          "w": "who",
+          "start": 254.955,
+          "end": 255.129
+        },
+        {
+          "w": "invented",
+          "start": 255.199,
+          "end": 255.663
+        },
+        {
+          "w": "football?",
+          "start": 255.721,
+          "end": 256.302
+        },
+        {
+          "w": "Nobody,",
+          "start": 256.685,
+          "end": 257.335
+        },
+        {
+          "w": "and",
+          "start": 257.509,
+          "end": 257.648
+        },
+        {
+          "w": "everybody.",
+          "start": 257.718,
+          "end": 258.391
+        }
+      ]
     },
     {
       "beat": "s54",
       "text": "Chinese soldiers, Greek athletes, Japanese nobles, rowdy medieval villages, and a group of men in a London tavern who finally wrote it all down.",
-      "start": 254.0,
-      "end": 257.0
+      "start": 258.666,
+      "end": 268.364,
+      "words": [
+        {
+          "w": "Chinese",
+          "start": 258.716,
+          "end": 259.204
+        },
+        {
+          "w": "soldiers,",
+          "start": 259.251,
+          "end": 259.936
+        },
+        {
+          "w": "Greek",
+          "start": 260.063,
+          "end": 260.319
+        },
+        {
+          "w": "athletes,",
+          "start": 260.388,
+          "end": 261.015
+        },
+        {
+          "w": "Japanese",
+          "start": 261.166,
+          "end": 261.665
+        },
+        {
+          "w": "nobles,",
+          "start": 261.723,
+          "end": 262.339
+        },
+        {
+          "w": "rowdy",
+          "start": 262.583,
+          "end": 262.966
+        },
+        {
+          "w": "medieval",
+          "start": 263.047,
+          "end": 263.488
+        },
+        {
+          "w": "villages,",
+          "start": 263.546,
+          "end": 264.173
+        },
+        {
+          "w": "and",
+          "start": 264.324,
+          "end": 264.475
+        },
+        {
+          "w": "a",
+          "start": 264.521,
+          "end": 264.556
+        },
+        {
+          "w": "group",
+          "start": 264.614,
+          "end": 264.823
+        },
+        {
+          "w": "of",
+          "start": 264.87,
+          "end": 264.928
+        },
+        {
+          "w": "men",
+          "start": 265.009,
+          "end": 265.276
+        },
+        {
+          "w": "in",
+          "start": 265.392,
+          "end": 265.52
+        },
+        {
+          "w": "a",
+          "start": 265.555,
+          "end": 265.59
+        },
+        {
+          "w": "London",
+          "start": 265.648,
+          "end": 265.984
+        },
+        {
+          "w": "tavern",
+          "start": 266.042,
+          "end": 266.414
+        },
+        {
+          "w": "who",
+          "start": 266.472,
+          "end": 266.634
+        },
+        {
+          "w": "finally",
+          "start": 266.716,
+          "end": 267.122
+        },
+        {
+          "w": "wrote",
+          "start": 267.169,
+          "end": 267.424
+        },
+        {
+          "w": "it",
+          "start": 267.459,
+          "end": 267.54
+        },
+        {
+          "w": "all",
+          "start": 267.598,
+          "end": 267.819
+        },
+        {
+          "w": "down.",
+          "start": 267.888,
+          "end": 268.364
+        }
+      ]
     },
     {
       "beat": "s55",
       "text": "The game that a king tried to ban now belongs to the whole world.",
-      "start": 263.1,
-      "end": 266.1
+      "start": 268.918,
+      "end": 272.59,
+      "words": [
+        {
+          "w": "The",
+          "start": 268.968,
+          "end": 269.084
+        },
+        {
+          "w": "game",
+          "start": 269.142,
+          "end": 269.421
+        },
+        {
+          "w": "that",
+          "start": 269.456,
+          "end": 269.572
+        },
+        {
+          "w": "a",
+          "start": 269.607,
+          "end": 269.63
+        },
+        {
+          "w": "king",
+          "start": 269.699,
+          "end": 269.966
+        },
+        {
+          "w": "tried",
+          "start": 270.036,
+          "end": 270.28
+        },
+        {
+          "w": "to",
+          "start": 270.303,
+          "end": 270.35
+        },
+        {
+          "w": "ban",
+          "start": 270.419,
+          "end": 270.756
+        },
+        {
+          "w": "now",
+          "start": 271.0,
+          "end": 271.197
+        },
+        {
+          "w": "belongs",
+          "start": 271.255,
+          "end": 271.673
+        },
+        {
+          "w": "to",
+          "start": 271.72,
+          "end": 271.789
+        },
+        {
+          "w": "the",
+          "start": 271.836,
+          "end": 271.905
+        },
+        {
+          "w": "whole",
+          "start": 271.94,
+          "end": 272.138
+        },
+        {
+          "w": "world.",
+          "start": 272.172,
+          "end": 272.59
+        }
+      ]
     },
     {
       "beat": "s56",
       "text": "This has been Facts on Demand. What should we dig into next? Tell us in the comments.",
-      "start": 268.7,
-      "end": 271.7
+      "start": 273.655,
+      "end": 279.289,
+      "words": [
+        {
+          "w": "This",
+          "start": 273.705,
+          "end": 274.053
+        },
+        {
+          "w": "has",
+          "start": 274.111,
+          "end": 274.227
+        },
+        {
+          "w": "been",
+          "start": 274.285,
+          "end": 274.425
+        },
+        {
+          "w": "Facts",
+          "start": 274.494,
+          "end": 274.819
+        },
+        {
+          "w": "on",
+          "start": 274.866,
+          "end": 274.947
+        },
+        {
+          "w": "Demand.",
+          "start": 275.005,
+          "end": 275.597
+        },
+        {
+          "w": "What",
+          "start": 276.039,
+          "end": 276.201
+        },
+        {
+          "w": "should",
+          "start": 276.224,
+          "end": 276.375
+        },
+        {
+          "w": "we",
+          "start": 276.41,
+          "end": 276.468
+        },
+        {
+          "w": "dig",
+          "start": 276.515,
+          "end": 276.654
+        },
+        {
+          "w": "into",
+          "start": 276.7,
+          "end": 276.898
+        },
+        {
+          "w": "next?",
+          "start": 276.991,
+          "end": 277.455
+        },
+        {
+          "w": "Tell",
+          "start": 277.838,
+          "end": 278.047
+        },
+        {
+          "w": "us",
+          "start": 278.105,
+          "end": 278.268
+        },
+        {
+          "w": "in",
+          "start": 278.326,
+          "end": 278.43
+        },
+        {
+          "w": "the",
+          "start": 278.465,
+          "end": 278.535
+        },
+        {
+          "w": "comments.",
+          "start": 278.569,
+          "end": 279.289
+        }
+      ]
     }
   ],
   "beats": [
@@ -707,5 +3964,6 @@
       "type": "GRAFIK",
       "image": "End card with the owl and the logo."
     }
-  ]
+  ],
+  "voiceStatus": "elevenlabs:VsQmyFHffusQDewmHB5v (blocks)"
 }
