@@ -38,13 +38,14 @@
       ]
     },
     "ming_china": {
-      "image": "eras/ming-hongwu.png", "rejected_versions": ["eras/ming-hongwu-v1-rejected.png"],
+      "image": "eras/ming-hongwu.png",
       "plays": "Hongwu Emperor (c. 1370)",
-      "locked": null,
-      "status": "REDO",
+      "locked": "2026-11-24",
+      "status": "approved",
       "known_gaps": [
-        "WRONG HEADWEAR: drawn as a wide-brimmed hat; yishanguan has no brim - regenerate"
-      ]
+        "headwear drawn with a wide brim; the real yishanguan is a brimless cap with two upright wings - fine for a cartoon, regenerate only if a close-up ever needs it"
+      ],
+      "approved_by": "channel owner (kept v1 to save budget)"
     },
     "medieval_england": {
       "image": "eras/edward-ii.png",
