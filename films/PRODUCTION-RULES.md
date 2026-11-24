@@ -17,7 +17,9 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - Approved era versions and their known flaws are listed in each `character.json` under `eras`.
 
 ## Animation (hybrid: AI pixels + code motion)
-- AI draws head, face, hair, beard and clothes (from the sheets) and all backgrounds. Code draws and moves the stick arms and legs.
+- AI draws the WHOLE figure (head, clothes, ARMS, legs, boots) from the sheets, and all backgrounds.
+- **ARMS: always the arms from the AI image. Never code-drawn or animated arms** (they caused figures with extra arms). Motion comes from moving the whole cut-out (sway, bob, hop, lean, slide in, squash-and-stretch).
+- Walking (side view) may still use code-drawn legs with the AI boots, but the arm stays the AI arm.
 - **Boots: ALWAYS the AI-drawn boots** cut from the sheet (`bootL/bootR.png`, `boot.png`). Never code-drawn boots. They must be whole, sole included.
 - Feet stand ON the ground, never sunk into it, with a soft contact shadow.
 - Cut-outs: every gap enclosed by the body (between arm and body, between the legs) must be transparent so the background shows through (`tools/cut_sheet.py` handles this).

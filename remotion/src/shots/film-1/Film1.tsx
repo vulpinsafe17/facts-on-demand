@@ -1,8 +1,7 @@
 import React from 'react';
 import { AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame, Easing } from 'remotion';
 import timeline from './timeline.json';
-import rigsJson from './rigs.json';
-import { Rig, RigData, Pose } from '../../lib/rig';
+import figJson from './figures.json';
 
 // FILM 1 — "Where did football come from?" (test film, 4:41).
 // Scenes on approved plates, timed to Eddie's word timings; era-correct cast from the
@@ -12,7 +11,7 @@ export const compositionConfig = { id: 'Film1', durationInSeconds: 280.84, fps: 
 
 const FPS = 30, XF = 8;
 const P = (f: string) => staticFile(`projects/film-1-football/${f}`);
-const rigs = rigsJson as Record<string, RigData>;
+const figs = figJson as Record<string, { file: string; w: number; h: number }>;
 type Scene = { i: number; start: number; end: number; kind: string; bg: string | null; label: string };
 type Actor = { r: string; x: number; h?: number; flip?: boolean; act?: 'idle' | 'talk' | 'point' | 'cheer' | 'shrug'; enter?: 'left' | 'right' };
 type Prop = { p: string; x: number; y: number; w: number; spin?: boolean; drop?: boolean };
@@ -60,15 +59,16 @@ const MOVES = [
 ];
 const clamp = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' } as const;
 
-function poseFor(act: Actor['act'], f: number, seed: number): Pose {
+// Whole-figure motion only: the arms, legs and boots are the AI drawing (owner's rule:
+// never code-drawn arms). Acting = sway, bob, hop, lean and squash of the cut-out.
+function motion(act: Actor['act'], f: number, seed: number) {
   const t = f / FPS + seed;
-  const sway = Math.sin(t * 2.1) * 3;
-  const base: Pose = { armL: -10 + sway, armR: 10 - sway, legL: 0, legR: 0, lean: Math.sin(t * 1.3) * 1.2 };
-  if (act === 'talk') return { ...base, armR: 60 + Math.sin(t * 4) * 22, elbowR: -25 + Math.sin(t * 4) * 10 };
-  if (act === 'point') { const k = interpolate(f, [6, 16], [0, 1], clamp); return { ...base, armR: 10 + k * 105 + Math.sin(t * 3) * 3, elbowR: -k * 6, lean: -2 * k }; }
-  if (act === 'cheer') { const up = (Math.sin(t * 5) + 1) / 2; return { ...base, armL: -150 - up * 20, armR: 150 + up * 20, elbowL: 10, elbowR: -10, bob: up * 10 }; }
-  if (act === 'shrug') { const k = (Math.sin(t * 2.5) + 1) / 2; return { ...base, armL: -45 - k * 25, armR: 45 + k * 25, elbowL: -70, elbowR: 70 }; }
-  return base;
+  let rot = Math.sin(t * 1.4) * 1.2, dy = 0, sx = 1, sy = 1 + Math.sin(t * 2.2) * 0.006;
+  if (act === 'talk') { const b = Math.abs(Math.sin(t * 4.2)); dy = -b * 6; rot = Math.sin(t * 2.1) * 2.5; sy = 1 + b * 0.012; }
+  if (act === 'cheer') { const h = Math.abs(Math.sin(t * 5)); dy = -h * 38; sy = 1 + (1 - h) * -0.04 + h * 0.02; sx = 1 + (1 - h) * 0.03; }
+  if (act === 'shrug') { const k = (Math.sin(t * 2.5) + 1) / 2; sy = 1 - k * 0.035; sx = 1 + k * 0.025; rot = Math.sin(t * 1.2) * 1.5; }
+  if (act === 'point') { const k = interpolate(f, [4, 14], [0, 1], clamp); rot = -4 * k + Math.sin(t * 1.4) * 0.8; dy = -k * 4; }
+  return { rot, dy, sx, sy };
 }
 
 const SceneView: React.FC<{ sc: Scene; len: number }> = ({ sc, len }) => {
@@ -95,17 +95,20 @@ const SceneView: React.FC<{ sc: Scene; len: number }> = ({ sc, len }) => {
             return <Img key={k} src={P(`props/${pr.p}.png`)} style={{ position: 'absolute', left: pr.x - pr.w / 2, top: pr.y - pr.w / 2 + drop + bounce + bob, width: pr.w, transform: `rotate(${rot}deg)` }} />;
           })}
           {(cast.actors ?? []).map((a, k) => {
-            const rig = rigs[a.r];
-            if (!rig) return null;
+            const fig = figs[a.r];
+            if (!fig) return null;
             const [ch, era] = a.r.split('/');
             const enter = a.enter ? interpolate(f, [0, 20], [a.enter === 'left' ? -700 : 700, 0], { ...clamp, easing: Easing.bezier(0.2, 0.7, 0.3, 1) }) : 0;
             const pop = interpolate(f, [0, 6, 11], [0.94, 1.03, 1], clamp);
-            const pose = poseFor(a.act, f, k * 1.7 + sc.i);
-            const h = (a.h ?? 520) * pop;
+            const m = motion(a.act, f, k * 1.7 + sc.i);
+            const h = (a.h ?? 520) * pop, w = (fig.w / fig.h) * h;
+            const left = a.x + enter - w / 2;
             return (
               <React.Fragment key={k}>
-                <div style={{ position: 'absolute', left: a.x + enter - h * 0.17, top: feet - 12, width: h * 0.34, height: 24, borderRadius: '50%', background: 'rgba(50,30,10,0.33)', filter: 'blur(5px)' }} />
-                <Rig dir={`library/characters/${ch}/rigs/${era}`} rig={rig} pose={pose} x={a.x + enter} feetY={feet} height={h} flip={a.flip} />
+                <div style={{ position: 'absolute', left: a.x + enter - w * 0.32, top: feet - 12, width: w * 0.64, height: 24, borderRadius: '50%', background: 'rgba(50,30,10,0.33)', filter: 'blur(5px)', transform: `scaleX(${1 + m.dy / 200})` }} />
+                <Img src={staticFile(`library/characters/${ch}/rigs/${era}/${fig.file}`)}
+                  style={{ position: 'absolute', left, top: feet - h + m.dy, width: w, height: h, transformOrigin: '50% 100%',
+                    transform: `${a.flip ? 'scaleX(-1) ' : ''}rotate(${m.rot}deg) scale(${m.sx}, ${m.sy})` }} />
               </React.Fragment>
             );
           })}

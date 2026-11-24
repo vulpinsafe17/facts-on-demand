@@ -1,0 +1,67 @@
+{
+ "character-2/greek-athlete": {
+  "file": "full.png",
+  "w": 385,
+  "h": 698
+ },
+ "character-2/han-soldier": {
+  "file": "full.png",
+  "w": 384,
+  "h": 734
+ },
+ "character-2/heian-noble": {
+  "file": "full.png",
+  "w": 384,
+  "h": 795
+ },
+ "character-2/medieval-peasant": {
+  "file": "full.png",
+  "w": 384,
+  "h": 698
+ },
+ "character-2/victorian-gentleman": {
+  "file": "full.png",
+  "w": 385,
+  "h": 760
+ },
+ "character-3/edward-ii": {
+  "file": "full.png",
+  "w": 473,
+  "h": 723
+ },
+ "character-3/han-gaozu": {
+  "file": "full.png",
+  "w": 490,
+  "h": 746
+ },
+ "character-3/ming-hongwu": {
+  "file": "full.png",
+  "w": 466,
+  "h": 748
+ },
+ "main-character/greek-athlete": {
+  "file": "full.png",
+  "w": 384,
+  "h": 684
+ },
+ "main-character/han-soldier": {
+  "file": "full.png",
+  "w": 384,
+  "h": 732
+ },
+ "main-character/heian-noble": {
+  "file": "full.png",
+  "w": 384,
+  "h": 792
+ },
+ "main-character/medieval-peasant": {
+  "file": "full.png",
+  "w": 384,
+  "h": 683
+ },
+ "main-character/victorian-gentleman": {
+  "file": "full.png",
+  "w": 384,
+  "h": 787
+ }
+}
