@@ -3,7 +3,7 @@
 
 The sheets have a plain off-white background and a dark ground line under the
 four body views. Background = regions of background colour that touch the crop
-border (so the white head, enclosed by its outline, is kept). The ground line is
+border (plus enclosed holes whose colour matches the background; the pure-white heads and hands are kept). The ground line is
 removed except directly under the boots, so the soles stay whole.
 
   py -3.12 tools/cut_sheet.py SHEET.png --x0 0.05 --x1 0.22 --out cutout.png
@@ -31,7 +31,18 @@ def cut(path, x0, x1, tol=60):
     d[gt:] = True
     lab, _ = ndimage.label(d)
     border = set(np.unique(np.r_[lab[0], lab[-1], lab[:, 0], lab[:, -1]])) - {0}
-    fg = ~np.isin(lab, list(border))
+    bgm = np.isin(lab, list(border))
+    # enclosed holes (e.g. between arm and body): remove a hole if its colour is
+    # closer to the sheet background than to the pure white of the heads/hands
+    white = np.array([255, 255, 255])
+    for i, sl in enumerate(ndimage.find_objects(lab), 1):
+        if i in border or sl is None:
+            continue
+        m = lab[sl] == i
+        mean = s[sl][m].mean(0)
+        if np.abs(mean - bg).sum() < np.abs(mean - white).sum():
+            bgm[sl] |= m
+    fg = ~bgm
     for r in range(gt, gb + 1):
         fg[r] = boot & dk[r]
     alpha = (fg * 255).astype(np.uint8)
