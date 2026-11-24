@@ -11,6 +11,10 @@ export type RigData = {
   hipL: [number, number]; hipR: [number, number];
   armLen: number; legLen: number; line: number; hand: number;
   hose: string; boot: string; outline: string;
+  // AI boot sprites cut from the sheet (tools/rig_parts.py). ALWAYS used when present:
+  // code-drawn boots looked wrong, the owner wants the sheet's own boots.
+  bootL?: { file: string; w: number; h: number; pivot: [number, number] };
+  bootR?: { file: string; w: number; h: number; pivot: [number, number] };
 };
 
 export type Pose = {
@@ -23,14 +27,15 @@ const rad = (d: number) => (d * Math.PI) / 180;
 const step = (x: number, y: number, len: number, ang: number): [number, number] => [x + len * Math.sin(rad(ang)), y + len * Math.cos(rad(ang))];
 
 export const Rig: React.FC<{ dir: string; rig: RigData; pose: Pose; x: number; feetY: number; height: number; flip?: boolean }> = ({ dir, rig, pose, x, feetY, height, flip }) => {
-  const totalH = rig.h + rig.legLen;
+  const bootH = Math.max(rig.bootL ? rig.bootL.h - rig.bootL.pivot[1] : 0, rig.bootR ? rig.bootR.h - rig.bootR.pivot[1] : 0);
+  const totalH = rig.h + rig.legLen + bootH;
   const s = height / totalH;
   const W = rig.w;
   const lw = rig.line * 2.2;
   const legW = rig.line * 5.5;
   const bob = pose.bob ?? 0;
   const leg = (hip: [number, number], ang: number, knee: number, side: 1 | -1) => {
-    const L = rig.legLen * 0.46;
+    const L = rig.legLen * 0.5;
     const [kx, ky] = step(hip[0], hip[1] - 4, L, ang);
     const [fx, fy] = step(kx, ky, L, ang - knee);
     const bootPath = `M${fx - 18},${fy - 10} h30 q${side * 14},6 ${side * 22},18 q4,10 -6,12 h${side > 0 ? -58 : -26} q-8,0 -8,-10 z`;
@@ -38,7 +43,12 @@ export const Rig: React.FC<{ dir: string; rig: RigData; pose: Pose; x: number; f
       <g>
         <polyline points={`${hip[0]},${hip[1] - 4} ${kx},${ky} ${fx},${fy}`} fill="none" stroke={rig.outline} strokeWidth={legW + 9} strokeLinecap="round" strokeLinejoin="round" />
         <polyline points={`${hip[0]},${hip[1] - 4} ${kx},${ky} ${fx},${fy}`} fill="none" stroke={rig.hose} strokeWidth={legW} strokeLinecap="round" strokeLinejoin="round" />
-        <path d={bootPath} fill={rig.boot} stroke={rig.outline} strokeWidth={6} strokeLinejoin="round" />
+        {(() => {
+          const b = side < 0 ? rig.bootL : rig.bootR;
+          return b
+            ? <image href={staticFile(`${dir}/${b.file}`)} x={fx - b.pivot[0]} y={fy - b.pivot[1]} width={b.w} height={b.h} transform={`rotate(${(-(ang - knee) * 0.3).toFixed(2)} ${fx} ${fy})`} />
+            : <path d={bootPath} fill={rig.boot} stroke={rig.outline} strokeWidth={6} strokeLinejoin="round" />;
+        })()}
       </g>
     );
   };

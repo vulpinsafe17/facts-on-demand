@@ -19,10 +19,28 @@
     523
   ],
   "armLen": 222,
-  "legLen": 155,
+  "legLen": 97,
   "line": 6,
   "hand": 28,
   "source": "medieval-peasant.png",
+  "bootL": {
+    "file": "bootL.png",
+    "w": 92,
+    "h": 64,
+    "pivot": [
+      61,
+      6
+    ]
+  },
+  "bootR": {
+    "file": "bootR.png",
+    "w": 91,
+    "h": 64,
+    "pivot": [
+      29,
+      6
+    ]
+  },
   "hose": "#917961",
   "boot": "#67422c",
   "outline": "#141010"

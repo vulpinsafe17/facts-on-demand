@@ -1,5 +1,8 @@
 # CLAUDE.md — claude-faceless-shorts-creator
 
+> **Facts on Demand long-form films:** read `films/PRODUCTION-RULES.md` FIRST. It holds every
+> decision the channel owner made (voice, characters, boots, walking, turns, budget). Never regress one.
+
 A **faceless-shorts factory** driven by Claude Code. Three production tracks, one repo — the
 right skill is picked automatically from the request:
 

@@ -62,7 +62,35 @@ def build(sheet, x0, x1, out_dir):
         "armLen": int(bh * 0.42), "legLen": leg_len, "line": max(4, int(W * 0.018)), "hand": int(W * 0.075),
         "source": os.path.basename(sheet),
     }
+    # AI boot sprites (one per foot) so the boots stay exactly as drawn on the sheet
+    rgb = a[..., :3].astype(int)
+    def runs(row):
+        xs = np.where(row)[0]
+        return [] if xs.size == 0 else np.split(xs, np.where(np.diff(xs) > 1)[0] + 1)
+    def bright(y, r):
+        c = rgb[y, r.min() + 6:r.max() - 6]; c = c[c.sum(1) > 90]
+        return c.sum(1).mean() if len(c) else 0
+    ys_leg = range(hem + int((H - hem) * .3), hem + int((H - hem) * .5))
+    hose_b = np.median([bright(y, r) for y in ys_leg for r in runs(al[y]) if r.size > 10] or [400])
+    boot_top = next((y for y in range(hem + int((H - hem) * .45), H)
+                     if any(bright(y, r) < hose_b * .8 for r in runs(al[y]) if r.size > 10)), H - int((H - hem) * .3)) - 3
+    lower = al[boot_top:]
+    lab2, n2 = ndimage.label(lower)
+    boots = []
+    for i in range(1, n2 + 1):
+        yy, xx = np.where(lab2 == i)
+        if yy.size < 200: continue
+        sub = a[boot_top:, :].copy(); sub[..., 3] = np.where(lab2 == i, sub[..., 3], 0)
+        im_b = Image.fromarray(sub).crop((xx.min(), 0, xx.max() + 1, yy.max() + 1))
+        top_xs = xx[yy < 8]
+        piv = [int((top_xs.mean() if top_xs.size else xx.mean()) - xx.min()), 6]
+        boots.append((xx.mean(), im_b, piv))
+    boots.sort(key=lambda t: t[0])
     os.makedirs(out_dir, exist_ok=True)
+    for name, (_, im_b, piv) in zip(("bootL", "bootR"), boots[:2]):
+        im_b.save(os.path.join(out_dir, f"{name}.png"))
+        rig[name] = {"file": f"{name}.png", "w": im_b.size[0], "h": im_b.size[1], "pivot": piv}
+    rig["legLen"] = int(boot_top - hem + 6)
     part.save(os.path.join(out_dir, "body.png"))
     json.dump(rig, open(os.path.join(out_dir, "rig.json"), "w"), indent=2)
     return rig

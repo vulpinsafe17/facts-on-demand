@@ -36,35 +36,7 @@ const side: SideRigData = {
   "outline": "#141010",
   "source": "medieval-peasant.png"
 };
-const front: RigData = {
-  "body": "body.png",
-  "w": 355,
-  "h": 529,
-  "shoulderL": [
-    79,
-    294
-  ],
-  "shoulderR": [
-    273,
-    294
-  ],
-  "hipL": [
-    145,
-    523
-  ],
-  "hipR": [
-    208,
-    523
-  ],
-  "armLen": 222,
-  "legLen": 155,
-  "line": 6,
-  "hand": 28,
-  "source": "medieval-peasant.png",
-  "hose": "#917961",
-  "boot": "#67422c",
-  "outline": "#141010"
-};
+const front: RigData = {   "body": "body.png",   "w": 355,   "h": 529,   "shoulderL": [     79,     294   ],   "shoulderR": [     273,     294   ],   "hipL": [     145,     523   ],   "hipR": [     208,     523   ],   "armLen": 222,   "legLen": 97,   "line": 6,   "hand": 28,   "source": "medieval-peasant.png",   "bootL": {     "file": "bootL.png",     "w": 92,     "h": 64,     "pivot": [       61,       6     ]   },   "bootR": {     "file": "bootR.png",     "w": 91,     "h": 64,     "pivot": [       29,       6     ]   },   "hose": "#917961",   "boot": "#67422c",   "outline": "#141010" };
 const SIDE = 'library/characters/main-character/rigs/medieval-side';
 const FRONT = 'library/characters/main-character/rigs/medieval';
 const clamp = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' } as const;
