@@ -29,6 +29,13 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - Turning to camera: a one-frame swap with a small squash-and-stretch pop. Never squash the figure to a thin line, and never crossfade (it looks like a ghost).
 - QA: render frames and look at them (feet, boots, gaps, turns) before sending any video.
 
+## Motion principles (adapted from LottieFiles motion-design-skill, MIT)
+- Every scene has three motion layers: PRIMARY (the character's action), SECONDARY (shadow, props, ball, cloth reacting), AMBIENT (background life: crowd figures, flags, smoke, slow camera drift). A flat scene is missing a layer.
+- Every action is a micro-story: anticipation (wind-up) -> action -> follow-through/settle. A kick pulls the leg back first; a point leans in, overshoots slightly, then settles.
+- Never linear easing for movement: entrances decelerate (ease-out), exits accelerate (ease-in), on-screen moves ease-in-out. Playful overshoot ~10-20% for our cartoon style.
+- With 3+ characters, at most about a third act at the same moment; the hero acts first.
+- Emotion drives motion: joy = bouncy arcs upward; tension/ban = sharp and fast; calm history narration = slow smooth drift.
+
 ## Backgrounds
 - Flat 2D cartoon, bold outlines, warm ochre palette; empty foreground for the characters; background people are tiny stick figures.
 - Image prompts and approved plates for film 1: `films/film-1-football/backgrounds.json`, `media/projects/film-1-football/bg/`.
