@@ -18,7 +18,7 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 
 ## Animation (hybrid: AI pixels + code motion)
 - AI draws the WHOLE figure (head, clothes, ARMS, legs, boots) from the sheets, and all backgrounds.
-- **ARMS: always the arms from the AI image. Never code-drawn or animated arms** (they caused figures with extra arms). Motion comes from moving the whole cut-out (sway, bob, hop, lean, slide in, squash-and-stretch).
+- **ARMS: always the arms from the AI image. Never code-DRAWN arms** (they caused figures with extra arms). The AI-drawn arm pieces may be cut loose and rotated (puppet, below); a figure always shows exactly its own two drawn arms.
 - Walking (side view) may still use code-drawn legs with the AI boots, but the arm stays the AI arm.
 - **Figures must ACT** (wave, point, kick, throw, cheer), not just bob. Method: cut-out puppet (`tools/puppet_parts.py` + `remotion/src/lib/puppet.tsx`): the AI-drawn arms and legs are cut loose and rotated at shoulder/hip.
 - **The era being talked about must be on screen**: every scene shows the era (and place) the narration is about, with the main characters dressed for it.
