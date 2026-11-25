@@ -37,6 +37,10 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - Gemini images cost about 0.95 kr each (Nano Banana 2, 2K). Run a small test (1-2 images) before a big batch, and state the cost first.
 - The owner runs image jobs by double-clicking `.bat` files; batch files skip images that already exist.
 
+## Hardware and local image generation
+- Owner's PC: Windows, NVIDIA RTX 5070 with 12 GB VRAM (Blackwell: use NVFP4/FP8 model versions).
+- Plan: ComfyUI Desktop for free local images (Flux Kontext for era costumes, pose control for action poses), driven by `.bat` files that call the ComfyUI API on localhost. Gemini stays as backup.
+
 ## Music and sound
 - YouTube Audio Library only, **attribution not required** (`media/library/music/clips/yt-*.mp3`, catalog says which era each fits). Not yet auditioned by the owner.
 
