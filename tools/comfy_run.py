@@ -53,24 +53,36 @@ def options(base, node, field):
         info = json.loads(http(base, f"/object_info/{node}"))
     except urllib.error.HTTPError:
         return None  # node not installed
+    if node not in info:
+        return None  # ComfyUI answers {} for a node it does not know: not installed
     spec = info.get(node, {}).get("input", {})
     for group in ("required", "optional"):
         if field in spec.get(group, {}):
-            opts = spec[group][field][0]
-            return opts if isinstance(opts, list) else []
+            entry = spec[group][field]
+            opts = entry[0]
+            if isinstance(opts, list):  # old format: [[options...], {...}]
+                return opts
+            if opts == "COMBO" and len(entry) > 1 and isinstance(entry[1], dict):  # new: ["COMBO", {"options": [...]}]
+                return entry[1].get("options", [])
+            return []
     return []
 
 
 def check_models(base):
     unets = options(base, "UnetLoaderGGUF", "unet_name")
     if unets is None:
-        die("Tillagget ComfyUI-GGUF saknas. Installera det i ComfyUI Manager (sok 'ComfyUI-GGUF' av city96) och starta om ComfyUI.")
-    unet = next((u for u in UNET_PREF if u in unets), None)
+        die("Tillagget ComfyUI-GGUF saknas. Kor make-comfy-gguf.bat (eller installera 'ComfyUI-GGUF' av city96 i ComfyUI Manager) och starta om ComfyUI.")
+    # options can carry a subfolder ("qwen/x.gguf") or Windows separators: match on the file name
+    by_name = {u.replace("\\", "/").rsplit("/", 1)[-1]: u for u in unets}
+    unet = next((by_name[u] for u in UNET_PREF if u in by_name), None)
+    if not unet:
+        print("ComfyUI-GGUF ser dessa filer:", unets or "(inga)")
     missing = []
     if not unet:
         missing.append(("qwen-image-edit-2511-Q3_K_M.gguf", "models/unet", GGUF_URL))
     for (node, field), (name, folder, url) in NEEDS.items():
-        if name not in (options(base, node, field) or []):
+        have = [o.replace("\\", "/").rsplit("/", 1)[-1] for o in (options(base, node, field) or [])]
+        if name not in have:
             missing.append((name, folder, url))
     if missing:
         print("\nDessa modellfiler saknas i ComfyUI (ladda ner, lagg i mappen, starta om ComfyUI):")
