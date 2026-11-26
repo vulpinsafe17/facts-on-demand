@@ -98,19 +98,68 @@ def a_ping(args, log):
         except OSError:
             pass
     log.write(f"ComfyUI: {'running on port %d' % up if up else 'NOT running'}\n")
-    run([tool("git"), "status", "-sb"], log, timeout=60)
-    run([tool("git"), "log", "--oneline", "-3"], log, timeout=60)
+    if os.path.isdir(os.path.join(ROOT, ".git")):
+        run([tool("git"), "status", "-sb"], log, timeout=60)
+    else:
+        log.write("folder is not a git clone (update downloads from GitHub instead)\n")
+    for k in ("ELEVENLABS_API_KEY", "GEMINI_API_KEY"):
+        env = _read(os.path.join(ROOT, ".env")) or b""
+        log.write(f"{k}: {'set' if (k + '=').encode() in env else 'missing'} in .env\n")
+
+
+REPO = "vulpinsafe17/facts-on-demand"
+
+
+def _update_from_zip(branch, log):
+    """For a folder that is not a git clone: download the branch as a zip from GitHub and copy
+    its files in. Local-only files (.env, voice, outputs, new pictures) are never touched, and
+    pictures/sounds under media/ that already exist here are kept as they are."""
+    import io, urllib.request, zipfile
+    url = f"https://codeload.github.com/{REPO}/zip/refs/heads/{branch}"
+    log.write(f"downloading {url}\n")
+    log.flush()
+    with urllib.request.urlopen(url, timeout=600) as r:
+        z = zipfile.ZipFile(io.BytesIO(r.read()))
+    new = changed = kept = 0
+    for info in z.infolist():
+        if info.is_dir():
+            continue
+        rel = info.filename.split("/", 1)[1] if "/" in info.filename else ""
+        if not rel or rel.startswith(("queue/", ".env")) or ".." in rel.split("/"):
+            continue
+        dst = os.path.normpath(os.path.join(ROOT, rel))
+        if not dst.startswith(ROOT + os.sep):
+            continue
+        data = z.read(info)
+        old = _read(dst)
+        if old == data:
+            continue
+        if old is not None and rel.startswith("media/"):
+            kept += 1
+            continue
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        with open(dst, "wb") as f:
+            f.write(data)
+        if old is None:
+            new += 1
+        else:
+            changed += 1
+        log.write(f"  {'new    ' if old is None else 'updated'} {rel}\n")
+    log.write(f"\n{new} new, {changed} updated, {kept} existing media files kept as they are\n")
 
 
 def a_update(args, log):
-    """Get the newest code from GitHub. Never throws away local changes (fast-forward only)."""
+    """Get the newest code from GitHub. Never throws away local work."""
     branch = need(args, "branch", RE_BRANCH, optional=True) or "film-1-football"
-    git = tool("git")
     lock_before = _read(os.path.join(ROOT, "remotion", "package-lock.json"))
     me_before = _read(os.path.abspath(__file__))
-    run([git, "fetch", "origin", branch], log, timeout=600)
-    run([git, "checkout", branch], log, timeout=120)
-    run([git, "merge", "--ff-only", f"origin/{branch}"], log, timeout=120)
+    if os.path.isdir(os.path.join(ROOT, ".git")):
+        git = tool("git")  # git clone: fast-forward only
+        run([git, "fetch", "origin", branch], log, timeout=600)
+        run([git, "checkout", branch], log, timeout=120)
+        run([git, "merge", "--ff-only", f"origin/{branch}"], log, timeout=120)
+    else:
+        _update_from_zip(branch, log)
     if lock_before != _read(os.path.join(ROOT, "remotion", "package-lock.json")) or \
             not os.path.isdir(os.path.join(ROOT, "remotion", "node_modules")):
         log.write("\nremotion packages changed -> npm ci\n")
