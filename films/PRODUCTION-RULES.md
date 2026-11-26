@@ -53,7 +53,9 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 
 ## Hardware and local image generation
 - Owner's PC: Windows, NVIDIA RTX 5070 with 12 GB VRAM (Blackwell: use NVFP4/FP8 model versions).
-- Plan: ComfyUI Desktop for free local images (Flux Kontext for era costumes, pose control for action poses), driven by `.bat` files that call the ComfyUI API on localhost. Gemini stays as backup.
+- PC has 16 GB system RAM (tight): GGUF model versions, close other apps while generating.
+- ComfyUI is the main image tool (owner decision 2026-11-26: free, and locked workflow + fixed seed = the same picture every time). Gemini stays as backup.
+- Setup: `comfy/README.md`. Qwen-Image-Edit-2511 GGUF + Lightning 4-step LoRA, fed the approved reference picture and prompted to change only pose/clothes. Jobs in `comfy/jobs/*.json`, run by `tools/comfy_run.py` from `make-*-comfy.bat` (skips finished pictures, writes a `.json` sidecar per picture).
 
 ## Music and sound
 - YouTube Audio Library only, **attribution not required** (`media/library/music/clips/yt-*.mp3`, catalog says which era each fits). Not yet auditioned by the owner.

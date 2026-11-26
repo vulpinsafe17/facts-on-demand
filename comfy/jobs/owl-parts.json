@@ -1,0 +1,17 @@
+{
+  "_about": "Owl mascot puppet poses, made from the approved profile picture. Code later cuts parts (beak, eyelids, wings) and animates them. Fixed seeds: re-running gives the same pictures; to try a different look, change that job's seed.",
+  "workflow": "comfy/workflows/qwen-edit-2511-gguf.json",
+  "reference": "media/library/characters/owl/reference.png",
+  "out_dir": "media/library/characters/owl/comfy",
+  "style_lock": "Keep EXACTLY the same owl: same hand-drawn style, same colours, same feather pattern, same eyes, same outline thickness, same proportions, same magnifying glass. Plain pure white background, nothing else in the picture, the whole owl visible including both feet.",
+  "jobs": [
+    { "name": "front-base",   "seed": 1001, "prompt": "Show this owl standing upright and facing the viewer, beak closed, eyes open, holding the magnifying glass in its right wing, left wing relaxed at its side." },
+    { "name": "front-talk",   "seed": 1001, "prompt": "Show this owl standing upright and facing the viewer, beak wide open as if talking, eyes open, holding the magnifying glass in its right wing, left wing relaxed at its side." },
+    { "name": "front-blink",  "seed": 1001, "prompt": "Show this owl standing upright and facing the viewer, beak closed, both eyes gently closed, holding the magnifying glass in its right wing, left wing relaxed at its side." },
+    { "name": "wings-down",   "seed": 1002, "prompt": "Show this owl standing upright and facing the viewer with both wings hanging relaxed at its sides and NO magnifying glass. The magnifying glass lies on the ground beside its feet." },
+    { "name": "point-glass",  "seed": 1003, "prompt": "Show this owl leaning forward eagerly, raising the magnifying glass high in its right wing and pointing it to the right of the picture, curious face." },
+    { "name": "shrug",        "seed": 1004, "prompt": "Show this owl shrugging: both wings lifted outward palms-up, head tilted, puzzled face, the magnifying glass held loosely in the right wing." },
+    { "name": "side-walk",    "seed": 1005, "prompt": "Show this owl seen from the side in profile, facing right, walking mid-step with one foot lifted, magnifying glass in its wing." },
+    { "name": "wave",         "seed": 1006, "prompt": "Show this owl facing the viewer, happily waving hello with its left wing raised high, magnifying glass in its right wing, big friendly smile in the eyes." }
+  ]
+}
