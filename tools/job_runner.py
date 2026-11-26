@@ -234,7 +234,88 @@ def a_bat(args, log):
     run([os.environ.get("COMSPEC", "cmd.exe"), "/c", name], log, timeout=6 * 3600)
 
 
-ACTIONS = {"ping": a_ping, "update": a_update, "comfy": a_comfy, "voice": a_voice,
+COMFY_MODELS = [  # (folder type in ComfyUI, file name, url) - see comfy/README.md
+    ("diffusion_models", "qwen-image-edit-2511-Q3_K_M.gguf",
+     "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q3_K_M.gguf"),
+    ("text_encoders", "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+     "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors"),
+    ("vae", "qwen_image_vae.safetensors",
+     "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors"),
+    ("loras", "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+     "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors"),
+]
+
+
+def a_comfy_models(args, log):
+    """Download the model files the ComfyUI jobs need (free, ~20 GB) straight into ComfyUI's own
+    model folders. Resumes where it stopped if the connection breaks."""
+    import urllib.request
+    paths = None
+    for port in (8000, 8188):
+        try:
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}/internal/folder_paths", timeout=5) as r:
+                paths = json.loads(r.read())
+            break
+        except Exception:
+            pass
+    if not paths:
+        raise Reject("ComfyUI is not running (start it, then try again)")
+    for kind, name, url in COMFY_MODELS:
+        folders = paths.get(kind) or paths.get("unet" if kind == "diffusion_models" else kind)
+        folder = folders[0] if isinstance(folders, list) and folders and isinstance(folders[0], str) else \
+            (folders[0][0] if folders else None)
+        if not folder:
+            raise RuntimeError(f"ComfyUI has no '{kind}' folder")
+        if any(os.path.exists(os.path.join(f if isinstance(f, str) else f[0], name)) for f in folders):
+            log.write(f"{name}: already there\n")
+            continue
+        os.makedirs(folder, exist_ok=True)
+        _download(url, os.path.join(folder, name), log)
+    log.write("\nall model files are in place\n")
+
+
+def _download(url, dst, log):
+    import urllib.request
+    part = dst + ".part"
+    for attempt in range(1, 61):
+        have = os.path.getsize(part) if os.path.exists(part) else 0
+        try:
+            req = urllib.request.Request(url, headers={"Range": f"bytes={have}-", "User-Agent": "fod-job-runner"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                if r.status == 200 and have:  # server ignored the range: start over
+                    have = 0
+                total = have + int(r.headers.get("Content-Length") or 0)
+                log.write(f"{os.path.basename(dst)}: {have / 1e9:.2f} of {total / 1e9:.2f} GB (try {attempt})\n")
+                log.flush()
+                step = max(total // 20, 1)
+                mark = have // step
+                with open(part, "ab" if have else "wb") as f:
+                    while True:
+                        chunk = r.read(1 << 20)
+                        if not chunk:
+                            break
+                        f.write(chunk)
+                        have += len(chunk)
+                        if have // step > mark:
+                            mark = have // step
+                            log.write(f"  {min(100, mark * 5)}%\n")
+                            log.flush()
+            if total and have < total:
+                raise IOError("connection ended early")
+            os.replace(part, dst)
+            log.write(f"  done -> {dst}\n")
+            return
+        except Exception as e:
+            if getattr(e, "code", None) == 416:  # already complete
+                os.replace(part, dst)
+                return
+            log.write(f"  broke off ({e}); resuming in 15 s\n")
+            log.flush()
+            time.sleep(15)
+    raise RuntimeError(f"could not download {url}")
+
+
+ACTIONS = {"ping": a_ping, "comfy_models": a_comfy_models, "update": a_update, "comfy": a_comfy, "voice": a_voice,
            "render": a_render, "stills": a_stills, "bat": a_bat}
 
 

@@ -68,7 +68,7 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 
 ## Job queue (remote work on the owner's PC, owner decision 2026-11-26)
 - The owner asks from the phone; Claude drops `queue/inbox/<id>.json` into the PC's repo folder and reads `queue/logs/<id>.log`, `queue/done/<id>.json` and `queue/heartbeat.json`.
-- `tools/job_runner.py` (started by `start-job-runner.bat`, autostart via `install-job-runner-autostart.bat`) runs ONLY its fixed actions with checked arguments: ping, update (git fast-forward + npm ci when needed), comfy, voice (Eddie, costs credits: state the cost first), render, stills, bat (repo `make-*.bat` only).
+- `tools/job_runner.py` (started by `start-job-runner.bat`, autostart via `install-job-runner-autostart.bat`) runs ONLY its fixed actions with checked arguments: ping, comfy_models (downloads the ComfyUI model files, resumable), update (git fast-forward + npm ci when needed), comfy, voice (Eddie, costs credits: state the cost first), render, stills, bat (repo `make-*.bat` only).
 - Always `update` before other jobs, and look at `stills` before a full `render`.
 
 ## Quality standard
