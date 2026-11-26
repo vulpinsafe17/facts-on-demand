@@ -25,7 +25,7 @@ const LOCAL = [
   'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
   'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
 ].find((p) => existsSync(p));
-const haveShell = existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell'));
+const haveShell = existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell', 'VERSION'));
 let browser = {};
 if (!haveShell && LOCAL) {
   console.log(`using the browser installed on this PC: ${LOCAL}`);
