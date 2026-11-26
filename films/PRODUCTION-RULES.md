@@ -36,6 +36,13 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - With 3+ characters, at most about a third act at the same moment; the hero acts first.
 - Emotion drives motion: joy = bouncy arcs upward; tension/ban = sharp and fast; calm history narration = slow smooth drift.
 
+## Captions (owner decision 2026-11-26)
+- Every film has **burned-in hook captions** in the picture (not YouTube's CC), programmed by us: `remotion/src/lib/filmCaptions.tsx`, word lists per film in `captions.json` next to the film.
+- Something always happens with the text: every word pops in exactly when Eddie says it (real word timings from `gen_voice.py`), the spoken word is lit yellow.
+- Emphasis, max 2 per caption chunk so it keeps its meaning: numbers/years spin like a slot machine (orange), key names/things = orange team colour and bigger (`hero`), bans/losses/fights slam down in red with a shake and a stamp sound (`stamp`), comic words wiggle (`wobble`).
+- Placement: TOP of the frame, because the characters stand in the lower half and their legs/boots must never be covered.
+- Font: Lilita One, a local file in `media/library/fonts/` (SIL OFL), so every render looks the same, online or not.
+
 ## Backgrounds
 - Flat 2D cartoon, bold outlines, warm ochre palette; empty foreground for the characters; background people are tiny stick figures.
 - Image prompts and approved plates for film 1: `films/film-1-football/backgrounds.json`, `media/projects/film-1-football/bg/`.
@@ -57,6 +64,10 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - Characters: at least one of the three main characters in every story scene; the ruler (#3) only when a ruler is in the story.
 - Sound: music always low under the voice, a different track per era; no CTA/subscribe outro.
 
+## Quality standard
+- The YouTube Short "Why Astronauts Can't Flush in Space" (@RicksClips3000, youtube.com/shorts/NpRAk-5VKlo) is the bar for how our animation looks and how watching feels (not its facts or its 9:16 format).
+
 ## Later (agreed, not done yet)
+- The owl mascot becomes an animated puppet (ComfyUI draws the parts from the profile picture; code animates beak synced to the voice, blinking, wings, pointing, hopping) and replaces the still owl image in every film.
 - Film 1 long version (14-20 min) with more detail; cut to the owl talking at about 4:18.
 - Blinking and talking mouths for the characters.

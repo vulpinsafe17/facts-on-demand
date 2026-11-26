@@ -2,6 +2,9 @@ import React from 'react';
 import { AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame, Easing } from 'remotion';
 import timeline from './timeline.json';
 import figJson from './figures.json';
+import beats from '../../../../films/film-1-football/beats.json';
+import capStyle from './captions.json';
+import { FilmCaptions, VoLine } from '../../lib/filmCaptions';
 
 // FILM 1 — "Where did football come from?" (test film, 4:41).
 // Scenes on approved plates, timed to Eddie's word timings; era-correct cast from the
@@ -156,6 +159,7 @@ export default function Film1() {
           </Sequence>
         );
       })}
+      <FilmCaptions lines={(beats as { vo: VoLine[] }).vo} style={capStyle} />
       <Audio src={P('audio/voice.wav')} />
       {MUSIC.map(([a, b, id]) => {
         const from = Math.round(a * FPS), len = Math.round((b - a) * FPS) + 30;
