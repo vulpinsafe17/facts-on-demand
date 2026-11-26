@@ -16,22 +16,27 @@ const id = args.find((a) => !a.startsWith('--'));
 if (!id) { console.error('usage: render-film.mjs <CompositionId> [--frames=a-b] [--stills=1,2] [--scale=1]'); process.exit(2); }
 const scale = Number(opt('scale') ?? 1);
 
-// The render browser is downloaded once (~113 MB). A shaky home connection can cut that
-// download, so try a few times; if it still fails, use Chrome or Edge already on this PC.
+// Render browser: Remotion's own (downloaded once, ~113 MB) if it is already here; otherwise
+// the Chrome/Edge installed on this PC (a shaky home connection kept cutting the download, and
+// a cut download crashes node outright). Only if neither exists, download with retries.
+const LOCAL = [
+  'C:/Program Files/Google/Chrome/Application/chrome.exe',
+  'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
+  'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
+  'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
+].find((p) => existsSync(p));
+const haveShell = existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell'));
 let browser = {};
-for (let i = 1; i <= 3; i++) {
-  try { await ensureBrowser(); break; } catch (e) {
-    console.log(`browser download failed (${e.code ?? e.message})`);
-    if (i < 3) { console.log(`retry ${i}/2 in 20 s...`); await new Promise((r) => setTimeout(r, 20000)); continue; }
-    const local = [
-      'C:/Program Files/Google/Chrome/Application/chrome.exe',
-      'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
-      'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
-      'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
-    ].find((p) => existsSync(p));
-    if (!local) throw e;
-    console.log(`using the browser already installed: ${local}`);
-    browser = { browserExecutable: local, chromeMode: 'chrome-for-testing' };
+if (!haveShell && LOCAL) {
+  console.log(`using the browser installed on this PC: ${LOCAL}`);
+  browser = { browserExecutable: LOCAL, chromeMode: 'chrome-for-testing' };
+} else if (!haveShell) {
+  for (let i = 1; ; i++) {
+    try { await ensureBrowser(); break; } catch (e) {
+      if (i >= 4) throw e;
+      console.log(`browser download failed (${e.code ?? e.message}), retry ${i}/3 in 20 s...`);
+      await new Promise((r) => setTimeout(r, 20000));
+    }
   }
 }
 console.log('bundling...');
