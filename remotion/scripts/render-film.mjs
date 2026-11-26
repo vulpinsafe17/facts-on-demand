@@ -4,7 +4,7 @@
 //   node scripts/render-film.mjs Film1 --stills=22,57,1922     -> out/qa/Film1-f0022.png ... (QA stills)
 //   --scale=0.5 for quick previews
 import { bundle } from '@remotion/bundler';
-import { selectComposition, renderMedia, renderStill } from '@remotion/renderer';
+import { selectComposition, renderMedia, renderStill, ensureBrowser } from '@remotion/renderer';
 import { mkdirSync } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -16,6 +16,15 @@ const id = args.find((a) => !a.startsWith('--'));
 if (!id) { console.error('usage: render-film.mjs <CompositionId> [--frames=a-b] [--stills=1,2] [--scale=1]'); process.exit(2); }
 const scale = Number(opt('scale') ?? 1);
 
+// The render browser is downloaded once (~113 MB). A shaky home connection can cut the
+// download, so try a few times before giving up.
+for (let i = 1; ; i++) {
+  try { await ensureBrowser(); break; } catch (e) {
+    if (i >= 6) throw e;
+    console.log(`browser download failed (${e.code ?? e.message}), retry ${i}/5 in 20 s...`);
+    await new Promise((r) => setTimeout(r, 20000));
+  }
+}
 console.log('bundling...');
 const serveUrl = await bundle({ entryPoint: path.join(root, 'src', 'films-index.ts'), publicDir: path.join(root, '..', 'media') });
 const composition = await selectComposition({ serveUrl, id });
