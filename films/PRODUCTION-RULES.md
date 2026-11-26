@@ -66,6 +66,11 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - Characters: at least one of the three main characters in every story scene; the ruler (#3) only when a ruler is in the story.
 - Sound: music always low under the voice, a different track per era; no CTA/subscribe outro.
 
+## Job queue (remote work on the owner's PC, owner decision 2026-11-26)
+- The owner asks from the phone; Claude drops `queue/inbox/<id>.json` into the PC's repo folder and reads `queue/logs/<id>.log`, `queue/done/<id>.json` and `queue/heartbeat.json`.
+- `tools/job_runner.py` (started by `start-job-runner.bat`, autostart via `install-job-runner-autostart.bat`) runs ONLY its fixed actions with checked arguments: ping, update (git fast-forward + npm ci when needed), comfy, voice (Eddie, costs credits: state the cost first), render, stills, bat (repo `make-*.bat` only).
+- Always `update` before other jobs, and look at `stills` before a full `render`.
+
 ## Quality standard
 - The YouTube Short "Why Astronauts Can't Flush in Space" (@RicksClips3000, youtube.com/shorts/NpRAk-5VKlo) is the bar for how our animation looks and how watching feels (not its facts or its 9:16 format).
 

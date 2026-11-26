@@ -25,3 +25,6 @@ ai-shorts/*/bakeoff/*.mp4
 
 # local editor config
 .vscode/
+
+# job queue (local to the PC: jobs, logs, heartbeat)
+queue/
