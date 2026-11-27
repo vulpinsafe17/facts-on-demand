@@ -73,7 +73,8 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 
 ## Owl mascot (puppet)
 - Reference: `media/library/characters/owl/reference.png` (the approved profile picture). ComfyUI job `comfy/jobs/owl-parts.json`, flat green background for keying.
-- Owner approved (2026-11-27): front-base, front-talk, front-blink are the puppet's base. Feet are black, never orange. The owl always has exactly two wings (no extra arms or hands); the hand holding the glass is a wing tip.
+- Owner approved (2026-11-27): all 8 poses (front-base, front-talk, front-blink, wings-down, point-glass, shrug, side-walk, wave).
+- Puppet: `remotion/src/lib/owlPuppet.tsx` on the keyed poses in `media/library/characters/owl/cut/` (made by tools/key_owl.py, owl_overlays.py, owl_beak.py). Beak synced to Eddie's word timings and blinking in front-base; action poses switch in with a squash-pop (`OWL_BEATS` per shot). Replaces the still owl image everywhere. Feet are black, never orange. The owl always has exactly two wings (no extra arms or hands); the hand holding the glass is a wing tip.
 
 ## Quality standard
 - The YouTube Short "Why Astronauts Can't Flush in Space" (@RicksClips3000, youtube.com/shorts/NpRAk-5VKlo) is the bar for how our animation looks and how watching feels (not its facts or its 9:16 format).

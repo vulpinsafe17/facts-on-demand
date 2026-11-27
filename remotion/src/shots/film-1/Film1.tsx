@@ -5,6 +5,7 @@ import figJson from './figures.json';
 import beats from '../../../../films/film-1-football/beats.json';
 import capStyle from './captions.json';
 import { FilmCaptions, VoLine } from '../../lib/filmCaptions';
+import { OwlPuppet, OwlBeat } from '../../lib/owlPuppet';
 
 // FILM 1 — "Where did football come from?" (test film, 4:41).
 // Scenes on approved plates, timed to Eddie's word timings; era-correct cast from the
@@ -74,6 +75,12 @@ function motion(act: Actor['act'], f: number, seed: number) {
   return { rot, dy, sx, sy };
 }
 
+// owl acting per owl shot: talks in front-base, then the action pose the storyboard asks for
+const OWL_BEATS: Record<number, (dur: number) => OwlBeat[]> = {
+  17: (d) => [{ at: d * 0.45, pose: 'point-glass' }],  // points the magnifying glass west
+  49: () => [{ at: 0.5, pose: 'shrug' }],               // the owl shrugs
+};
+
 const SceneView: React.FC<{ sc: Scene; len: number }> = ({ sc, len }) => {
   const f = useCurrentFrame();
   const fade = interpolate(f, [0, XF], [0, 1], clamp);
@@ -124,7 +131,10 @@ const SceneView: React.FC<{ sc: Scene; len: number }> = ({ sc, len }) => {
     <AbsoluteFill style={{ opacity: fade, background: '#f3e6c8', alignItems: 'center', justifyContent: 'center' }}>
       <AbsoluteFill style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(110,70,30,0.35) 100%)' }} />
       {sc.kind === 'owl' ? (
-        <Img src={P('owl.png')} style={{ height: 820, transform: `scale(${pop}) rotate(${Math.sin(f / 9) * 2}deg)` }} />
+        <div style={{ position: 'relative', marginTop: 130, transform: `scale(${pop})` }}>
+          <div style={{ position: 'absolute', left: '22%', right: '22%', bottom: -6, height: 34, borderRadius: '50%', background: 'rgba(60,35,15,0.3)', filter: 'blur(6px)' }} />
+          <OwlPuppet height={700} startSec={sc.start} lines={(beats as { vo: VoLine[] }).vo} seed={sc.i} beats={OWL_BEATS[sc.i]?.(sc.end - sc.start)} />
+        </div>
       ) : sc.i === 15 ? (
         <Img src={P('props/red-card.png')} style={{ height: 600, transform: `scale(${pop}) rotate(${interpolate(f, [0, 12], [-25, 8], clamp)}deg)` }} />
       ) : (
