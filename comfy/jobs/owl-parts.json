@@ -3,7 +3,7 @@
   "workflow": "comfy/workflows/qwen-edit-2511-gguf.json",
   "reference": "media/library/characters/owl/reference.png",
   "out_dir": "media/library/characters/owl/comfy",
-  "style_lock": "Keep EXACTLY the same owl: same thick black hand-drawn ink lines with the same rough texture, black wings and ear tufts, white face and belly, the same big round eyes, the small orange beak, the black graduation cap with its tassel, the same cartoon hand and the same magnifying glass. Same proportions, flat colours, no shading. The whole owl visible including both feet; the feet are BLACK like the wings, never orange. The lens of the magnifying glass is filled with the same cream white as the owl's face. Background: one flat solid bright green colour (#00FF00) and nothing else, no ground line, no orange marks, no shadow.",
+  "style_lock": "Keep EXACTLY the same owl: same thick black hand-drawn ink lines with the same rough texture, black wings and ear tufts, white face and belly, the same big round eyes, the small orange beak, the black graduation cap with its tassel, the same cartoon hand and the same magnifying glass. The owl has EXACTLY TWO wings and nothing else: no extra arms, no extra hands; whenever it holds the magnifying glass, the cartoon hand is the tip of one of those two wings. Same proportions, flat colours, no shading. The whole owl visible including both feet; the feet are BLACK like the wings, never orange. The lens of the magnifying glass is filled with the same cream white as the owl's face. Background: one flat solid bright green colour (#00FF00) and nothing else, no ground line, no orange marks, no shadow.",
   "jobs": [
     {
       "name": "front-base",
@@ -32,8 +32,8 @@
     },
     {
       "name": "shrug",
-      "seed": 2004,
-      "prompt": "Show this owl in a big clear shrug: BOTH wings raised high out to the sides with the wing tips turned up like open palms, shoulders lifted, head tilted, eyebrows raised, small confused beak. The magnifying glass hangs loosely from its right hand."
+      "seed": 3004,
+      "prompt": "Show this owl in a big clear shrug with EXACTLY TWO wings: both of its two wings raised high out to the sides with the wing tips turned up like open palms, shoulders lifted, head tilted, eyebrows raised, small confused beak. It holds nothing: the magnifying glass lies on the ground by its feet."
     },
     {
       "name": "side-walk",
@@ -42,8 +42,8 @@
     },
     {
       "name": "wave",
-      "seed": 2006,
-      "prompt": "Show this owl facing the viewer and waving hello: its left wing raised HIGH ABOVE its head with the wing tip spread, the magnifying glass in its right hand down at its side, happy squinting eyes."
+      "seed": 3006,
+      "prompt": "Show this owl facing the viewer and waving hello with EXACTLY TWO wings: its left wing is raised high above its head, waving; its right wing hangs down at its side and its tip holds the magnifying glass. Happy squinting eyes."
     }
   ]
 }
