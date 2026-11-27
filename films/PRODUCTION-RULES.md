@@ -66,6 +66,18 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - Characters: at least one of the three main characters in every story scene; the ruler (#3) only when a ruler is in the story.
 - Sound: music always low under the voice, a different track per era; no CTA/subscribe outro.
 
+## 3D characters in Blender (owner decisions 2026-11-27)
+- Direction under test: 3D scenes built and animated 100 % in code with Blender (bpy), rendered on the owner's GPU. Camera style of the London demo (fly-in, whip pan to the reaction, push-in close-up, rise out) is APPROVED.
+- The 3D characters are a FAITHFUL 3D copy of the locked AI master sheets (`media/library/characters/*/master-sheet.jpg`): big round white head, NO ears, NO nose, black DOT eyes, the sheet's brows/hair/facial hair, orange scarf. Main character = big curled handlebar MUSTACHE (no full beard).
+- Arms and legs: THICKER, with sleeves and trouser legs in the costume (owner chose this over thin stick limbs). Round white mitten hands, boots as on the sheet.
+- No black outlines on the 3D characters: pure soft 3D shading.
+- Every 3D character gets its own turnaround sheet (front, three-quarter, side, back + 6 expressions) approved by the owner BEFORE it is used in any film.
+- Owner feedback on demo v1/v2: the first 3D figures looked bad; the backdrop must reach the horizon (no empty far end).
+
+- 3D scene checks (owner, 2026-11-28, after Film1Full): every acting/talking/focus character faces the camera (3/4 at worst, faces always visible);
+  every kick/header/catch really touches the ball (ball path derived from the limb at the contact frame); no intersections;
+  environments from professional low-poly kits, not primitive boxes. One reference-quality scene must be approved before whole films.
+
 ## Job queue (remote work on the owner's PC, owner decision 2026-11-26)
 - The owner asks from the phone; Claude drops `queue/inbox/<id>.json` into the PC's repo folder and reads `queue/logs/<id>.log`, `queue/done/<id>.json` and `queue/heartbeat.json`.
 - `tools/job_runner.py` (started by `start-job-runner.bat`, autostart via `install-job-runner-autostart.bat`) runs ONLY its fixed actions with checked arguments: ping, comfy_models (downloads the ComfyUI model files, resumable), update (git fast-forward + npm ci when needed), comfy, voice (Eddie, costs credits: state the cost first), render, stills, bat (repo `make-*.bat` only).

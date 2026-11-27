@@ -108,9 +108,21 @@ if (opt('stills')) {
       }
     }
   }
-  console.log('rendering the sound...');
-  const audio = path.join(partsDir, 'audio.wav');
-  await renderMedia({ serveUrl, composition, codec: 'wav', outputLocation: audio, frameRange: [a0, a1], timeoutInMilliseconds: 120000, ...browser });
+  const premixed = path.join(partsDir, 'audio.m4a');   // a ready mix (voice + music) skips the sound pass
+  const { existsSync: ex } = await import('fs');
+  let audio = path.join(partsDir, 'audio.wav');
+  if (ex(premixed)) { audio = premixed; console.log('using the premixed sound', path.relative(root, premixed)); }
+  else console.log('rendering the sound...');
+  for (let attempt = 1; !ex(premixed); attempt++) {   // the sound pass can time out on a slow font load: retry it
+    try {
+      await renderMedia({ serveUrl, composition, codec: 'wav', outputLocation: audio, frameRange: [a0, a1], timeoutInMilliseconds: 300000, ...browser });
+      break;
+    } catch (e) {
+      console.log(`sound failed (try ${attempt}): ${String(e.message ?? e).split('\n')[0]}`);
+      if (attempt >= 3) throw e;
+      await new Promise((r) => setTimeout(r, 10000));
+    }
+  }
   const list = path.join(partsDir, 'list.txt');
   (await import('fs')).writeFileSync(list, parts.map((p) => `file '${p.replace(/\\/g, '/')}'`).join('\n'));
   const out = path.join(outDir, `${name}.mp4`);

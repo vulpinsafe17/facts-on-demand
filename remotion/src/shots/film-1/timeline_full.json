@@ -1,0 +1,717 @@
+{
+ "scenes": [
+  {
+   "i": 0,
+   "start": 0.0,
+   "end": 4.059,
+   "kind": "bg",
+   "bg": "med-throne-hall",
+   "label": ""
+  },
+  {
+   "i": 1,
+   "start": 4.059,
+   "end": 8.204,
+   "kind": "bg",
+   "bg": "decree-table",
+   "label": ""
+  },
+  {
+   "i": 2,
+   "start": 8.204,
+   "end": 15.286,
+   "kind": "bg",
+   "bg": "modern-stadium",
+   "label": ""
+  },
+  {
+   "i": 3,
+   "start": 15.286,
+   "end": 19.431,
+   "kind": "bg",
+   "bg": "scholar-study",
+   "label": ""
+  },
+  {
+   "i": 4,
+   "start": 19.431,
+   "end": 25.12,
+   "kind": "bg",
+   "bg": "med-muddy-field",
+   "label": ""
+  },
+  {
+   "i": 5,
+   "start": 25.12,
+   "end": 31.218,
+   "kind": "owl",
+   "bg": null,
+   "label": "owl"
+  },
+  {
+   "i": 6,
+   "start": 31.218,
+   "end": 35.456,
+   "kind": "bg",
+   "bg": "han-city-dusk",
+   "label": ""
+  },
+  {
+   "i": 7,
+   "start": 35.456,
+   "end": 39.902,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": ""
+  },
+  {
+   "i": 8,
+   "start": 39.902,
+   "end": 45.336,
+   "kind": "card",
+   "bg": null,
+   "label": "蹴鞠  =  \"kick ball\""
+  },
+  {
+   "i": 9,
+   "start": 45.336,
+   "end": 53.521,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": ""
+  },
+  {
+   "i": 10,
+   "start": 53.521,
+   "end": 62.484,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": ""
+  },
+  {
+   "i": 11,
+   "start": 62.484,
+   "end": 69.613,
+   "kind": "bg",
+   "bg": "han-training-field",
+   "label": ""
+  },
+  {
+   "i": 12,
+   "start": 69.613,
+   "end": 79.83,
+   "kind": "bg",
+   "bg": "song-street",
+   "label": ""
+  },
+  {
+   "i": 13,
+   "start": 79.83,
+   "end": 86.378,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": ""
+  },
+  {
+   "i": 14,
+   "start": 86.378,
+   "end": 92.74,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": ""
+  },
+  {
+   "i": 15,
+   "start": 92.74,
+   "end": 97.664,
+   "kind": "bg",
+   "bg": "song-street",
+   "label": ""
+  },
+  {
+   "i": 16,
+   "start": 97.664,
+   "end": 106.487,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": ""
+  },
+  {
+   "i": 17,
+   "start": 106.487,
+   "end": 113.082,
+   "kind": "bg",
+   "bg": "han-palace-court",
+   "label": ""
+  },
+  {
+   "i": 18,
+   "start": 113.082,
+   "end": 118.145,
+   "kind": "card",
+   "bg": null,
+   "label": "RED CARD"
+  },
+  {
+   "i": 19,
+   "start": 118.145,
+   "end": 125.273,
+   "kind": "owl",
+   "bg": null,
+   "label": "owl"
+  },
+  {
+   "i": 20,
+   "start": 125.273,
+   "end": 133.543,
+   "kind": "card",
+   "bg": null,
+   "label": "CHINA  ·  ?  ·  ENGLAND"
+  },
+  {
+   "i": 21,
+   "start": 133.543,
+   "end": 142.134,
+   "kind": "bg",
+   "bg": "greek-field",
+   "label": ""
+  },
+  {
+   "i": 22,
+   "start": 142.134,
+   "end": 147.359,
+   "kind": "bg",
+   "bg": "greek-field",
+   "label": ""
+  },
+  {
+   "i": 23,
+   "start": 147.359,
+   "end": 154.454,
+   "kind": "bg",
+   "bg": "greek-field",
+   "label": ""
+  },
+  {
+   "i": 24,
+   "start": 154.454,
+   "end": 162.964,
+   "kind": "bg",
+   "bg": "heian-garden",
+   "label": ""
+  },
+  {
+   "i": 25,
+   "start": 162.964,
+   "end": 168.351,
+   "kind": "bg",
+   "bg": "heian-garden",
+   "label": ""
+  },
+  {
+   "i": 26,
+   "start": 168.351,
+   "end": 174.122,
+   "kind": "bg",
+   "bg": "heian-garden",
+   "label": ""
+  },
+  {
+   "i": 27,
+   "start": 174.122,
+   "end": 183.491,
+   "kind": "bg",
+   "bg": "ballcourt",
+   "label": ""
+  },
+  {
+   "i": 28,
+   "start": 183.491,
+   "end": 188.37,
+   "kind": "bg",
+   "bg": "ballcourt",
+   "label": ""
+  },
+  {
+   "i": 29,
+   "start": 188.37,
+   "end": 195.266,
+   "kind": "bg",
+   "bg": "med-muddy-field",
+   "label": ""
+  },
+  {
+   "i": 30,
+   "start": 195.266,
+   "end": 205.1,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": ""
+  },
+  {
+   "i": 31,
+   "start": 205.1,
+   "end": 210.405,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": ""
+  },
+  {
+   "i": 32,
+   "start": 210.405,
+   "end": 215.699,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": ""
+  },
+  {
+   "i": 33,
+   "start": 215.699,
+   "end": 222.585,
+   "kind": "bg",
+   "bg": "med-muddy-field",
+   "label": ""
+  },
+  {
+   "i": 34,
+   "start": 222.585,
+   "end": 231.548,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": ""
+  },
+  {
+   "i": 35,
+   "start": 231.548,
+   "end": 237.376,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": ""
+  },
+  {
+   "i": 36,
+   "start": 237.376,
+   "end": 240.244,
+   "kind": "bg",
+   "bg": "med-london-street",
+   "label": ""
+  },
+  {
+   "i": 37,
+   "start": 240.244,
+   "end": 248.266,
+   "kind": "bg",
+   "bg": "med-archery-field",
+   "label": ""
+  },
+  {
+   "i": 38,
+   "start": 248.266,
+   "end": 256.265,
+   "kind": "bg",
+   "bg": "med-throne-hall",
+   "label": ""
+  },
+  {
+   "i": 39,
+   "start": 256.265,
+   "end": 261.177,
+   "kind": "bg",
+   "bg": "med-archery-field",
+   "label": ""
+  },
+  {
+   "i": 40,
+   "start": 261.177,
+   "end": 267.725,
+   "kind": "bg",
+   "bg": "med-throne-hall",
+   "label": ""
+  },
+  {
+   "i": 41,
+   "start": 267.725,
+   "end": 273.924,
+   "kind": "bg",
+   "bg": "med-throne-hall",
+   "label": ""
+  },
+  {
+   "i": 42,
+   "start": 273.924,
+   "end": 281.807,
+   "kind": "card",
+   "bg": null,
+   "label": "\"you base football player\"\n— King Lear"
+  },
+  {
+   "i": 43,
+   "start": 281.807,
+   "end": 292.516,
+   "kind": "bg",
+   "bg": "decree-table",
+   "label": ""
+  },
+  {
+   "i": 44,
+   "start": 292.516,
+   "end": 301.781,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 45,
+   "start": 301.781,
+   "end": 306.982,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 46,
+   "start": 306.982,
+   "end": 312.682,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 47,
+   "start": 312.682,
+   "end": 319.811,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 48,
+   "start": 319.811,
+   "end": 326.789,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 49,
+   "start": 326.789,
+   "end": 333.058,
+   "kind": "bg",
+   "bg": "scholar-study",
+   "label": ""
+  },
+  {
+   "i": 50,
+   "start": 333.058,
+   "end": 342.311,
+   "kind": "bg",
+   "bg": "cambridge-room",
+   "label": ""
+  },
+  {
+   "i": 51,
+   "start": 342.311,
+   "end": 349.823,
+   "kind": "bg",
+   "bg": "frosty-field",
+   "label": ""
+  },
+  {
+   "i": 52,
+   "start": 349.823,
+   "end": 356.116,
+   "kind": "bg",
+   "bg": "frosty-field",
+   "label": ""
+  },
+  {
+   "i": 53,
+   "start": 356.116,
+   "end": 364.463,
+   "kind": "bg",
+   "bg": "frosty-field",
+   "label": ""
+  },
+  {
+   "i": 54,
+   "start": 364.463,
+   "end": 370.471,
+   "kind": "bg",
+   "bg": "frosty-field",
+   "label": ""
+  },
+  {
+   "i": 55,
+   "start": 370.471,
+   "end": 376.137,
+   "kind": "bg",
+   "bg": "victorian-street-night",
+   "label": ""
+  },
+  {
+   "i": 56,
+   "start": 376.137,
+   "end": 383.405,
+   "kind": "bg",
+   "bg": "solicitor-office",
+   "label": ""
+  },
+  {
+   "i": 57,
+   "start": 383.405,
+   "end": 388.002,
+   "kind": "bg",
+   "bg": "solicitor-office",
+   "label": ""
+  },
+  {
+   "i": 58,
+   "start": 388.002,
+   "end": 393.053,
+   "kind": "bg",
+   "bg": "victorian-street-night",
+   "label": ""
+  },
+  {
+   "i": 59,
+   "start": 393.053,
+   "end": 397.094,
+   "kind": "bg",
+   "bg": "tavern-interior",
+   "label": ""
+  },
+  {
+   "i": 60,
+   "start": 397.094,
+   "end": 407.345,
+   "kind": "bg",
+   "bg": "tavern-interior",
+   "label": ""
+  },
+  {
+   "i": 61,
+   "start": 407.345,
+   "end": 414.509,
+   "kind": "bg",
+   "bg": "tavern-interior",
+   "label": ""
+  },
+  {
+   "i": 62,
+   "start": 414.509,
+   "end": 424.922,
+   "kind": "bg",
+   "bg": "tavern-interior",
+   "label": ""
+  },
+  {
+   "i": 63,
+   "start": 424.922,
+   "end": 428.022,
+   "kind": "bg",
+   "bg": "tavern-interior",
+   "label": ""
+  },
+  {
+   "i": 64,
+   "start": 428.022,
+   "end": 433.2,
+   "kind": "card",
+   "bg": null,
+   "label": "FOOTBALL   |   RUGBY"
+  },
+  {
+   "i": 65,
+   "start": 433.2,
+   "end": 440.03,
+   "kind": "bg",
+   "bg": "frosty-field",
+   "label": ""
+  },
+  {
+   "i": 66,
+   "start": 440.03,
+   "end": 451.118,
+   "kind": "bg",
+   "bg": "cricket-ground-1872",
+   "label": ""
+  },
+  {
+   "i": 67,
+   "start": 451.118,
+   "end": 461.938,
+   "kind": "bg",
+   "bg": "cricket-ground-1872",
+   "label": ""
+  },
+  {
+   "i": 68,
+   "start": 461.938,
+   "end": 466.443,
+   "kind": "card",
+   "bg": null,
+   "label": "0  –  0"
+  },
+  {
+   "i": 69,
+   "start": 466.443,
+   "end": 472.55,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 70,
+   "start": 472.55,
+   "end": 479.725,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 71,
+   "start": 479.725,
+   "end": 489.199,
+   "kind": "bg",
+   "bg": "school-field-1840s",
+   "label": ""
+  },
+  {
+   "i": 72,
+   "start": 489.199,
+   "end": 496.154,
+   "kind": "bg",
+   "bg": "montevideo-1930",
+   "label": ""
+  },
+  {
+   "i": 73,
+   "start": 496.154,
+   "end": 507.636,
+   "kind": "bg",
+   "bg": "montevideo-1930",
+   "label": ""
+  },
+  {
+   "i": 74,
+   "start": 507.636,
+   "end": 518.004,
+   "kind": "bg",
+   "bg": "solicitor-office",
+   "label": ""
+  },
+  {
+   "i": 75,
+   "start": 518.004,
+   "end": 521.839,
+   "kind": "bg",
+   "bg": "modern-stadium",
+   "label": ""
+  },
+  {
+   "i": 76,
+   "start": 521.839,
+   "end": 529.548,
+   "kind": "card",
+   "bg": null,
+   "label": "SAILORS  ·  ENGINEERS\nTEACHERS  ·  STUDENTS"
+  },
+  {
+   "i": 77,
+   "start": 529.548,
+   "end": 534.18,
+   "kind": "bg",
+   "bg": "solicitor-office",
+   "label": ""
+  },
+  {
+   "i": 78,
+   "start": 534.18,
+   "end": 540.032,
+   "kind": "card",
+   "bg": null,
+   "label": "FIFA  1904\n7 founding nations"
+  },
+  {
+   "i": 79,
+   "start": 540.032,
+   "end": 545.257,
+   "kind": "card",
+   "bg": null,
+   "label": "ENGLAND  JOINS:  1905"
+  },
+  {
+   "i": 80,
+   "start": 545.257,
+   "end": 555.183,
+   "kind": "bg",
+   "bg": "montevideo-1930",
+   "label": ""
+  },
+  {
+   "i": 81,
+   "start": 555.183,
+   "end": 559.781,
+   "kind": "bg",
+   "bg": "montevideo-1930",
+   "label": ""
+  },
+  {
+   "i": 82,
+   "start": 559.781,
+   "end": 563.67,
+   "kind": "bg",
+   "bg": "montevideo-1930",
+   "label": ""
+  },
+  {
+   "i": 83,
+   "start": 563.67,
+   "end": 569.908,
+   "kind": "bg",
+   "bg": "montevideo-1930",
+   "label": ""
+  },
+  {
+   "i": 84,
+   "start": 569.908,
+   "end": 574.784,
+   "kind": "owl",
+   "bg": null,
+   "label": "owl"
+  },
+  {
+   "i": 85,
+   "start": 574.784,
+   "end": 593.198,
+   "kind": "bg",
+   "bg": null,
+   "label": ""
+  },
+  {
+   "i": 86,
+   "start": 593.198,
+   "end": 600.245,
+   "kind": "bg",
+   "bg": "modern-stadium",
+   "label": ""
+  },
+  {
+   "i": 87,
+   "start": 600.245,
+   "end": 604.274,
+   "kind": "bg",
+   "bg": "modern-stadium",
+   "label": ""
+  },
+  {
+   "i": 88,
+   "start": 604.274,
+   "end": 611.92,
+   "kind": "owl",
+   "bg": null,
+   "label": "owl"
+  }
+ ],
+ "durationSec": 611.92
+}

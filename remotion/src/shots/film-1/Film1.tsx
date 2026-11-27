@@ -17,7 +17,7 @@ export const compositionConfig = { id: 'Film1', durationInSeconds: 280.84, fps: 
 const FPS = 30, XF = 8;
 const P = (f: string) => staticFile(`projects/film-1-football/${f}`);
 const figs = figJson as Record<string, { file: string; w: number; h: number }>;
-type Scene = { i: number; start: number; end: number; kind: string; bg: string | null; label: string };
+export type Scene = { i: number; start: number; end: number; kind: string; bg: string | null; label: string };
 type Actor = { r: string; x: number; h?: number; flip?: boolean; act?: 'idle' | 'talk' | 'point' | 'cheer' | 'shrug'; enter?: 'left' | 'right' };
 type Prop = { p: string; x: number; y: number; w: number; spin?: boolean; drop?: boolean };
 
@@ -82,7 +82,7 @@ const OWL_BEATS: Record<number, (dur: number) => OwlBeat[]> = {
   49: () => [{ at: 0.5, pose: 'shrug' }],               // the owl shrugs
 };
 
-const SceneView: React.FC<{ sc: Scene; len: number }> = ({ sc, len }) => {
+export const SceneView: React.FC<{ sc: Scene; len: number }> = ({ sc, len }) => {
   const f = useCurrentFrame();
   const fade = interpolate(f, [0, XF], [0, 1], clamp);
   const t = interpolate(f, [0, len], [0, 1], { ...clamp, easing: Easing.bezier(0.4, 0, 0.6, 1) });
@@ -148,12 +148,12 @@ const SceneView: React.FC<{ sc: Scene; len: number }> = ({ sc, len }) => {
 };
 
 // era music: one bed per chapter, faded in/out, low under the voice
-const MUSIC: [number, number, string][] = [
+export const MUSIC: [number, number, string][] = [
   [0, 21.4, 'yt-sprightly-pursuit'], [21.4, 83.3, 'yt-in-the-temple-garden'], [83.3, 104.6, 'yt-oud-dance'],
   [104.6, 151.4, 'yt-invitation-to-the-castle-ball'], [151.4, 184.3, 'yt-tiptoe'], [184.3, 228.5, 'yt-the-thunderer-march'],
   [228.5, 254.1, 'yt-we-march-together'], [254.1, 280.84, 'yt-monument'],
 ];
-const Bed: React.FC<{ id: string; len: number }> = ({ id, len }) => {
+export const Bed: React.FC<{ id: string; len: number }> = ({ id, len }) => {
   return <Audio src={staticFile(`library/music/clips/${id}.mp3`)} loop volume={(f) => interpolate(f, [0, 30, len - 30, len], [0, 0.085, 0.085, 0], clamp)} />;
 };
 

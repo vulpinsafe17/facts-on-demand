@@ -28,3 +28,11 @@ ai-shorts/*/bakeoff/*.mp4
 
 # job queue (local to the PC: jobs, logs, heartbeat)
 queue/
+
+# reference videos (third-party, analysis only)
+media/reference/
+tools/blender_path.txt
+blender/out/
+
+__pycache__/
+*.pyc
