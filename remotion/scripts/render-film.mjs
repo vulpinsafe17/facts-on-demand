@@ -6,6 +6,7 @@
 import { bundle } from '@remotion/bundler';
 import { selectComposition, renderMedia, renderStill, ensureBrowser } from '@remotion/renderer';
 import { mkdirSync, existsSync } from 'fs';
+import os from 'os';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
@@ -50,6 +51,17 @@ if (!haveShell) {
     browser = { browserExecutable: LOCAL, chromeMode: 'chrome-for-testing' };
   }
 }
+// 16 GB RAM: a loaded ComfyUI model (~10 GB) starves the render tabs (fonts/images time out,
+// ffmpeg pipe dies). Ask ComfyUI to unload its models first; harmless if it isn't running.
+for (const port of [8188, 8000]) {
+  try {
+    await fetch(`http://127.0.0.1:${port}/free`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ unload_models: true, free_memory: true }), signal: AbortSignal.timeout(5000) });
+    console.log(`asked ComfyUI (port ${port}) to free its memory`);
+    await new Promise((r) => setTimeout(r, 5000));
+  } catch { /* not running */ }
+}
+console.log(`free RAM: ${(os.freemem() / 1e9).toFixed(1)} of ${(os.totalmem() / 1e9).toFixed(1)} GB`);
 console.log('bundling...');
 const serveUrl = await bundle({ entryPoint: path.join(root, 'src', 'films-index.ts'), publicDir: path.join(root, '..', 'media') });
 const composition = await selectComposition({ serveUrl, id, ...browser });
@@ -73,7 +85,7 @@ if (opt('stills')) {
     timeoutInMilliseconds: 120000, ...browser,
     // With the PC's own Chrome, parallel tabs got throttled and the caption font never finished
     // loading (render died at 25%). One tab is slower but reliable.
-    concurrency: browser.browserExecutable ? 1 : undefined,
+    concurrency: browser.browserExecutable ? 1 : 3,
     onProgress: ({ progress }) => { const p = Math.floor(progress * 20); if (p !== last) { last = p; console.log(`render ${p * 5}%`); } },
   });
   console.log('video ->', path.relative(root, out));
