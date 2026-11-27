@@ -60,6 +60,9 @@ if (opt('stills')) {
   await renderMedia({
     serveUrl, composition, codec: 'h264', outputLocation: out, scale, frameRange,
     timeoutInMilliseconds: 120000, ...browser,
+    // With the PC's own Chrome, parallel tabs got throttled and the caption font never finished
+    // loading (render died at 25%). One tab is slower but reliable.
+    concurrency: browser.browserExecutable ? 1 : undefined,
     onProgress: ({ progress }) => { const p = Math.floor(progress * 20); if (p !== last) { last = p; console.log(`render ${p * 5}%`); } },
   });
   console.log('video ->', path.relative(root, out));
