@@ -71,6 +71,10 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - `tools/job_runner.py` (started by `start-job-runner.bat`, autostart via `install-job-runner-autostart.bat`) runs ONLY its fixed actions with checked arguments: ping, comfy_models (downloads the ComfyUI model files, resumable), update (git fast-forward + npm ci when needed), comfy, voice (Eddie, costs credits: state the cost first), render, stills, bat (repo `make-*.bat` only).
 - Always `update` before other jobs, and look at `stills` before a full `render`.
 
+## Owl mascot (puppet)
+- Reference: `media/library/characters/owl/reference.png` (the approved profile picture). ComfyUI job `comfy/jobs/owl-parts.json`, flat green background for keying.
+- Owner approved (2026-11-27): front-base, front-talk, front-blink are the puppet's base. Feet are black, never orange.
+
 ## Quality standard
 - The YouTube Short "Why Astronauts Can't Flush in Space" (@RicksClips3000, youtube.com/shorts/NpRAk-5VKlo) is the bar for how our animation looks and how watching feels (not its facts or its 9:16 format).
 

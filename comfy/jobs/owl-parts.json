@@ -3,7 +3,7 @@
   "workflow": "comfy/workflows/qwen-edit-2511-gguf.json",
   "reference": "media/library/characters/owl/reference.png",
   "out_dir": "media/library/characters/owl/comfy",
-  "style_lock": "Keep EXACTLY the same owl: same thick black hand-drawn ink lines with the same rough texture, black wings and ear tufts, white face and belly, the same big round eyes, the small orange beak, the black graduation cap with its tassel, the same cartoon hand and the same magnifying glass. Same proportions, flat colours, no shading. The whole owl visible including both feet. Background: one flat solid bright green colour (#00FF00) and nothing else, no ground line, no orange marks, no shadow.",
+  "style_lock": "Keep EXACTLY the same owl: same thick black hand-drawn ink lines with the same rough texture, black wings and ear tufts, white face and belly, the same big round eyes, the small orange beak, the black graduation cap with its tassel, the same cartoon hand and the same magnifying glass. Same proportions, flat colours, no shading. The whole owl visible including both feet; the feet are BLACK like the wings, never orange. The lens of the magnifying glass is filled with the same cream white as the owl's face. Background: one flat solid bright green colour (#00FF00) and nothing else, no ground line, no orange marks, no shadow.",
   "jobs": [
     {
       "name": "front-base",
@@ -22,28 +22,28 @@
     },
     {
       "name": "wings-down",
-      "seed": 1002,
-      "prompt": "Show this owl standing upright and facing the viewer with both wings hanging relaxed at its sides and NO magnifying glass. The magnifying glass lies on the ground beside its feet."
+      "seed": 2002,
+      "prompt": "Show this owl standing upright and facing the viewer with both wings hanging relaxed at its sides and NO magnifying glass in its hands. The magnifying glass lies on the ground beside its black feet."
     },
     {
       "name": "point-glass",
-      "seed": 1003,
-      "prompt": "Show this owl leaning forward eagerly, raising the magnifying glass high in its right wing and pointing it to the right of the picture, curious face."
+      "seed": 2003,
+      "prompt": "Show this owl in a clear pointing pose: body turned slightly to the right, its right arm stretched straight out to the right of the picture holding the magnifying glass at arm's length like pointing at something, eager curious face, left wing relaxed."
     },
     {
       "name": "shrug",
-      "seed": 1004,
-      "prompt": "Show this owl shrugging: both wings lifted outward palms-up, head tilted, puzzled face, the magnifying glass held loosely in the right wing."
+      "seed": 2004,
+      "prompt": "Show this owl in a big clear shrug: BOTH wings raised high out to the sides with the wing tips turned up like open palms, shoulders lifted, head tilted, eyebrows raised, small confused beak. The magnifying glass hangs loosely from its right hand."
     },
     {
       "name": "side-walk",
-      "seed": 1005,
-      "prompt": "Show this owl seen from the side in profile, facing right, walking mid-step with one foot lifted, magnifying glass in its wing."
+      "seed": 2005,
+      "prompt": "Show this owl in a strict side view, a profile facing right: we see only one eye and the beak in profile pointing right, the body seen from the side, walking mid-step with one black foot lifted forward, magnifying glass held in front of it."
     },
     {
       "name": "wave",
-      "seed": 1006,
-      "prompt": "Show this owl facing the viewer, happily waving hello with its left wing raised high, magnifying glass in its right wing, big friendly smile in the eyes."
+      "seed": 2006,
+      "prompt": "Show this owl facing the viewer and waving hello: its left wing raised HIGH ABOVE its head with the wing tip spread, the magnifying glass in its right hand down at its side, happy squinting eyes."
     }
   ]
 }
