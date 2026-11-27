@@ -27,16 +27,27 @@ const LOCAL = [
 ].find((p) => existsSync(p));
 const haveShell = existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell', 'VERSION'));
 let browser = {};
-if (!haveShell && LOCAL) {
-  console.log(`using the browser installed on this PC: ${LOCAL}`);
-  browser = { browserExecutable: LOCAL, chromeMode: 'chrome-for-testing' };
-} else if (!haveShell) {
-  for (let i = 1; ; i++) {
-    try { await ensureBrowser(); break; } catch (e) {
-      if (i >= 4) throw e;
-      console.log(`browser download failed (${e.code ?? e.message}), retry ${i}/3 in 20 s...`);
-      await new Promise((r) => setTimeout(r, 20000));
-    }
+if (!haveShell) {
+  // Remotion's own headless browser renders fastest and most reliably: try to fetch it first
+  // (a cut download used to crash node, so guard the whole process while it runs).
+  let cut = null;
+  const guard = (e) => { cut = e; };
+  process.on('uncaughtException', guard);
+  for (let i = 1; i <= 3 && !existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell', 'VERSION')); i++) {
+    cut = null;
+    try {
+      await Promise.race([ensureBrowser(), new Promise((_, rej) => {
+        const iv = setInterval(() => { if (cut) { clearInterval(iv); rej(cut); } }, 500);
+        setTimeout(() => { clearInterval(iv); rej(new Error('download took over 5 min')); }, 300000).unref();
+      })]);
+    } catch (e) { cut = e; }
+    if (cut) { console.log(`browser download try ${i} failed (${cut.code ?? cut.message})`); await new Promise((r) => setTimeout(r, 15000)); }
+  }
+  process.off('uncaughtException', guard);
+  if (!existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell', 'VERSION'))) {
+    if (!LOCAL) throw new Error('no render browser');
+    console.log(`using the browser installed on this PC: ${LOCAL}`);
+    browser = { browserExecutable: LOCAL, chromeMode: 'chrome-for-testing' };
   }
 }
 console.log('bundling...');

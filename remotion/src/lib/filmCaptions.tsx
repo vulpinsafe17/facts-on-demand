@@ -14,12 +14,21 @@
 // bottom would cover their legs and boots (see PRODUCTION-RULES: boots always visible).
 import React from 'react';
 import { Audio, Easing, Sequence, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
-import { loadFont } from '@remotion/fonts';
+import { continueRender, delayRender } from 'remotion';
 
 // Font is a local file (media/library/fonts, SIL OFL) so every render looks identical,
-// with or without internet.
+// with or without internet. Loaded by hand instead of @remotion/fonts: on the owner's PC a
+// render tab sometimes never finished FontFace loading and the whole render timed out at
+// 25-30 %. Here the load gets 20 s, then the render continues (and says so in the console).
 const FONT = 'LilitaOne';
-loadFont({ family: FONT, url: staticFile('library/fonts/LilitaOne-Regular.woff2'), weight: '400' });
+if (typeof window !== 'undefined' && typeof FontFace !== 'undefined') {
+  const h = delayRender('caption font');
+  const face = new FontFace(FONT, `url(${staticFile('library/fonts/LilitaOne-Regular.woff2')}) format('woff2')`, { weight: '400' });
+  Promise.race([
+    face.load().then((f) => { (document.fonts as unknown as { add: (x: FontFace) => void }).add(f); }),
+    new Promise((r) => setTimeout(() => { console.warn('caption font: load took over 20 s, continuing'); r(null); }, 20000)),
+  ]).catch((e) => console.warn('caption font failed', e)).finally(() => continueRender(h));
+}
 
 export type TimedWord = { w: string; start: number; end: number };
 export type VoLine = { text: string; start: number; end: number; words?: TimedWord[] };
