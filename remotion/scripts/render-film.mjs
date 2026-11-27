@@ -34,6 +34,7 @@ if (!haveShell) {
   let cut = null;
   const guard = (e) => { cut = e; };
   process.on('uncaughtException', guard);
+  process.on('unhandledRejection', guard);
   for (let i = 1; i <= 3 && !existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell', 'VERSION')); i++) {
     cut = null;
     try {
@@ -45,6 +46,7 @@ if (!haveShell) {
     if (cut) { console.log(`browser download try ${i} failed (${cut.code ?? cut.message})`); await new Promise((r) => setTimeout(r, 15000)); }
   }
   process.off('uncaughtException', guard);
+  process.off('unhandledRejection', guard);
   if (!existsSync(path.join(root, 'node_modules', '.remotion', 'chrome-headless-shell', 'VERSION'))) {
     if (!LOCAL) throw new Error('no render browser');
     console.log(`using the browser installed on this PC: ${LOCAL}`);
@@ -75,18 +77,44 @@ if (opt('stills')) {
     console.log('still ->', path.relative(root, out));
   }
 } else {
+  // Rendered in parts of PART frames, each with a fresh browser (a long single render on the
+  // 16 GB PC froze/crashed tabs at 25-60 %). Each part is retried, then the picture parts are
+  // joined and the sound (rendered once, whole) is laid under them: no clicks at the joins.
   mkdirSync(outDir, { recursive: true });
+  const { execFileSync } = await import('child_process');
   const fr = opt('frames');
-  const frameRange = fr ? fr.split('-').map(Number) : undefined;
-  const out = path.join(outDir, fr ? `${id}-${fr}.mp4` : `${id}.mp4`);
-  let last = -1;
-  await renderMedia({
-    serveUrl, composition, codec: 'h264', outputLocation: out, scale, frameRange,
-    timeoutInMilliseconds: 120000, ...browser,
-    // With the PC's own Chrome, parallel tabs got throttled and the caption font never finished
-    // loading (render died at 25%). One tab is slower but reliable.
-    concurrency: browser.browserExecutable ? 1 : 3,
-    onProgress: ({ progress }) => { const p = Math.floor(progress * 20); if (p !== last) { last = p; console.log(`render ${p * 5}%`); } },
-  });
+  const [a0, a1] = fr ? fr.split('-').map(Number) : [0, composition.durationInFrames - 1];
+  const name = fr ? `${id}-${fr}` : id;
+  const partsDir = path.join(outDir, 'parts', name);
+  mkdirSync(partsDir, { recursive: true });
+  const PART = Number(opt('part') ?? 900);
+  const parts = [];
+  for (let s0 = a0; s0 <= a1; s0 += PART) {
+    const s1 = Math.min(s0 + PART - 1, a1);
+    const out = path.join(partsDir, `v-${String(s0).padStart(6, '0')}.mp4`);
+    parts.push(out);
+    if (existsSync(out) && !args.includes('--fresh')) { console.log(`part ${s0}-${s1}: already rendered`); continue; }
+    for (let attempt = 1; ; attempt++) {
+      try {
+        await renderMedia({ serveUrl, composition, codec: 'h264', muted: true, outputLocation: out + '.tmp.mp4', scale,
+          frameRange: [s0, s1], timeoutInMilliseconds: 120000, ...browser, concurrency: browser.browserExecutable ? 1 : 3 });
+        (await import('fs')).renameSync(out + '.tmp.mp4', out);
+        console.log(`part ${s0}-${s1} done (${Math.round(((s1 - a0 + 1) / (a1 - a0 + 1)) * 100)}% of the film)`);
+        break;
+      } catch (e) {
+        console.log(`part ${s0}-${s1} failed (try ${attempt}): ${String(e.message ?? e).split('\n')[0]}`);
+        if (attempt >= 3) throw e;
+        await new Promise((r) => setTimeout(r, 10000));
+      }
+    }
+  }
+  console.log('rendering the sound...');
+  const audio = path.join(partsDir, 'audio.wav');
+  await renderMedia({ serveUrl, composition, codec: 'wav', outputLocation: audio, frameRange: [a0, a1], timeoutInMilliseconds: 120000, ...browser });
+  const list = path.join(partsDir, 'list.txt');
+  (await import('fs')).writeFileSync(list, parts.map((p) => `file '${p.replace(/\\/g, '/')}'`).join('\n'));
+  const out = path.join(outDir, `${name}.mp4`);
+  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', list, '-i', audio,
+    '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', out], { stdio: 'inherit' });
   console.log('video ->', path.relative(root, out));
 }
