@@ -6,6 +6,7 @@ import beats from '../../../../films/film-1-football/beats.json';
 import capStyle from './captions.json';
 import { FilmCaptions, VoLine } from '../../lib/filmCaptions';
 import { OwlPuppet, OwlBeat } from '../../lib/owlPuppet';
+import { LondonScene } from './LondonScene';
 
 // FILM 1 — "Where did football come from?" (test film, 4:41).
 // Scenes on approved plates, timed to Eddie's word timings; era-correct cast from the
@@ -161,6 +162,7 @@ export default function Film1() {
   return (
     <AbsoluteFill style={{ backgroundColor: '#000' }}>
       {scenes.map((sc) => {
+        if (sc.i >= 23 && sc.i <= 27) return null; // played as one animated scene below
         const from = Math.round(sc.start * FPS);
         const len = Math.round(sc.end * FPS) - from + XF;
         return (
@@ -169,6 +171,11 @@ export default function Film1() {
           </Sequence>
         );
       })}
+      {(() => { // shots 23-27: the fully animated London street (demo of the new standard)
+        const a = scenes.find((s) => s.i === 23)!, b = scenes.find((s) => s.i === 27)!;
+        const from = Math.round(a.start * FPS), len = Math.round(b.end * FPS) - from + XF;
+        return <Sequence from={from} durationInFrames={len}><LondonScene len={len} /></Sequence>;
+      })()}
       <FilmCaptions lines={(beats as { vo: VoLine[] }).vo} style={capStyle} />
       <Audio src={P('audio/voice.wav')} />
       {MUSIC.map(([a, b, id]) => {
