@@ -31,7 +31,7 @@ Read `films/PRODUCTION-RULES.md` first (owner decisions, never regress), then th
      derive the ball path FROM the limb position at contact (compute the foot's world position in bpy), never by hand;
    - nothing intersects (characters, ball, props), feet never below the ground, nothing important out of frame.
 3. Replace self-made environments with professional CC0 low-poly kits (check each licence first):
-   Quaternius, Kenney, Poly Haven (materials/HDRIs). Characters: Mixamo account DONE 2026-11-28 (see PRODUCTION-RULES "Mixamo motion"); still ask the owner
-   the owner creates it) for real motion, and about a 3D artist for the 3 locked characters (one-time cost).
+   Quaternius, Kenney, Poly Haven (materials/HDRIs). Characters: Mixamo account DONE 2026-11-28 (see PRODUCTION-RULES "Mixamo motion");
+   still ask the owner about a 3D artist for the 3 locked characters (one-time cost).
 4. Make ONE 30-60 s scene at the reference quality (media/reference/, analysis only) and get the owner's approval
    before producing whole films again.
