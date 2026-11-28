@@ -13,7 +13,7 @@ def f(t):
 
 def _rest_arm(ch, side_i):
     side = -1 if side_i == 0 else 1
-    return (0, -side * 0.22, 0)
+    return (0, -side * getattr(ch, "arm_rest", 0.22), 0)
 
 
 def idle(ch, F, seed=0, blink=True):
@@ -124,8 +124,9 @@ def walk(ch, t0, t1, to, run=False):
         key(ch.legs[1], "rotation_euler", f(t), (-s * amp, 0, 0))
         key(ch.knees[0], "rotation_euler", f(t), (-max(0, -s) * amp * 0.9, 0, 0))
         key(ch.knees[1], "rotation_euler", f(t), (-max(0, s) * amp * 0.9, 0, 0))
-        key(ch.arms[0], "rotation_euler", f(t), (-s * amp * 1.1, 0.22, 0))
-        key(ch.arms[1], "rotation_euler", f(t), (s * amp * 1.1, -0.22, 0))
+        ar = getattr(ch, "arm_rest", 0.22)
+        key(ch.arms[0], "rotation_euler", f(t), (-s * amp * 1.1, ar, 0))
+        key(ch.arms[1], "rotation_euler", f(t), (s * amp * 1.1, -ar, 0))
         key(ch.hips, "location", f(t), (0, 0, 0.5 + (0.035 if n % 2 else 0) + (0.04 if run else 0)))
         t += step / 2
         n += 1

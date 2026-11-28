@@ -130,5 +130,8 @@ Add to this file whenever something is changed or approved. Never undo a rule si
   - Main: Han = thin drooping mustache · Greek = short full beard · Heian = thin mustache + small chin beard · Medieval = stubble · Victorian = handlebar.
   - Character 2: Han/Heian = clean-shaven · Greek = short trimmed beard · Medieval = light stubble · Victorian = thin mustache.
   - King: Edward II = short grey beard · Gaozu = thin dark mustache + chin tuft · Hongwu = full dark-grey beard.
-  - Eras without their own 2D sheet borrow the nearest: school/cricket/winter = Victorian (same decades), Song = Han. (Claude's proposal, not yet confirmed by the owner.)
+  - Eras without their own 2D sheet borrow the nearest: school/cricket/winter = Victorian (same decades), Song = Han. (Owner approved 2026-11-28.)
 - Check: `python blender/sheets/era_faces.py` renders every era face in one picture; look at it after any change to faces or facial hair.
+- 2026-11-28: King turnaround v5 (waiting for the owner's verdict): hair = soft cloud puffs (metaballs, `build_puffs` in face3d.py),
+  never strand hair (strands read as grey stone slabs); egg-shaped coat with the belly as the widest part; his arms rest further out
+  (`Character.arm_rest` = 0.42 for the round build) so they never cut into the belly. Every animation reads `arm_rest`, never a fixed angle.

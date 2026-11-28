@@ -163,6 +163,7 @@ def apply(ch, clip, t, speed=1.0, ground="clamp", gap=0.2, root_motion=False, st
     from fod3d import key as _key
     key = key_fn or _key
     end = len(clip) if end is None else end
+    gap = max(gap, getattr(ch, "arm_rest", 0.22) * 0.9)
     s = 0.5 / max(clip.leg_len, 1e-6)       # Mixamo -> our scale (hips 0.5 m)
     R = clip.rest
     prev = {}
@@ -258,7 +259,7 @@ def rest(ch, fr, key_fn=None):
     for o in (ch.hips, ch.torso, ch.head, *ch.legs, *ch.knees, *ch.elbows):
         key(o, "rotation_euler", fr, (0, 0, 0))
     for idx, side in enumerate((-1, 1)):
-        key(ch.arms[idx], "rotation_euler", fr, (0, -side * 0.22, 0))
+        key(ch.arms[idx], "rotation_euler", fr, (0, -side * getattr(ch, "arm_rest", 0.22), 0))
     key(ch.hips, "location", fr, (0, 0, 0.5))
 
 

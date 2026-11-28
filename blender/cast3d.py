@@ -702,9 +702,10 @@ class Character:
         # ---- tunic / robe (profile in ground space, shifted down by the hips height)
         if round_:
             hem = 0.12 if robe == "long" else 0.23
-            prof = [(0, hem), (0.3, hem), (0.32, hem + 0.04), (0.335, 0.42), (0.345, 0.58), (0.325, 0.74), (0.285, 0.85),
-                    (0.2, 0.93), (0.09, 0.975), (0, 0.985)]
-            sy = 0.9
+            # egg-shaped like the sheet: the belly is the widest part, narrow shoulders (owner: no boxy coat)
+            prof = [(0, hem), (0.3, hem), (0.33, hem + 0.05), (0.365, 0.4), (0.37, 0.5), (0.35, 0.62), (0.3, 0.74), (0.24, 0.84),
+                    (0.17, 0.92), (0.08, 0.97), (0, 0.985)]
+            sy = 0.95
         else:
             hem = {"long": 0.1, "coat": 0.3, "jacket": 0.46, "short": 0.34}.get(robe, 0.34)
             flare = 0.3 if robe == "long" else 0.252
@@ -747,7 +748,8 @@ class Character:
         else:
             sphere(f"{n}-neck", 0.08, (0, 0, 0.5), skin, self.torso, scale=(1, 1, 0.8))
         # ---- arms: shoulder > upper sleeve > elbow > forearm sleeve > white mitten
-        shoulder_x = 0.27 if round_ else 0.215
+        shoulder_x = 0.25 if round_ else 0.215
+        self.arm_rest = 0.42 if round_ else 0.22   # outward rest angle: a gap between arm and body (the king's belly is wide)
         if robe == "long" and not round_:
             shoulder_x = 0.225
         self.arms, self.elbows = [], []
@@ -765,7 +767,7 @@ class Character:
                 for p in cf.data.polygons:
                     p.use_smooth = True
             sphere(f"{n}-hand{side}", 0.068, (0, 0, -0.215), white, e, seg=32)
-            a.rotation_euler = (0, -side * 0.22, 0)   # outward: a gap between arm and body
+            a.rotation_euler = (0, -side * self.arm_rest, 0)   # outward: a gap between arm and body
             self.arms.append(a); self.elbows.append(e)
         # ---- legs: hip > thigh > knee > shin + whole boot; sole bottom exactly at ground
         self.legs, self.knees = [], []

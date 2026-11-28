@@ -342,6 +342,22 @@ def build_base_mass(n, spec, H):
         C._mball(n + "base", H, m, el)
 
 
+def build_puffs(n, spec, H):
+    """The king's hair (sheet): soft grey-white cloud puffs over the ear places and around the back, bald on top."""
+    m = mat(f"puff-{n}", spec["hair"], 0.85, noise=0.12, nscale=18, bump=0.08)
+    el = []
+    for side in (-1, 1):     # side clouds over the ear places
+        for th, ph, r in ((86, 8, 0.12), (98, 28, 0.1), (96, -14, 0.115), (114, 14, 0.12), (116, -16, 0.11),
+                          (132, 2, 0.12), (106, -32, 0.09), (130, 28, 0.1), (146, -14, 0.11)):
+            p = C._sph(side * th, ph)
+            el.append(("BALL", (p[0] * R * 1.0, p[1] * R * 1.0, p[2] * R * 1.0 + SKULL_Z), r, None))
+    for th in range(150, 211, 12):   # one fluffy mass round the back of the head (sheet back view)
+        for ph, r in ((24, 0.1), (2, 0.12), (-22, 0.11)):
+            p = C._sph(th, ph)
+            el.append(("BALL", (p[0] * R * 0.98, p[1] * R * 0.98, p[2] * R * 0.98 + SKULL_Z), r, None))
+    C._mball(n + "puffs", H, m, el, res=0.008)
+
+
 def build_head(n, spec, expr, parent, loc=(0, 0, 0)):
     """Head with one animated face and strand hair. Returns the head empty; the Face is H['face_rig']."""
     H = empty(f"{n}-head", loc, parent)
@@ -370,7 +386,9 @@ def build_head(n, spec, expr, parent, loc=(0, 0, 0)):
             tube(f"{n}-lens{side}", pts, 0.009, rim, H, cyclic=True)
             tube(f"{n}-temple{side}", [surf(side * 0.155, 0.045, 0.02), surf(side * 0.24, 0.05, 0.004), (side * 0.27, 0.05, SKULL_Z + 0.05)], 0.007, rim, H)
         tube(f"{n}-bridge", [surf(-0.02, 0.045, 0.03), surf(0, 0.052, 0.034), surf(0.02, 0.045, 0.03)], 0.007, rim, H)
-    if spec.get("hairstyle") not in (None, "bald"):
+    if spec.get("hairstyle") == "sides":
+        build_puffs(n, spec, H)          # owner: the king's hair is soft cloud puffs, strands read as grey stone
+    elif spec.get("hairstyle") not in (None, "bald"):
         build_base_mass(n, spec, H)
         build_strands(n, spec, H)
     if spec.get("crown"):
