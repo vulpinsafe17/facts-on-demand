@@ -641,6 +641,40 @@ def s_muddy_field(F):
 
 
 def s_london_street(F):
+    """Medieval London street built from the CC0 Quaternius kit (falls back to primitives if the kit is missing)."""
+    import kit3d as K
+    if not K.available():
+        print("  kit missing -> primitive street (run make-download-kits.bat)")
+        return s_london_street_old(F)
+    light("day")
+    rnd = random.Random(7)
+    K.floor_tiles(-4.6, 4.6, -9, 44)
+    ground("#93ad5c", noise=0.18, z=-0.16)
+    box("cityground", (70, 100, 0.2), (0, 36, -0.13), mat("dirt", "#8a7458", noise=0.15, nscale=0.3))
+    K.street(-9, 44, 4.6, seed=3)
+    K.props([(-4.05, 1.0 + i * 5.3, 0) for i in range(8)] + [(4.05, 3.4 + i * 6.1, math.pi) for i in range(7)], seed=8)   # tight to the walls, never in the play area
+    n = 0
+    for gy in range(-3, 24):                      # far roofs between the street and the horizon
+        for gx in range(2, 5):
+            for side in (-1, 1):
+                if rnd.random() < 0.2:
+                    continue
+                simple_house(f"bh{n}", side * (9.2 + gx * 3.6 + rnd.random() * 0.6), gy * 3.5 + rnd.random() * 0.8, 2.8 + rnd.random() * 0.6, 3.0,
+                             2.6 + rnd.random() * 2.4, n, rotz=0 if rnd.random() < 0.5 else math.pi / 2); n += 1
+    stone = mat("stone2", "#c8b79a", noise=0.15, nscale=0.6, bump=0.2)
+    slate = mat("slate", "#6c6a72", noise=0.1, nscale=4)
+    box("nave", (26, 7, 9), (0, 64, 4.5), stone)
+    prism_roof("naveroof", 26.4, 7.4, 3.6, (0, 64, 9), slate)
+    box("tower", (5, 5, 17), (2, 64, 8.5), stone)
+    cone("spire", 2.6, 26, (2, 64, 30), slate, verts=8)
+    box("citywall", (70, 1.6, 6), (0, 86, 3), mat("wall", "#b8ad98", noise=0.15, nscale=1, bump=0.2))
+    hills(rnd)
+    trees(rnd, 80, 62, 150, exclude=lambda x, y: abs(x) < 36 and -15 < y < 88)
+    clouds(rnd, frames=F)
+    return dict(focus=(0, 4, 1.2))
+
+
+def s_london_street_old(F):
     light("day")
     rnd = random.Random(7)
     cobble = k.mat_pattern("cobble", "#b89c72", "#6a5236", "cobble", scale=2.4, bump=0.5)

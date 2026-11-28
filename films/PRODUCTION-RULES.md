@@ -95,3 +95,17 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - The owl mascot becomes an animated puppet (ComfyUI draws the parts from the profile picture; code animates beak synced to the voice, blinking, wings, pointing, hopping) and replaces the still owl image in every film.
 - Film 1 long version (14-20 min) with more detail; cut to the owl talking at about 4:18.
 - Blinking and talking mouths for the characters.
+
+## Automatic shot checks + real model kits (2026-11-28)
+- `render.py` now runs two checks on every 3D scene before it renders:
+  - **Faces visible:** every standing (not walking) character is turned so its face is at most 55° from the camera (a 3/4 view at worst). Each correction is logged as `check: <id> turned towards the camera`.
+  - **Ball contact:** at every `kick`, the ball's path point is moved to the kicking foot's real world position at that frame, so the foot always touches the ball. Logged as `check: ball meets <id>'s foot`.
+- Environments are built from **CC0 model kits** instead of primitive boxes, starting with the Quaternius *Medieval Village MegaKit* (Standard, free, CC0 1.0 — licence file `License_Standard.txt` in the kit).
+  - Download on the PC with `make-download-kits.bat` → `media/library/kits/` (gitignored, re-downloadable).
+  - `blender/kit3d.py` builds houses and streets from the pieces. Kit scale 0.72 to match the cast.
+  - The medieval London street (scenes 30–36) is the first set rebuilt with the kit. If the kit is missing, the old primitive set is used.
+- Only CC0 assets may be used. Check the licence before any new kit is added.
+- **Faces never hidden by hats:** hoods and coifs are open shells with the face cut out (`open_cap` in `cast3d.py`). Before this fix, NPCs in hoods and coifs had no visible face at all.
+- **Kicks must be in the picture:** `render.py` warns (`WARN check: kick … outside the picture`) when the kicking foot is out of frame at contact. Fix the camera when it warns. Scene T[23] (full-plan scene 30) was fixed this way.
+- **Hair in EEVEE:** strand material has no sheen, low specular and roughness 0.62, and strand tips are thicker. Before this, the PC's EEVEE showed white patches on top of the hair.
+- Street props (crates, wagons, fences) stand tight against the house walls, never in the play area.

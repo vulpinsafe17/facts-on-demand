@@ -210,9 +210,12 @@ def strand_mat(n, color):
     rgb = hexrgb(color)
     m = bpy.data.materials.new(key_); m.use_nodes = True
     nt = m.node_tree; b = nt.nodes["Principled BSDF"]
-    b.inputs["Roughness"].default_value = 0.42
-    if "Sheen Weight" in b.inputs:
-        b.inputs["Sheen Weight"].default_value = 0.3
+    # EEVEE on the PC turned white sheen + sharp specular into white patches on top of the head (owner 2026-11-28):
+    # soft, low specular, no sheen.
+    b.inputs["Roughness"].default_value = 0.62
+    for k_, v in (("Sheen Weight", 0.0), ("Specular IOR Level", 0.22), ("Coat Weight", 0.0)):
+        if k_ in b.inputs:
+            b.inputs[k_].default_value = v
     hi = nt.nodes.new("ShaderNodeHairInfo")
     nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 40
     rr = nt.nodes.new("ShaderNodeValToRGB")
@@ -302,7 +305,7 @@ def build_strands(n, spec, H, density=14000):
                 q = _nrm((q[0] + 0.05 * math.cos(a), q[1] + 0.05 * math.sin(a), q[2] + 0.04 * math.sin(a * 1.3)))
                 r_ = R * (1.0 + 0.16 * math.sin(t * math.pi * 0.9))
             pts.append((q[0] * r_, q[1] * r_, q[2] * r_ + SKULL_Z))
-            radii.append(0.0065 * (1 - t) ** 0.7 + 0.0008)
+            radii.append(0.0072 * (1 - t) ** 0.5 + 0.0026)   # fuller tips: EEVEE showed skin through thin tips
         pos += pts
     for i, v in enumerate(pos):
         curves.position_data[i].vector = v

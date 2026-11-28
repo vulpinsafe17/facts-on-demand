@@ -115,6 +115,20 @@ def sphere(name, r, loc, m, parent=None, scale=(1, 1, 1), seg=32, rot=(0, 0, 0))
     return o
 
 
+def open_cap(name, r, loc, m, parent=None, face_top=0.45, scale=(1, 1, 1)):
+    """Hood / coif: a shell around the head with the FACE CUT OPEN (owner 2026-11-28: every face must show).
+    The opening is an oval on the -y side, from below the chin up to face_top*r above the centre."""
+    import bmesh
+    o = sphere(name, r, loc, m, parent, scale=scale, seg=72)
+    bm = bmesh.new(); bm.from_mesh(o.data)
+    cut = [v for v in bm.verts if v.co.y < -0.2 * r and (v.co.x / (0.78 * r)) ** 2 + (max(0.0, v.co.z - (face_top - 1.0) * r * 0.5) / (face_top * r + 0.001)) ** 2 < 1.0
+           and v.co.z < face_top * r]
+    bmesh.ops.delete(bm, geom=cut, context="VERTS")
+    bm.to_mesh(o.data); bm.free()
+    sol = o.modifiers.new("thick", "SOLIDIFY"); sol.thickness = 0.018; sol.offset = 1.0
+    return o
+
+
 def slab(name, size, loc, m, parent=None, rot=(0, 0, 0), sub=2):
     """Soft rounded slab (scarf tails, soles): a subdivided cube."""
     bpy.ops.mesh.primitive_cube_add(size=1, location=loc, rotation=rot)
@@ -571,9 +585,9 @@ def build_hat(n, hat, H, spec):
               mat("bandcol", spec.get("hatcolor", "#c84a2a"), 0.6), H)
     elif hat == "hood":
         hm = mat(f"hood-{n}", spec.get("hatcolor", "#6a5a3a"), 0.9, noise=0.08, nscale=20)
-        sphere(f"{n}-hood", R * 1.18, (0, 0.04, SKULL_Z + 0.03), hm, H, scale=(1.02, 1.02, 1.05))
+        open_cap(f"{n}-hood", R * 1.18, (0, 0.04, SKULL_Z + 0.03), hm, H, face_top=0.42, scale=(1.02, 1.02, 1.05))
     elif hat == "coif":
-        sphere(f"{n}-coif", R * 1.12, (0, 0.05, SKULL_Z + 0.04), mat("linen", "#efe6d2", 0.8), H)
+        open_cap(f"{n}-coif", R * 1.12, (0, 0.05, SKULL_Z + 0.04), mat("linen", "#efe6d2", 0.8), H, face_top=0.5)
 
 
 # era costumes (applied over the locked character: only clothes change by era, PRODUCTION-RULES)

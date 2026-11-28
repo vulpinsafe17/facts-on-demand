@@ -174,6 +174,76 @@ def build_props(seg, cast, F, info):
         # "breath", "door_open": decorative, skipped
 
 
+# ------------------------------------------------------------------ shot checks (owner rules 2026-11-28)
+def cam_mid(cam):
+    """Rough camera position in the middle of the shot (for the facing check)."""
+    if cam["kind"] == "push":
+        return tuple((a + b) / 2 for a, b in zip(cam["p0"], cam["p1"]))
+    if cam["kind"] == "orbit":
+        a = (cam["a0"] + cam["a1"]) / 2
+        c = cam["c"]
+        return (c[0] + math.sin(a) * cam["r"], c[1] - math.cos(a) * cam["r"], c[2] + cam["h"])
+    ks = cam["k"]
+    return tuple(sum(k_[1][i] for k_ in ks) / len(ks) for i in range(3))
+
+
+MAX_TURN = math.radians(55)   # faces must be visible: at worst a 3/4 view
+
+
+def face_camera(seg):
+    """Turn every standing character (not walking) so its face is within MAX_TURN of the camera.
+    Keeps the intended direction as much as allowed; logs every correction."""
+    cm = cam_mid(seg["cam"])
+    walkers = {a[0] for a in seg.get("acts", []) if a[1] == "walk"}
+    for c in seg.get("cast", []):
+        if c["id"] in walkers:
+            continue
+        x, y = c["loc"][0], c["loc"][1]
+        want = math.atan2(cm[0] - x, -(cm[1] - y))          # rz that faces the camera exactly
+        d = (c["rz"] - want + math.pi) % math.tau - math.pi
+        if abs(d) > MAX_TURN:
+            new = want + math.copysign(MAX_TURN, d)
+            print(f"  check: {c['id']} turned towards the camera ({math.degrees(d):.0f} -> {math.degrees(MAX_TURN * (1 if d > 0 else -1)):.0f} deg)")
+            c["rz"] = new
+
+
+def _toe_world(ch, leg, frame):
+    sc = bpy.context.scene
+    sc.frame_set(frame)
+    side = -1 if leg == 0 else 1
+    toe = bpy.data.objects.get(f"{ch.n}-toe{side}")
+    return tuple(toe.matrix_world.translation) if toe else None
+
+
+def ball_contacts(seg, cast):
+    """Every kick touches the ball: the ball's key at the kick (and its rest point just before) is moved
+    to the kicking foot's real position at the contact frame."""
+    kicks = [(a[0], a[2], (a[3] if len(a) > 3 else 1)) for a in seg.get("acts", []) if a[1] == "kick" and a[0] in cast]
+    for p in seg.get("props", []):
+        if not p[0].endswith("_path"):
+            continue
+        pts = p[2]
+        for cid, t, leg in kicks:
+            hit = [i for i, (tt, _) in enumerate(pts) if abs(tt - t) <= 0.08]
+            if not hit:
+                continue
+            toe = _toe_world(cast[cid], leg, A.f(t))
+            if not toe:
+                continue
+            ch = cast[cid]
+            rz = ch.root.rotation_euler.z
+            fwd = (math.sin(rz), -math.cos(rz))
+            r = 0.12
+            spot = (toe[0] + fwd[0] * 0.1, toe[1] + fwd[1] * 0.1, max(r, toe[2]))
+            i = hit[0]
+            old = pts[i][1]
+            pts[i] = (pts[i][0], spot)
+            if i > 0 and pts[i - 1][1][2] <= r + 0.05 and abs(pts[i - 1][1][0] - old[0]) < 0.3 and abs(pts[i - 1][1][1] - old[1]) < 0.3:
+                pts[i - 1] = (pts[i - 1][0], spot)          # the ball waits at the foot
+            print(f"  check: ball meets {cid}'s foot at {t:.2f}s")
+    bpy.context.scene.frame_set(1)
+
+
 # ------------------------------------------------------------------ camera
 def build_camera(cam, F):
     sc = bpy.context.scene
@@ -227,6 +297,9 @@ WORDS = _words()
 def build_segment(seg, F, shot_start=0.0):
     sc = k.reset(F, W, H, ENGINE, SAMPLES)
     sc.render.use_freestyle = False          # owner: pure 3D shading, no outlines
+    import copy
+    seg = copy.deepcopy(seg)
+    face_camera(seg)
     info = SETS.SETS[seg["set"]](F) or {}
     cast = {}
     for i, c in enumerate(seg.get("cast", [])):
@@ -252,9 +325,32 @@ def build_segment(seg, F, shot_start=0.0):
             A.ACTS[name](cast[cid], *args)
         except Exception as e:
             print("act failed", act, e)
+    ball_contacts(seg, cast)
     build_props(seg, cast, F, info)
     build_camera(seg["cam"], F)
+    frame_check(seg, cast)
     return sc
+
+
+def frame_check(seg, cast):
+    """Warn when a kick happens outside the picture (the viewer must see foot meet ball)."""
+    from bpy_extras.object_utils import world_to_camera_view
+    sc = bpy.context.scene
+    for a in seg.get("acts", []):
+        if a[1] != "kick" or a[0] not in cast:
+            continue
+        leg = a[3] if len(a) > 3 else 1
+        f = A.f(a[2])
+        sc.frame_set(f)
+        toe = bpy.data.objects.get(f"{cast[a[0]].n}-toe{-1 if leg == 0 else 1}")
+        if not toe:
+            continue
+        v = world_to_camera_view(sc, sc.camera, toe.matrix_world.translation)
+        if not (0.03 < v.x < 0.97 and 0.03 < v.y < 0.97 and v.z > 0):
+            print(f"  WARN check: kick by {a[0]} at {a[2]:.2f}s is outside the picture")
+        else:
+            print(f"  check: kick by {a[0]} at {a[2]:.2f}s is in the picture")
+    sc.frame_set(1)
 
 
 def render_scene(i, force=False, stills=False):
