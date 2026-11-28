@@ -116,3 +116,9 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - Download settings: **FBX Binary, Without Skin, 30 fps, Keyframe Reduction none**, on the default X Bot. "In Place" ON for walk/run cycles (the code moves the character along its path).
 - Files go to `media/library/mixamo/<name>.fbx` (same name as on Mixamo, lowercase with dashes). The folder is **gitignored**: Mixamo animations may be used in our videos, but the raw files may not be redistributed.
 - Pipeline: our characters get a Mixamo-named armature (`mixamorig:*` bones) with the costume pieces parented to their bones; the clip's bone rotations are retargeted onto it by bone name in bpy. The existing shot checks (faces visible, ball touches the foot, kick in frame, feet on the ground) still run on every scene.
+
+## 3D turnaround sheets (owner verdicts)
+- 2026-11-28: **Character 2 (glasses, ginger) APPROVED** as rendered in turnaround v3 (`blender/sheets/turnaround.py --who two`). Do not change its look without asking.
+- 2026-11-28: Main character: the handlebar mustache was too thick and its curls sat too high (up by the eyes).
+  Now a few % thinner with the curls level with the middle of the mustache. Never thicken it or raise the curls again. Waiting for the verdict on v4.
+- Quiet faces keep the mouth closed (a thin line); the mouth opens only when talking or when the expression asks for it.

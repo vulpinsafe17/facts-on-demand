@@ -356,10 +356,11 @@ def build_head(n, spec, expr, parent, loc=(0, 0, 0)):
         hm = mat(f"stache-{n}", spec["hair"], 0.55)
         for side in (-1, 1):
             s = side
-            pts = [surf(0.0, -0.055, 0.016), surf(s * 0.055, -0.07, 0.024), surf(s * 0.115, -0.085, 0.022),
-                   surf(s * 0.17, -0.08, 0.016), surf(s * 0.205, -0.05, 0.012), surf(s * 0.205, -0.015, 0.012),
-                   surf(s * 0.18, 0.0, 0.014), surf(s * 0.158, -0.018, 0.016), surf(s * 0.168, -0.04, 0.016)]
-            tube(f"{n}-stache{side}", pts, 0.042, hm, H, radii=[1.0, 1.15, 1.0, 0.75, 0.55, 0.45, 0.4, 0.35, 0.25])
+            # owner 2026-11-28: a few % thinner, and the curls sit LOWER (not up by the eyes): flatter angle
+            pts = [surf(0.0, -0.058, 0.016), surf(s * 0.055, -0.073, 0.024), surf(s * 0.115, -0.09, 0.022),
+                   surf(s * 0.168, -0.092, 0.016), surf(s * 0.2, -0.074, 0.012), surf(s * 0.202, -0.046, 0.012),
+                   surf(s * 0.18, -0.033, 0.014), surf(s * 0.16, -0.048, 0.016), surf(s * 0.169, -0.066, 0.016)]
+            tube(f"{n}-stache{side}", pts, 0.039, hm, H, radii=[1.0, 1.15, 1.0, 0.75, 0.55, 0.45, 0.4, 0.35, 0.25])
     if spec.get("glasses"):
         rim = mat("rim", "#141010", 0.3)
         for side in (-1, 1):
