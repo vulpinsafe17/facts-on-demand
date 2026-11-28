@@ -46,6 +46,7 @@ Read `films/PRODUCTION-RULES.md` first (owner decisions, never regress), then th
 - Known issue to solve with real clips: Mixamo arms are made for a small head; a raised arm can pass through our big
   head. Add a head-clearance check (no intersections rule) before using arm-over-head clips.
 - Not wired into `acting.py` / the shot files yet: waiting for the owner's downloads.
+- 2026-11-28: all three turnaround sheets approved (see PRODUCTION-RULES). Next: the reference-quality London scene.
 
 ## Turnaround sheets v3 (2026-11-28, cloud session) - waiting for the owner's verdict
 - Rendered with `blender/sheets/turnaround.py` (Cycles CPU) and compared side by side with the master sheets.
