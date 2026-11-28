@@ -109,3 +109,10 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 - **Kicks must be in the picture:** `render.py` warns (`WARN check: kick … outside the picture`) when the kicking foot is out of frame at contact. Fix the camera when it warns. Scene T[23] (full-plan scene 30) was fixed this way.
 - **Hair in EEVEE:** strand material has no sheen, low specular and roughness 0.62, and strand tips are thicker. Before this, the PC's EEVEE showed white patches on top of the hair.
 - Street props (crates, wagons, fences) stand tight against the house walls, never in the play area.
+
+## Mixamo motion (owner decision 2026-11-28)
+- The owner has created the free Adobe account: 3D characters get real motion-capture animation from **Mixamo** instead of hand-keyed rotations.
+- Only the owner logs in to mixamo.com (on the PC). Claude never asks for or stores the password; there is no Mixamo API.
+- Download settings: **FBX Binary, Without Skin, 30 fps, Keyframe Reduction none**, on the default X Bot. "In Place" ON for walk/run cycles (the code moves the character along its path).
+- Files go to `media/library/mixamo/<name>.fbx` (same name as on Mixamo, lowercase with dashes). The folder is **gitignored**: Mixamo animations may be used in our videos, but the raw files may not be redistributed.
+- Pipeline: our characters get a Mixamo-named armature (`mixamorig:*` bones) with the costume pieces parented to their bones; the clip's bone rotations are retargeted onto it by bone name in bpy. The existing shot checks (faces visible, ball touches the foot, kick in frame, feet on the ground) still run on every scene.

@@ -39,3 +39,6 @@ __pycache__/
 
 # CC0 model kits: downloaded by make-download-kits.bat, not committed (large)
 media/library/kits/
+
+# Mixamo animations: downloaded by the owner, may not be redistributed
+media/library/mixamo/
