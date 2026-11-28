@@ -603,13 +603,33 @@ COSTUMES = {
     "winter":    dict(tunic="#5a4a3a", belt="#2a1a10", hose="#3a3030", boot="#2a1a10", hat="bowler", robe="coat", trim="#7a3a2a"),
     "modern":    dict(tunic="#ef7a1d", belt=None, hose="#1d1a1a", boot="#f4f4f4", robe="jacket"),
 }
-KINGS = {   # the ruler (#3) of each era: robe + the right royal headwear
-    "edward":  dict(),
+_CLEAN = dict(facial=None, goatee=None, beard=None, beard_style=None, stubble=None)
+# facial hair by era, from the approved 2D era sheets (media/library/characters/*/eras/*.prompt.txt).
+# Eras without an approved 2D sheet borrow the nearest one: school/cricket/winter = victorian (same decades), song = han.
+_MAIN = dict(
+    han=dict(_CLEAN, facial="droop"),
+    greek=dict(_CLEAN, beard="#4a3020", beard_style="short"),
+    heian=dict(_CLEAN, facial="thin", goatee="#4a3020"),
+    medieval=dict(_CLEAN, stubble="#4a3020"),
+    victorian=dict(_CLEAN, facial="handlebar"),
+)
+_TWO = dict(
+    han=dict(_CLEAN), heian=dict(_CLEAN),
+    greek=dict(_CLEAN, beard="#c8723a", beard_style="short"),
+    medieval=dict(_CLEAN, stubble="#b0602e"),
+    victorian=dict(_CLEAN, facial="thin"),
+)
+for _d in (_MAIN, _TWO):
+    _d.update(school=_d["victorian"], cricket=_d["victorian"], winter=_d["victorian"], song=_d["han"])
+ERA_FACE = {"main": _MAIN, "two": _TWO}
+
+KINGS = {   # the ruler (#3) of each era: robe + the right royal headwear (+ facial hair from his 2D era sheet)
+    "edward":  dict(beard="#a9abae", beard_style="short"),
     "james":   dict(tunic="#24356e", trim="#d9a83a"),                        # James I of Scotland
     "henry":   dict(tunic="#5a1a3a", trim="#d9a83a"),                        # Henry VIII
     "huizong": dict(tunic="#e0b030", trim="#b8282a", crown=False, hat="futou", robe="long"),   # Song emperor
-    "gaozu":   dict(tunic="#1d1a1a", trim="#b8282a", crown=False, hat="mianguan", robe="long"),
-    "hongwu":  dict(tunic="#e0b030", trim="#b8282a", crown=False, hat="ming", robe="long"),
+    "gaozu":   dict(tunic="#1d1a1a", trim="#b8282a", crown=False, hat="mianguan", robe="long", facial="thin", facial_color="#2a2420", goatee="#2a2420"),
+    "hongwu":  dict(tunic="#e0b030", trim="#b8282a", crown=False, hat="ming", robe="long", beard="#4a4848", beard_style="full"),
 }
 
 
@@ -660,6 +680,7 @@ class Character:
         spec.setdefault("scarf", True)
         if era and who in ("main", "two") and spec is not None:
             spec.update(COSTUMES.get(era, {}))
+            spec.update(ERA_FACE.get(who, {}).get(era, {}))
         if king:
             spec.update(KINGS[king])
         n = name or who

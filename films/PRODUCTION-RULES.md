@@ -120,5 +120,15 @@ Add to this file whenever something is changed or approved. Never undo a rule si
 ## 3D turnaround sheets (owner verdicts)
 - 2026-11-28: **Character 2 (glasses, ginger) APPROVED** as rendered in turnaround v3 (`blender/sheets/turnaround.py --who two`). Do not change its look without asking.
 - 2026-11-28: Main character: the handlebar mustache was too thick and its curls sat too high (up by the eyes).
-  Now a few % thinner with the curls level with the middle of the mustache. Never thicken it or raise the curls again. Waiting for the verdict on v4.
+  Now a few % thinner with the curls level with the middle of the mustache. Never thicken it or raise the curls again.
+- 2026-11-28: **Main character APPROVED** (turnaround v4, base look = the master sheet with the handlebar).
 - Quiet faces keep the mouth closed (a thin line); the mouth opens only when talking or when the expression asks for it.
+
+## Facial hair changes with the era (3D, owner reminder 2026-11-28)
+- The base (approved) sheets are the master look. In a film every main character wears the facial hair of the era's approved 2D era sheet
+  (`media/library/characters/*/eras/*.prompt.txt`), coded in `ERA_FACE` / `KINGS` in `blender/cast3d.py`:
+  - Main: Han = thin drooping mustache · Greek = short full beard · Heian = thin mustache + small chin beard · Medieval = stubble · Victorian = handlebar.
+  - Character 2: Han/Heian = clean-shaven · Greek = short trimmed beard · Medieval = light stubble · Victorian = thin mustache.
+  - King: Edward II = short grey beard · Gaozu = thin dark mustache + chin tuft · Hongwu = full dark-grey beard.
+  - Eras without their own 2D sheet borrow the nearest: school/cricket/winter = Victorian (same decades), Song = Han. (Claude's proposal, not yet confirmed by the owner.)
+- Check: `python blender/sheets/era_faces.py` renders every era face in one picture; look at it after any change to faces or facial hair.

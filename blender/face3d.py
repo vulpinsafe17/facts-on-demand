@@ -361,6 +361,7 @@ def build_head(n, spec, expr, parent, loc=(0, 0, 0)):
                    surf(s * 0.168, -0.092, 0.016), surf(s * 0.2, -0.074, 0.012), surf(s * 0.202, -0.046, 0.012),
                    surf(s * 0.18, -0.033, 0.014), surf(s * 0.16, -0.048, 0.016), surf(s * 0.169, -0.066, 0.016)]
             tube(f"{n}-stache{side}", pts, 0.039, hm, H, radii=[1.0, 1.15, 1.0, 0.75, 0.55, 0.45, 0.4, 0.35, 0.25])
+    build_era_face(n, spec, H)
     if spec.get("glasses"):
         rim = mat("rim", "#141010", 0.3)
         for side in (-1, 1):
@@ -376,7 +377,7 @@ def build_head(n, spec, expr, parent, loc=(0, 0, 0)):
         C.build_crown(n, H)
     if spec.get("hat"):
         C.build_hat(n, spec["hat"], H, spec)
-    if spec.get("beard"):
+    if spec.get("beard") and not spec.get("beard_style"):   # NPC beard (old style)
         bm_ = C.hair_mat(n + "b", spec["beard"])
         el = [("ELLIPSOID", (0, -0.17, SKULL_Z - 0.17), 0.13, (1.4, 0.9, 1.0))] + \
              [("BALL", (side * 0.18, -0.15, SKULL_Z - 0.1), 0.09, None) for side in (-1, 1)]
@@ -385,3 +386,99 @@ def build_head(n, spec, expr, parent, loc=(0, 0, 0)):
 
 
 FACES = {}
+
+
+# ------------------------------------------------------------------ facial hair that changes by era
+def build_era_face(n, spec, H):
+    """Era facial hair from the approved 2D era sheets (PRODUCTION-RULES: only clothes and facial hair change by era).
+    spec keys: facial = None | "handlebar" (built above) | "droop" | "thin"; facial_color;
+    goatee = colour (small chin tuft); beard_style = "short" | "full" with beard = colour; stubble = colour."""
+    hc = spec.get("facial_color") or spec["hair"]
+    f = spec.get("facial")
+    if f in ("droop", "thin"):
+        hm = mat(f"stache-{n}-{f}", hc, 0.55)
+        for s in (-1, 1):
+            if f == "droop":    # thin drooping mustache: out along the lip, then down past the mouth corners
+                pts = [surf(0.0, -0.062, 0.012), surf(s * 0.05, -0.072, 0.014), surf(s * 0.095, -0.095, 0.012),
+                       surf(s * 0.115, -0.14, 0.01), surf(s * 0.12, -0.18, 0.008)]
+                tube(f"{n}-stache{s}", pts, 0.016, hm, H, radii=[1.0, 1.0, 0.85, 0.65, 0.4])
+            else:               # thin mustache: a neat line, tips turned a little up
+                pts = [surf(0.0, -0.063, 0.012), surf(s * 0.05, -0.07, 0.013), surf(s * 0.1, -0.072, 0.011), surf(s * 0.13, -0.06, 0.009)]
+                tube(f"{n}-stache{s}", pts, 0.015, hm, H, radii=[1.0, 0.95, 0.7, 0.35])
+    if spec.get("goatee"):
+        gm = mat(f"goatee-{n}", spec["goatee"], 0.6)
+        c = surf(0.0, -0.205, 0.012)
+        sphere(f"{n}-goatee", 0.028, c, gm, H, scale=(0.75, 0.6, 1.4), seg=20)
+    if spec.get("beard_style"):
+        bm_ = C.hair_mat(n + "b", spec["beard"])
+        full = spec["beard_style"] == "full"
+        el = []
+        for i in range(13):     # a solid band along the jaw, sideburn to sideburn; the mouth stays free
+            x = -0.255 + 0.0425 * i
+            u = abs(x) / 0.255
+            z = (-0.255 if full else -0.235) + u * u * 0.2
+            el.append(("BALL", surf(x, z, -0.03), (0.105 if full else 0.085) * (1 - 0.3 * u), None))
+        el.append(("ELLIPSOID", surf(0.0, -0.25 if full else -0.235, -0.02), 0.11 if full else 0.085, (1.4, 0.9, 1.3 if full else 1.0)))
+        if full:
+            el.append(("ELLIPSOID", surf(0.0, -0.3, -0.04), 0.1, (1.2, 0.9, 1.2)))
+        C._mball(n + "Beard", H, bm_, el)
+        if not spec.get("facial"):   # the sheets' beards come with a mustache
+            hm = mat(f"stache-{n}-b", spec["beard"], 0.55)
+            for s in (-1, 1):
+                tube(f"{n}-stache{s}", [surf(0.0, -0.065, 0.012), surf(s * 0.06, -0.078, 0.014), surf(s * 0.115, -0.11, 0.01)],
+                     0.022, hm, H, radii=[1.0, 1.0, 0.7])
+    if spec.get("stubble"):
+        import bmesh
+        me = bpy.data.meshes.new(f"{n}-stubble")
+        bm = bmesh.new()
+        bmesh.ops.create_uvsphere(bm, u_segments=48, v_segments=32, radius=R * 1.004)
+        # a shell over the lower face; the material draws sparse dots that fade out softly upwards (no hard edge)
+        for v in [v for v in bm.verts if v.co.y > 0.08 or v.co.z > 0.0]:
+            bm.verts.remove(v)
+        bm.to_mesh(me); bm.free()
+        for p in me.polygons:
+            p.use_smooth = True
+        o = bpy.data.objects.new(f"{n}-stubble", me)
+        bpy.context.collection.objects.link(o)
+        o.location = (0, 0, SKULL_Z)
+        o.parent = H
+        o.data.materials.append(_stubble_mat(n, spec["stubble"]))
+
+
+def _stubble_mat(n, color):
+    """Stubble: dark dots on transparent, fading out between the mouth and the cheekbones (object z, skull centre = 0)."""
+    m = bpy.data.materials.new(f"stubble-{n}")
+    m.use_nodes = True
+    for attr, val in (("surface_render_method", "DITHERED"), ("blend_method", "HASHED")):
+        try:
+            setattr(m, attr, val)
+        except Exception:
+            pass
+    nt = m.node_tree
+    out = nt.nodes["Material Output"]
+    b = nt.nodes["Principled BSDF"]
+    b.inputs["Base Color"].default_value = (*hexrgb(color), 1)
+    b.inputs["Roughness"].default_value = 0.9
+    tc = nt.nodes.new("ShaderNodeTexCoord")
+    sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(tc.outputs["Object"], sep.inputs[0])
+    fade = nt.nodes.new("ShaderNodeMapRange")
+    fade.inputs["From Min"].default_value, fade.inputs["From Max"].default_value = -0.07, -0.13
+    nt.links.new(sep.outputs["Z"], fade.inputs["Value"])
+    nz = nt.nodes.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 170
+    nz.inputs["Detail"].default_value = 1
+    nt.links.new(tc.outputs["Object"], nz.inputs["Vector"])
+    ramp = nt.nodes.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position, ramp.color_ramp.elements[1].position = 0.6, 0.63
+    nt.links.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    mul = nt.nodes.new("ShaderNodeMath"); mul.operation = "MULTIPLY"
+    nt.links.new(ramp.outputs["Color"], mul.inputs[0])
+    nt.links.new(fade.outputs["Result"], mul.inputs[1])
+    tr = nt.nodes.new("ShaderNodeBsdfTransparent")
+    mix = nt.nodes.new("ShaderNodeMixShader")
+    nt.links.new(mul.outputs["Value"], mix.inputs["Fac"])
+    nt.links.new(tr.outputs[0], mix.inputs[1])
+    nt.links.new(b.outputs[0], mix.inputs[2])
+    nt.links.new(mix.outputs[0], out.inputs["Surface"])
+    return m
