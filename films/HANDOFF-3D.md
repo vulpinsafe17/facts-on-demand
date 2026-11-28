@@ -35,3 +35,14 @@ Read `films/PRODUCTION-RULES.md` first (owner decisions, never regress), then th
    still ask the owner about a 3D artist for the 3 locked characters (one-time cost).
 4. Make ONE 30-60 s scene at the reference quality (media/reference/, analysis only) and get the owner's approval
    before producing whole films again.
+
+## Mixamo retargeting (2026-11-28, cloud session)
+- `blender/mixamo3d.py`: `load("<name>")` imports `media/library/mixamo/<name>.fbx` and samples it; `apply(ch, clip, t)` keys the
+  clip onto a cast3d Character's pivots (rotation for hips/torso/head, direction matching for arms/legs, boot twist from
+  the Mixamo foot, feet clamped to the ground, arm gap kept). `contact_frame(clip, "RightFoot")` finds the strike frame
+  for tying the ball path to the foot.
+- `blender/tests/mixamo_selftest.py` checks it with a fake Mixamo FBX (wave + kick): passes in Blender 5.1 (pip bpy).
+  Not yet run in the PC's Blender 4.5, and not yet run on a real Mixamo download.
+- Known issue to solve with real clips: Mixamo arms are made for a small head; a raised arm can pass through our big
+  head. Add a head-clearance check (no intersections rule) before using arm-over-head clips.
+- Not wired into `acting.py` / the shot files yet: waiting for the owner's downloads.
