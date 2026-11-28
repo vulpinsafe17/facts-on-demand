@@ -46,3 +46,13 @@ Read `films/PRODUCTION-RULES.md` first (owner decisions, never regress), then th
 - Known issue to solve with real clips: Mixamo arms are made for a small head; a raised arm can pass through our big
   head. Add a head-clearance check (no intersections rule) before using arm-over-head clips.
 - Not wired into `acting.py` / the shot files yet: waiting for the owner's downloads.
+
+## Turnaround sheets v3 (2026-11-28, cloud session) - waiting for the owner's verdict
+- Rendered with `blender/sheets/turnaround.py` (Cycles CPU) and compared side by side with the master sheets.
+- BUG FIXED: the mouth's "open" shape key started at 1.0 and was only keyed while talking, so every quiet face
+  (in Film1Full too) had its mouth wide open. Now every mouth key starts at 0; the tongue shows only when the mouth opens.
+- Main character: higher hairline (forehead + brows visible), short spiky fringe, side tufts out, thicker brows,
+  bigger handlebar with round curls, closed neutral mouth. Expressions pushed further (sad/angry brows, happy grin,
+  surprised eyes + O). All three: chunkier scarf with a long tail to the belt (as on the sheets).
+- Still open: the king's side hair renders as hard grey slabs (sheet: soft fluffy puffs) and his coat is boxy
+  (sheet: round belly). Character 2 is close to the sheet.

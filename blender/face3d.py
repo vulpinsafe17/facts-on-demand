@@ -15,11 +15,11 @@ FPS = 30
 # expression = facial parameters (blended)
 FACE = {
     #               brow L (inner_dz, lift), brow R,  eye scale z, lids L/R, mouth keys
-    "neutral":    dict(bl=(0, 0), br=(0, 0), eye=1.0, lid=(0, 0), m=dict(smile=0.15)),
-    "happy":      dict(bl=(0.01, 0.02), br=(0.01, 0.02), eye=0.45, lid=(0, 0), m=dict(smile=1.0, exopen=0.45, teeth=0.8)),
-    "sad":        dict(bl=(0.03, 0.0), br=(0.03, 0.0), eye=0.95, lid=(0.25, 0.25), m=dict(smile=-0.85)),
-    "surprised":  dict(bl=(0, 0.045), br=(0, 0.045), eye=1.3, lid=(0, 0), m=dict(round=1.0, exopen=0.55)),
-    "angry":      dict(bl=(-0.035, -0.01), br=(-0.035, -0.01), eye=0.85, lid=(0.15, 0.15), m=dict(smile=-0.45, wide=0.5, exopen=0.22, teeth=1.0)),
+    "neutral":    dict(bl=(0, 0), br=(0, 0), eye=1.0, lid=(0, 0), m=dict(smile=0.0)),
+    "happy":      dict(bl=(0.01, 0.025), br=(0.01, 0.025), eye=0.3, lid=(0, 0), m=dict(smile=1.0, exopen=0.75, teeth=0.8)),
+    "sad":        dict(bl=(0.05, 0.0), br=(0.05, 0.0), eye=0.95, lid=(0.3, 0.3), m=dict(smile=-1.0)),
+    "surprised":  dict(bl=(0, 0.055), br=(0, 0.055), eye=1.5, lid=(0, 0), m=dict(round=1.0, exopen=0.9)),
+    "angry":      dict(bl=(-0.055, -0.015), br=(-0.055, -0.015), eye=0.85, lid=(0.15, 0.15), m=dict(smile=-0.45, wide=0.5, exopen=0.22, teeth=1.0)),
     "suspicious": dict(bl=(-0.01, -0.015), br=(0.0, 0.025), eye=1.0, lid=(0.55, 0.0), m=dict(smile=-0.1, wide=-0.3)),
     "grumpy":     dict(bl=(-0.005, -0.01), br=(-0.005, -0.01), eye=1.0, lid=(0.5, 0.5), m=dict(smile=-0.5, wide=-0.2)),
     "smug":       dict(bl=(0.0, 0.0), br=(-0.01, -0.01), eye=1.0, lid=(0.45, 0.45), m=dict(smile=0.75, wide=0.2)),
@@ -37,7 +37,7 @@ def _mouth_curves(u, p, mz):
     bend = smile * 0.028 * (u * u) - smile * 0.006
     env = max(0.0, 1 - u * u) ** 0.6
     oz = op * (0.032 + 0.02 * rnd_) * env
-    thick = 0.0035 + 0.0035 * env
+    thick = 0.0016 + 0.0020 * env      # closed = a thin line like the sheets, not a red slot
     top = mz + bend + thick + oz * 0.45
     bot = mz + bend - thick - oz * 1.0
     return x, top, bot
@@ -70,6 +70,7 @@ def _strip(name, H, m, mz, frac_top, frac_bot, off, cols=28):
             continue
         kb = o.shape_key_add(name=kname, from_mix=False)
         kb.slider_min = -1.0
+        kb.value = 0.0          # new keys can start at 1.0: "open" (only keyed while talking) left every quiet face gaping
         for i, v in enumerate(verts({kname: 1.0})):
             kb.data[i].co = v
     return o
@@ -123,6 +124,7 @@ class Face:
             _strip(f"{n}-tongue", H, mat("tongue", "#c4545a", 0.5), mz, 0.72, 0.96, 0.0055),
         ]
         self.teeth = self.mouth[1]
+        self.tongue = self.mouth[2]
         self.cur = None
         self.set(1, expr, dur=0)
 
@@ -168,6 +170,8 @@ class Face:
             if kname == "teeth":
                 self._k(self.teeth, "hide_render", fr, v < 0.3)
                 continue
+            if kname == "exopen":
+                self._k(self.tongue, "hide_render", fr, v < 0.15)
             self._mk(kname, fr, v)
 
     def blink(self, fr):
@@ -188,6 +192,8 @@ class Face:
             while t < t1 - 0.2:
                 said.append((t, t + 0.28, "ba")); t += 0.4
         self._mk("open", f(t0) - 1, 0.0)
+        self._k(self.tongue, "hide_render", f(t0) - 1, False)
+        self._k(self.tongue, "hide_render", f(t1) + 1, FACE.get(self.cur or "neutral")["m"].get("exopen", 0) < 0.15)
         for s, e, w in said:
             vowels = sum(1 for i, ch in enumerate(w.lower()) if ch in "aeiouy" and (i == 0 or w.lower()[i - 1] not in "aeiouy"))
             n = max(1, min(4, vowels))
@@ -248,8 +254,9 @@ def _in_hair(p, style, margin=0.0):
     x, y, z = p
     if style == "sides":
         return -0.5 < z < 0.4 and (abs(x) > 0.6 or y > 0.4) and y > -0.2
-    front = 0.62 if style == "messy" else 0.66      # in units of R: hairline height at the front
-    return z > front - (0.45 if y < 0 else 0.8) * y - 0.22 - 0.35 * abs(x) - margin
+    front = 0.78 if style == "messy" else 0.66      # in units of R: hairline height at the front (messy raised: sheet shows forehead + brows)
+    side = 0.5 if style == "messy" else 0.35       # messy: hair comes lower at the sides (tufts at ear height)
+    return z > front - (0.45 if y < 0 else 0.8) * y - 0.22 - side * abs(x) - margin
 
 
 def _flow(p, style, rnd):
@@ -257,11 +264,13 @@ def _flow(p, style, rnd):
     x, y, z = p
     down = _nrm((-x * z, -y * z, 1 - z * z)); down = tuple(-c for c in down)
     if style == "messy":
-        if y < -0.5 and z > 0.5:            # short ragged fringe: forward and down over the hairline
-            return _nrm((x * 0.3 + rnd.uniform(-0.15, 0.15), -0.75, -0.65)), rnd.uniform(0.08, 0.11), 0.25
+        if y < -0.45 and z > 0.5:           # short spiky fringe: up and forward, the forehead stays clear (sheet)
+            return _nrm((x * 0.5 + rnd.uniform(-0.25, 0.25), -0.6, 0.55 + rnd.uniform(-0.2, 0.2))), rnd.uniform(0.06, 0.09), 0.6
         flick = abs(x) > 0.55 and z < 0.65
-        d = _nrm((down[0] + (x * 0.5 if flick else 0) + rnd.uniform(-0.15, 0.15), down[1] + rnd.uniform(-0.15, 0.15), down[2]))
-        return d, rnd.uniform(0.17, 0.23), 0.35 if flick else 0.2
+        if flick:                           # side tufts stick out and down, like the master sheet
+            return _nrm((x * 1.6 + rnd.uniform(-0.2, 0.2), y * 0.3 + rnd.uniform(-0.2, 0.2), -0.35)), rnd.uniform(0.15, 0.2), 1.4
+        d = _nrm((down[0] + rnd.uniform(-0.25, 0.25), down[1] + rnd.uniform(-0.25, 0.25), down[2]))
+        return d, rnd.uniform(0.14, 0.19), 0.45
     if style == "tousled":
         if y < -0.3 and z > 0.45:            # fringe swept to the viewer's left
             return _nrm((-0.65, -0.55, -0.45)), rnd.uniform(0.1, 0.13), 0.25
@@ -326,7 +335,7 @@ def build_base_mass(n, spec, H):
     el = []
     for p in _fib(110):
         if _in_hair(p, style, margin=0.0 if style == "sides" else -0.06):
-            el.append(("BALL", (p[0] * R * 0.86, p[1] * R * 0.86, p[2] * R * 0.86 + SKULL_Z), 0.125 if style != "sides" else 0.085, None))
+            el.append(("BALL", (p[0] * R * 0.86, p[1] * R * 0.86, p[2] * R * 0.86 + SKULL_Z), {"sides": 0.085, "messy": 0.105}.get(style, 0.125), None))
     if el and style != "sides":
         el.append(("BALL", (0, 0, SKULL_Z + R * 0.88), 0.12, None))   # crown: no scalp peeking through at the top
     if el:
@@ -347,9 +356,10 @@ def build_head(n, spec, expr, parent, loc=(0, 0, 0)):
         hm = mat(f"stache-{n}", spec["hair"], 0.55)
         for side in (-1, 1):
             s = side
-            pts = [surf(0.0, -0.06, 0.012), surf(s * 0.06, -0.075, 0.018), surf(s * 0.125, -0.085, 0.016),
-                   surf(s * 0.175, -0.06, 0.012), surf(s * 0.19, -0.02, 0.01), surf(s * 0.165, -0.005, 0.012)]
-            tube(f"{n}-stache{side}", pts, 0.032, hm, H, radii=[0.95, 1.1, 0.85, 0.55, 0.38, 0.22])
+            pts = [surf(0.0, -0.055, 0.016), surf(s * 0.055, -0.07, 0.024), surf(s * 0.115, -0.085, 0.022),
+                   surf(s * 0.17, -0.08, 0.016), surf(s * 0.205, -0.05, 0.012), surf(s * 0.205, -0.015, 0.012),
+                   surf(s * 0.18, 0.0, 0.014), surf(s * 0.158, -0.018, 0.016), surf(s * 0.168, -0.04, 0.016)]
+            tube(f"{n}-stache{side}", pts, 0.042, hm, H, radii=[1.0, 1.15, 1.0, 0.75, 0.55, 0.45, 0.4, 0.35, 0.25])
     if spec.get("glasses"):
         rim = mat("rim", "#141010", 0.3)
         for side in (-1, 1):

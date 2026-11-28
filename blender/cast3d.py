@@ -19,7 +19,7 @@ SCARF = "#ef7a1d"
 SPECS = {
     "main": dict(build="compact", skin="#f7f5f0", tunic="#c9b28e", trim=None, belt="#7a4a2a", buckle="#b8893a",
                  hose="#2f2723", boot="#8a5430", sole="#3a2416", hair="#4a3020", hairstyle="messy",
-                 brows="#3a2418", brow_w=0.015, facial="handlebar", glasses=False, cheeks=False, crown=False,
+                 brows="#3a2418", brow_w=0.022, facial="handlebar", glasses=False, cheeks=False, crown=False,
                  default="neutral", mouth_z=-0.15),
     "two": dict(build="compact", skin="#f7f5f0", tunic="#8f9397", trim=None, belt="#4a4440", buckle="#9a9a9a",
                 hose="#2f2b2a", boot="#2c2826", sole="#161312", hair="#c8723a", hairstyle="tousled",
@@ -717,12 +717,12 @@ class Character:
         # ---- scarf (team colour) with a hanging tail on the viewer's right — main characters only
         if spec.get("scarf", True):
             orange = mat("scarf", SCARF, 0.8, noise=0.06, nscale=30)
-            bpy.ops.mesh.primitive_torus_add(major_radius=0.115, minor_radius=0.058, location=(0, 0, 0.495), major_segments=40, minor_segments=16)
+            bpy.ops.mesh.primitive_torus_add(major_radius=0.13, minor_radius=0.075, location=(0, 0, 0.49), major_segments=40, minor_segments=16)
             s_ = bpy.context.object; s_.name = f"{n}-scarf"; s_.scale = (1.05, 0.95, 0.9); s_.data.materials.append(orange); s_.parent = self.torso
             for p in s_.data.polygons:
                 p.use_smooth = True
-            sphere(f"{n}-knot", 0.05, (0.07, -0.13, 0.47), orange, self.torso, scale=(1, 0.8, 1))
-            self.tail = slab(f"{n}-tail", (0.085, 0.03, 0.22), (0.085, -0.17 - (0.05 if round_ else 0), 0.35), orange, self.torso, rot=(0.12, 0.08, 0))
+            sphere(f"{n}-knot", 0.062, (0.08, -0.16, 0.46), orange, self.torso, scale=(1, 0.8, 1))
+            self.tail = slab(f"{n}-tail", (0.1, 0.035, 0.34), (0.09, -0.2 - (0.06 if round_ else 0), 0.3), orange, self.torso, rot=(0.1, 0.06, 0))
         else:
             sphere(f"{n}-neck", 0.08, (0, 0, 0.5), skin, self.torso, scale=(1, 1, 0.8))
         # ---- arms: shoulder > upper sleeve > elbow > forearm sleeve > white mitten
